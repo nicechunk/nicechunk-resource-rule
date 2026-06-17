@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-i18n-scope="resourceRule">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c0e12" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=0.1.63" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=0.1.63" />
+    <link rel="shortcut icon" href="/favicon.ico?v=0.1.63" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=0.1.63" />
+    <link rel="manifest" href="/site.webmanifest?v=0.1.63" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta
+      name="description"
+      content="NiceChunk Box Resource Atlas: public generated block rules, element composition ranges, terrain signals, and resource logic."
+    />
+    <title data-i18n="resourceAtlas.page.title">NiceChunk Box Resource Atlas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="atlas-bg" aria-hidden="true">
+      <div class="atlas-grid"></div>
+      <div class="atlas-vignette"></div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand-mark" href="/" aria-label="NiceChunk">
+        <img src="/media/nck.png" alt="" />
+        <span>NICECHUNK</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation" data-i18n-aria-label="resourceAtlas.nav.aria">
+        <div class="nav-links">
+          <a href="/" data-i18n="resourceAtlas.nav.home">Home</a>
+          <a href="/roadmap/" data-i18n="resourceAtlas.nav.roadbook">Roadbook</a>
+          <a href="/world_rule/" data-i18n="resourceAtlas.nav.worldRules">World Rules</a>
+          <a class="active" href="/resource_rule/" data-i18n="resourceAtlas.nav.resources">Resources</a>
+          <a href="/elements/" data-i18n="resourceAtlas.nav.elements">Elements</a>
+          <a href="/fairness/" data-i18n="resourceAtlas.nav.fairness">Fairness</a>
+          <a href="/proof-of-frontier/" data-i18n="resourceAtlas.nav.proofOfFrontier">Proof</a>
+          <a href="/guardian/" data-i18n="resourceAtlas.nav.guardians">Guardians</a>
+          <a href="/docs/" data-i18n="resourceAtlas.nav.docs">Docs</a>
+        </div>
+        <div class="nav-actions">
+          <a class="header-action" href="/play/" data-i18n="resourceAtlas.nav.enterWorld">Enter World</a>
+          <div data-i18n-language-menu></div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="atlas-layout">
+      <section class="atlas-hero" aria-labelledby="atlasTitle">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="resourceAtlas.page.eyebrow">GENERATED BLOCK RESOURCE ATLAS</p>
+          <h1 id="atlasTitle" data-i18n="resourceAtlas.page.heading">Every generated block is a public resource rule.</h1>
+          <p data-i18n="resourceAtlas.page.body">
+            NiceChunk maps terrain blocks into scientifically scoped resource foundations. Each block exposes its generation signal,
+            likely elemental composition range, and role in the future mining and forging economy.
+          </p>
+        </div>
+        <div class="hero-metrics" id="heroMetrics" aria-label="Atlas status" data-i18n-aria-label="resourceAtlas.page.metricsAria"></div>
+      </section>
+
+      <section class="atlas-workspace" aria-label="Block resource atlas" data-i18n-aria-label="resourceAtlas.page.workspaceAria">
+        <aside class="filter-panel" aria-label="Atlas filters" data-i18n-aria-label="resourceAtlas.page.filtersAria">
+          <div class="panel-label">
+            <span data-i18n="resourceAtlas.page.filterTitle">Block families</span>
+            <strong id="resultCount">0</strong>
+          </div>
+          <div class="category-list" id="categoryFilters"></div>
+          <div class="atlas-note">
+            <span data-i18n="resourceAtlas.page.modelLabel">Composition model</span>
+            <p data-i18n="resourceAtlas.page.modelBody">
+              Ranges are material tendencies, not fixed rewards. Actual resource rolls can later use seed, coordinate,
+              depth, biome, and chain-verified state.
+            </p>
+          </div>
+        </aside>
+
+        <section class="atlas-main">
+          <div class="atlas-toolbar">
+            <label class="search-control">
+              <span data-i18n="resourceAtlas.page.searchLabel">Search blocks, elements, or signals</span>
+              <input
+                id="blockSearch"
+                type="search"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Search grass, Si, volcanic..."
+                data-i18n-placeholder="resourceAtlas.page.searchPlaceholder"
+              />
+            </label>
+            <div class="mobile-category-rail" id="mobileCategoryFilters"></div>
+          </div>
+          <div class="block-grid" id="blockGrid"></div>
+        </section>
+
+        <aside class="detail-panel" id="blockDetail" aria-live="polite"></aside>
+      </section>
+    </main>
+
+    <script type="module" src="./resource_rule.js"></script>
+  </body>
+</html>

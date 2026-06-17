@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "status": "placeholder",
+  "principle": "Valuable resources must not be fully predictable from the public world seed alone.",
+  "mvpEntropyInputs": [
+    "world_seed_hash",
+    "chunk_x",
+    "chunk_z",
+    "local_x",
+    "y",
+    "local_z",
+    "chunk_state_hash",
+    "player_nonce",
+    "recent_slot_entropy"
+  ],
+  "authoritativeRules": []
+}
