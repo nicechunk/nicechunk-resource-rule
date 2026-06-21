@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Resource discovery gate</title>
+  <desc id="desc">A diagram showing the resource rule path from block material to eligibility, entropy-aware rule design, physical measurement, and hotbar accumulation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071018"/>
+      <stop offset="1" stop-color="#17130c"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#8fdcff"/>
+    </marker>
+    <style>
+      .label{font:800 12px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.16em;fill:#90ff1a}
+      .title{font:850 42px Inter,ui-sans-serif,system-ui,sans-serif;fill:#f3f8ff}
+      .copy{font:500 17px Inter,ui-sans-serif,system-ui,sans-serif;fill:#b8c7d4}
+      .card{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.16);stroke-width:1.2;rx:18}
+      .head{font:800 19px Inter,ui-sans-serif,system-ui,sans-serif;fill:#f3f8ff}
+      .small{font:600 13px Inter,ui-sans-serif,system-ui,sans-serif;fill:#bdd0df}
+      .mono{font:750 14px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#f7d98f}
+      .line{stroke:#8fdcff;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1010" cy="126" r="240" fill="#83ff00" opacity=".08"/>
+  <circle cx="208" cy="590" r="260" fill="#00c2ff" opacity=".08"/>
+  <text x="70" y="78" class="label">RESOURCE RULES</text>
+  <text x="70" y="132" class="title">Resource discovery needs an entropy gate.</text>
+  <text x="70" y="168" class="copy">The current simulator is intentionally small, but the rule file already points toward entropy-aware resource authority.</text>
+
+  <g transform="translate(74 260)">
+    <rect class="card" width="214" height="150"/>
+    <text x="24" y="42" class="head">Block event</text>
+    <text x="24" y="76" class="mono">material = stone</text>
+    <text x="24" y="106" class="small">coordinate and block key</text>
+  </g>
+  <path class="line" d="M288 336 H354"/>
+  <g transform="translate(374 236)">
+    <rect class="card" width="258" height="198"/>
+    <text x="24" y="42" class="head">Eligibility gate</text>
+    <text x="24" y="76" class="mono">stone_to_gravel_v1</text>
+    <text x="24" y="110" class="small">resourceId: gravel</text>
+    <text x="24" y="136" class="small">amount: 0.1</text>
+    <text x="24" y="166" class="small">debug event is optional</text>
+  </g>
+  <path class="line" d="M632 336 H698"/>
+  <g transform="translate(718 236)">
+    <rect class="card" width="236" height="198"/>
+    <text x="24" y="42" class="head">Physical profile</text>
+    <text x="24" y="76" class="small">dimensions in meters</text>
+    <text x="24" y="106" class="small">volume from size</text>
+    <text x="24" y="136" class="small">mass from density</text>
+    <text x="24" y="166" class="mono">kg = density * m3</text>
+  </g>
+  <path class="line" d="M954 336 H1018"/>
+  <g transform="translate(1038 260)">
+    <rect class="card" width="174" height="150"/>
+    <text x="24" y="42" class="head">Inventory</text>
+    <text x="24" y="76" class="small">merge stack</text>
+    <text x="24" y="106" class="small">round to tenths</text>
+  </g>
+
+  <g transform="translate(196 520)">
+    <rect class="card" width="888" height="92"/>
+    <text x="26" y="38" class="head">Future authority boundary</text>
+    <text x="26" y="66" class="small">world seed hash, chunk state, player nonce, and recent slot entropy should decide scarce resource outcomes together.</text>
+  </g>
+</svg>

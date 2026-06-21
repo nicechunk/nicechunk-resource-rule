@@ -12,6 +12,16 @@ The project includes the public resource rule JSON, block atlas data, resource s
 
 It is separated because resources are a design and economy surface. They should be reviewed and evolved independently from world rendering or contract deployment.
 
+## Discovery Gate
+
+![Resource discovery gate](docs/diagrams/resource-discovery-gate.svg)
+
+The current simulator is intentionally narrow: stone can yield a small amount of gravel, the result is rounded, and matching hotbar stacks are updated in place. That small rule is useful because it makes the intended authority boundary easy to see.
+
+Resource discovery should not become a table that can be fully precomputed from the public terrain seed. The rule file already documents the future entropy inputs: world seed hash, chunk coordinate, local coordinate, chunk state hash, player nonce, and recent slot entropy. Those inputs let common resources stay explainable while scarce resources remain harder to farm deterministically before play occurs.
+
+The physical helpers are kept separate from discovery. Volume and mass are derived from dimensions and density, which makes downstream backpack, marketplace, and crafting rules easier to audit.
+
 ## System Principles
 
 - Rules should be data-first: resource definitions live in explicit JSON and catalog modules rather than being scattered across UI code.
