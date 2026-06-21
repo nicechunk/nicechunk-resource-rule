@@ -22,6 +22,14 @@ Resource discovery should not become a table that can be fully precomputed from 
 
 The physical helpers are kept separate from discovery. Volume and mass are derived from dimensions and density, which makes downstream backpack, marketplace, and crafting rules easier to audit.
 
+## Entropy Input Ladder
+
+![Entropy input ladder](docs/diagrams/entropy-input-ladder.svg)
+
+The resource system should not use the same authority model for every material. A common yield such as gravel can be public, obvious, and easy to explain. Scarce resource outcomes need more care because a fully public deterministic table can be farmed before a player ever interacts with the world.
+
+The ladder is the design direction: start with public block facts, add deterministic world inputs, then mix in state that only exists around actual play such as chunk state, player nonce, tool class, and recent slot entropy. The result is still auditable, but it is harder to precompute scarce outcomes from terrain alone.
+
 ## System Principles
 
 - Rules should be data-first: resource definitions live in explicit JSON and catalog modules rather than being scattered across UI code.
