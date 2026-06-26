@@ -180,7 +180,9 @@
         "blocks": "Bloques generados",
         "families": "Familias de bloques",
         "elements": "Elementos referenciados",
-        "ruleSet": "Conjunto de reglas"
+        "ruleSet": "Conjunto de reglas",
+        "worldRules": "Reglas del mundo",
+        "materials": "Materiales fundibles"
       },
       "color": {
         "0": "Cara primaria",

@@ -180,7 +180,9 @@
         "blocks": "生成されたブロック",
         "families": "ブロック ファミリ",
         "elements": "参照される要素",
-        "ruleSet": "ルールセット"
+        "ruleSet": "ルールセット",
+        "worldRules": "ワールドルール",
+        "materials": "製錬可能な材料"
       },
       "color": {
         "0": "主要な顔",

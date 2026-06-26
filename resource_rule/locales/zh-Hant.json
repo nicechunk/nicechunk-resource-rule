@@ -180,7 +180,9 @@
         "blocks": "生成方塊",
         "families": "方塊類別",
         "elements": "關聯元素",
-        "ruleSet": "規則集"
+        "ruleSet": "規則集",
+        "worldRules": "世界規則",
+        "materials": "可熔煉材料"
       },
       "color": {
         "0": "主表面",

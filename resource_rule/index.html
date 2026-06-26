@@ -62,7 +62,17 @@
         <div class="hero-metrics" id="heroMetrics" aria-label="Atlas status" data-i18n-aria-label="resourceAtlas.page.metricsAria"></div>
       </section>
 
-      <section class="atlas-workspace" aria-label="Block resource atlas" data-i18n-aria-label="resourceAtlas.page.workspaceAria">
+      <section class="resource-mode-panel" aria-label="Resource data mode" data-i18n-aria-label="resourceAtlas.page.modeAria">
+        <div class="resource-mode-tabs" role="tablist">
+          <button class="resource-mode-button active" id="rawResourceMode" type="button" data-resource-mode="raw" data-i18n="resourceAtlas.page.rawMode">Raw Resources</button>
+          <button class="resource-mode-button" id="materialResourceMode" type="button" data-resource-mode="materials" data-i18n="resourceAtlas.page.materialMode">Material Data</button>
+        </div>
+        <p id="resourceModeDescription" data-i18n="resourceAtlas.page.rawModeBody">
+          Raw resources are mined from generated blocks. They must be smelted into material resources before forging.
+        </p>
+      </section>
+
+      <section class="atlas-workspace" id="rawResourceWorkspace" aria-label="Block resource atlas" data-i18n-aria-label="resourceAtlas.page.workspaceAria">
         <aside class="filter-panel" aria-label="Atlas filters" data-i18n-aria-label="resourceAtlas.page.filtersAria">
           <div class="panel-label">
             <span data-i18n="resourceAtlas.page.filterTitle">Block families</span>
@@ -97,6 +107,71 @@
         </section>
 
         <aside class="detail-panel" id="blockDetail" aria-live="polite"></aside>
+      </section>
+
+      <section class="material-workspace hidden" id="materialResourceWorkspace" aria-label="Material resource data" data-i18n-aria-label="resourceAtlas.material.workspaceAria">
+        <div class="material-copy">
+          <p class="eyebrow" data-i18n="resourceAtlas.material.eyebrow">SMELTING DATA</p>
+          <h2 data-i18n="resourceAtlas.material.title">Raw resources become forgeable materials.</h2>
+          <p data-i18n="resourceAtlas.material.body">
+            Raw resources cannot be forged directly. A smelter consumes fuel heat, checks the material recipe, then outputs material resources for item forging.
+          </p>
+        </div>
+        <div class="material-rule-note">
+          <span data-i18n="resourceAtlas.material.ruleSetLabel">Rule source</span>
+          <strong id="smeltingRuleSet">nicechunk-smelting-v1</strong>
+          <p data-i18n="resourceAtlas.material.contractBody">
+            This table is a standalone JSON rule source so the game client and future contracts can reference the same smelting requirements.
+          </p>
+        </div>
+        <section class="fuel-section" aria-labelledby="fuelTitle">
+          <div class="material-section-heading">
+            <h3 id="fuelTitle" data-i18n="resourceAtlas.material.fuelTitle">Fuel heat tiers</h3>
+            <p data-i18n="resourceAtlas.material.fuelBody">Burnable fuels provide heat tiers. Higher tier recipes require stronger fuel or a hotter furnace source.</p>
+          </div>
+          <div class="fuel-grid" id="fuelGrid"></div>
+        </section>
+        <section class="recipe-section" aria-labelledby="recipeTitle">
+          <div class="material-section-heading">
+            <h3 id="recipeTitle" data-i18n="resourceAtlas.material.recipeTitle">Material atlas</h3>
+            <p data-i18n="resourceAtlas.material.recipeBody">Browse forge-ready materials by class, inspect their element profile, and review the smelting requirements behind each output.</p>
+          </div>
+          <div class="material-atlas-workspace" aria-label="Material atlas" data-i18n-aria-label="resourceAtlas.material.atlasAria">
+            <aside class="material-filter-panel" aria-label="Material filters" data-i18n-aria-label="resourceAtlas.material.filtersAria">
+              <div class="panel-label">
+                <span data-i18n="resourceAtlas.material.categoryTitle">Material classes</span>
+                <strong id="materialResultCount">0</strong>
+              </div>
+              <div class="material-category-list" id="materialCategoryFilters"></div>
+              <div class="atlas-note">
+                <span data-i18n="resourceAtlas.material.visualModelLabel">Element color model</span>
+                <p data-i18n="resourceAtlas.material.visualModelBody">
+                  Material thumbnails are generated from the dominant elements in each recipe profile.
+                </p>
+              </div>
+            </aside>
+
+            <section class="material-list-panel">
+              <div class="atlas-toolbar">
+                <label class="search-control">
+                  <span data-i18n="resourceAtlas.material.searchLabel">Search materials, classes, elements, or inputs</span>
+                  <input
+                    id="materialSearch"
+                    type="search"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="Search steel, Si, glass..."
+                    data-i18n-placeholder="resourceAtlas.material.searchPlaceholder"
+                  />
+                </label>
+                <div class="mobile-category-rail" id="mobileMaterialCategoryFilters"></div>
+              </div>
+              <div class="material-card-list" id="materialList"></div>
+            </section>
+
+            <aside class="material-detail-panel" id="materialDetail" aria-live="polite"></aside>
+          </div>
+        </section>
       </section>
     </main>
 

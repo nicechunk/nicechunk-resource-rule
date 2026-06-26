@@ -180,7 +180,9 @@
         "blocks": "Blocs générés",
         "families": "Bloquer les familles",
         "elements": "Éléments référencés",
-        "ruleSet": "Ensemble de règles"
+        "ruleSet": "Ensemble de règles",
+        "worldRules": "Règles du monde",
+        "materials": "Matériaux fusibles"
       },
       "color": {
         "0": "Face primaire",

@@ -180,7 +180,9 @@
         "blocks": "Generated blocks",
         "families": "Block families",
         "elements": "Referenced elements",
-        "ruleSet": "Rule set"
+        "ruleSet": "Rule set",
+        "worldRules": "World rules",
+        "materials": "Smeltable materials"
       },
       "color": {
         "0": "Primary face",

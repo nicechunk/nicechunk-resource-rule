@@ -180,7 +180,9 @@
         "blocks": "생성된 블록",
         "families": "블록 제품군",
         "elements": "참조 요소",
-        "ruleSet": "규칙 세트"
+        "ruleSet": "규칙 세트",
+        "worldRules": "월드 규칙",
+        "materials": "제련 가능한 재료"
       },
       "color": {
         "0": "기본 얼굴",

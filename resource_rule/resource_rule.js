@@ -1,23 +1,43 @@
 import { initI18n, t } from "../src/i18n.js";
 import { blockAtlas, blockAtlasCategories } from "../src/data/blockAtlas.js";
+import { smeltingRules as sharedSmeltingRules } from "../src/data/smeltingRules.js";
+import { getWorldAlgorithmSpec } from "../src/data/worldAlgorithmRules.js";
 import { createBlockPreviewCanvas } from "../src/world/blockPreview.js";
 import "./style.css";
 import "../src/site-header.css";
 import { finishSiteLoading, setSiteLoadingProgress } from "../src/site-ui.js";
 
 const heroMetrics = document.querySelector("#heroMetrics");
+const rawResourceWorkspace = document.querySelector("#rawResourceWorkspace");
+const materialResourceWorkspace = document.querySelector("#materialResourceWorkspace");
+const resourceModeDescription = document.querySelector("#resourceModeDescription");
+const resourceModeButtons = Array.from(document.querySelectorAll("[data-resource-mode]"));
 const categoryFilters = document.querySelector("#categoryFilters");
 const mobileCategoryFilters = document.querySelector("#mobileCategoryFilters");
 const blockSearch = document.querySelector("#blockSearch");
 const blockGrid = document.querySelector("#blockGrid");
 const blockDetail = document.querySelector("#blockDetail");
 const resultCount = document.querySelector("#resultCount");
+const smeltingRuleSet = document.querySelector("#smeltingRuleSet");
+const fuelGrid = document.querySelector("#fuelGrid");
+const materialCategoryFilters = document.querySelector("#materialCategoryFilters");
+const mobileMaterialCategoryFilters = document.querySelector("#mobileMaterialCategoryFilters");
+const materialSearch = document.querySelector("#materialSearch");
+const materialResultCount = document.querySelector("#materialResultCount");
+const materialList = document.querySelector("#materialList");
+const materialDetail = document.querySelector("#materialDetail");
 
 let searchableText = new Map();
+let searchableMaterialText = new Map();
 
 let activeCategory = "all";
 let activeBlockKey = blockAtlas[0]?.key ?? "";
+let activeMaterialClass = "all";
+let activeMaterialId = "";
+let activeResourceMode = "raw";
 let query = "";
+let materialQuery = "";
+let smeltingRules = sharedSmeltingRules;
 
 setSiteLoadingProgress(34);
 await initI18n();
@@ -30,25 +50,42 @@ blockSearch.addEventListener("input", () => {
   renderBlockGrid();
 });
 
+materialSearch?.addEventListener("input", () => {
+  materialQuery = materialSearch.value.trim().toLowerCase();
+  renderMaterialList();
+});
+
+resourceModeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeResourceMode = button.dataset.resourceMode === "materials" ? "materials" : "raw";
+    renderResourceMode();
+  });
+});
+
 window.addEventListener("nicechunk:languagechange", renderAtlas);
 
 function renderAtlas() {
   document.title = t("resourceAtlas.page.title");
   rebuildSearchableText();
+  rebuildMaterialSearchableText();
   renderHeroMetrics();
+  renderResourceMode();
   renderCategoryControls(categoryFilters, "vertical");
   renderCategoryControls(mobileCategoryFilters, "rail");
   renderBlockGrid();
+  renderMaterialRules();
 }
 
 function renderHeroMetrics() {
+  const worldAlgorithmSpec = getWorldAlgorithmSpec();
   const categoryCount = blockAtlasCategories.filter((category) => category.id !== "all").length;
   const compositionSymbols = new Set(blockAtlas.flatMap((entry) => entry.composition.map(([symbol]) => symbol)));
   const metrics = [
     [String(blockAtlas.length), t("resourceAtlas.page.metric.blocks")],
     [String(categoryCount), t("resourceAtlas.page.metric.families")],
     [String(compositionSymbols.size), t("resourceAtlas.page.metric.elements")],
-    ["v1", t("resourceAtlas.page.metric.ruleSet")],
+    [String(smeltingRules.materials?.length ?? 0), t("resourceAtlas.page.metric.materials")],
+    [String(worldAlgorithmSpec.rules.blocks.length), t("resourceAtlas.page.metric.worldRules")],
   ];
 
   heroMetrics.replaceChildren(
@@ -62,6 +99,354 @@ function renderHeroMetrics() {
       return card;
     }),
   );
+}
+
+function renderResourceMode() {
+  const materialMode = activeResourceMode === "materials";
+  rawResourceWorkspace?.classList.toggle("hidden", materialMode);
+  materialResourceWorkspace?.classList.toggle("hidden", !materialMode);
+  resourceModeDescription.textContent = t(materialMode ? "resourceAtlas.page.materialModeBody" : "resourceAtlas.page.rawModeBody");
+  resourceModeButtons.forEach((button) => {
+    const active = button.dataset.resourceMode === activeResourceMode;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function renderMaterialRules() {
+  if (!fuelGrid || !materialList || !materialDetail) return;
+  if (smeltingRuleSet) smeltingRuleSet.textContent = smeltingRules.ruleSet ?? "nicechunk-smelting-v1";
+  fuelGrid.replaceChildren(...(smeltingRules.fuels ?? []).map(renderFuelCard));
+  renderMaterialCategoryControls(materialCategoryFilters, "vertical");
+  renderMaterialCategoryControls(mobileMaterialCategoryFilters, "rail");
+  renderMaterialList();
+}
+
+function renderFuelCard(fuel) {
+  const card = document.createElement("article");
+  card.className = "fuel-card";
+  const title = document.createElement("h4");
+  title.textContent = t(`resourceAtlas.material.fuel.${fuel.id}.name`);
+  const detail = document.createElement("p");
+  detail.textContent = t(`resourceAtlas.material.fuel.${fuel.id}.description`);
+  const meta = document.createElement("div");
+  meta.className = "material-meta-grid";
+  meta.append(
+    valuePill(t("resourceAtlas.material.heatLabel"), heatTierText(fuel.heatTier)),
+    valuePill(t("resourceAtlas.material.burnTimeLabel"), t("resourceAtlas.material.burnSeconds", { seconds: fuel.burnSeconds ?? 0 })),
+    valuePill(t("resourceAtlas.material.sourceLabel"), sourceText(fuel)),
+    valuePill(t("resourceAtlas.material.consumableLabel"), t(fuel.consumable === false ? "resourceAtlas.material.reusable" : "resourceAtlas.material.consumable")),
+  );
+  card.append(title, detail, meta);
+  return card;
+}
+
+function valuePill(labelText, valueText) {
+  const pill = document.createElement("div");
+  pill.className = "material-value";
+  const label = document.createElement("span");
+  label.textContent = labelText;
+  const value = document.createElement("strong");
+  value.textContent = valueText;
+  pill.append(label, value);
+  return pill;
+}
+
+function heatTierText(tier) {
+  const heatTier = (smeltingRules.heatTiers ?? []).find((item) => item.tier === tier);
+  const name = t(`resourceAtlas.material.heatTier.${heatTier?.key ?? "unknown"}`);
+  return t("resourceAtlas.material.heatTierValue", { tier: tier ?? 0, name, temp: heatTier?.temperatureC ?? 0 });
+}
+
+function sourceText(fuel) {
+  if (fuel.sourceType === "material") return t(`resourceAtlas.material.item.${fuel.materialId}.name`);
+  return (fuel.sourceKeys ?? []).map((key) => blockNameByKey(key)).join(", ");
+}
+
+function inputListText(inputs = []) {
+  return inputs.map((input) => t("resourceAtlas.material.inputAmount", { amount: input.amount ?? 1, resource: blockNameByKey(input.key) })).join(", ");
+}
+
+function renderMaterialCategoryControls(target, layout) {
+  if (!target) return;
+  const categories = materialCategories();
+  target.replaceChildren(
+    ...categories.map((category) => {
+      const count = category.id === "all" ? smeltingRules.materials.length : smeltingRules.materials.filter((recipe) => recipe.class === category.id).length;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `category-button ${layout}`;
+      button.classList.toggle("active", category.id === activeMaterialClass);
+      button.setAttribute("aria-pressed", String(category.id === activeMaterialClass));
+      button.addEventListener("click", () => {
+        activeMaterialClass = category.id;
+        renderMaterialCategoryControls(materialCategoryFilters, "vertical");
+        renderMaterialCategoryControls(mobileMaterialCategoryFilters, "rail");
+        renderMaterialList();
+      });
+
+      const label = document.createElement("span");
+      label.textContent = materialClassLabel(category.id);
+      const badge = document.createElement("strong");
+      badge.textContent = String(count).padStart(2, "0");
+      button.append(label, badge);
+      return button;
+    }),
+  );
+}
+
+function materialCategories() {
+  const classes = [...new Set((smeltingRules.materials ?? []).map((recipe) => recipe.class).filter(Boolean))].sort((a, b) =>
+    materialClassLabel(a).localeCompare(materialClassLabel(b)),
+  );
+  return [{ id: "all" }, ...classes.map((id) => ({ id }))];
+}
+
+function renderMaterialList() {
+  if (!materialList || !materialDetail) return;
+  const recipes = filteredMaterials();
+  if (materialResultCount) materialResultCount.textContent = t("resourceAtlas.material.resultCount", { count: recipes.length });
+
+  if (!recipes.some((recipe) => recipe.id === activeMaterialId)) {
+    activeMaterialId = recipes[0]?.id ?? smeltingRules.materials?.[0]?.id ?? "";
+  }
+
+  materialList.replaceChildren(
+    ...recipes.map((recipe) => {
+      const card = document.createElement("article");
+      const colors = materialColors(recipe);
+      card.className = "material-card";
+      card.classList.toggle("active", recipe.id === activeMaterialId);
+      card.dataset.materialId = recipe.id;
+      card.style.setProperty("--material-c0", colors[0]);
+      card.style.setProperty("--material-c1", colors[1]);
+      card.style.setProperty("--material-c2", colors[2]);
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", t("resourceAtlas.material.materialAria", { name: materialName(recipe) }));
+      card.addEventListener("click", () => selectMaterial(recipe.id));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectMaterial(recipe.id);
+        }
+      });
+
+      const visual = renderMaterialVisual(recipe, "small");
+      const copy = document.createElement("div");
+      copy.className = "material-card-copy";
+
+      const top = document.createElement("div");
+      top.className = "card-topline";
+      const classNode = document.createElement("span");
+      classNode.textContent = materialClassLabel(recipe.class);
+      const heatNode = document.createElement("span");
+      heatNode.textContent = heatTierShortText(recipe.requiredHeatTier);
+      top.append(classNode, heatNode);
+
+      const title = document.createElement("h4");
+      title.textContent = materialName(recipe);
+      const description = document.createElement("p");
+      description.textContent = materialDescription(recipe);
+      const composition = document.createElement("div");
+      composition.className = "composition-strip";
+      materialComposition(recipe).slice(0, 4).forEach(([symbol, range]) => {
+        composition.append(renderCompositionChip(symbol, range));
+      });
+      copy.append(top, title, description, composition);
+      card.append(visual, copy);
+      return card;
+    }),
+  );
+
+  if (!recipes.length) {
+    const empty = document.createElement("article");
+    empty.className = "empty-state";
+    empty.textContent = t("resourceAtlas.material.empty");
+    materialList.append(empty);
+  }
+
+  renderMaterialDetail(activeMaterialId);
+}
+
+function selectMaterial(id) {
+  activeMaterialId = id;
+  materialList?.querySelectorAll(".material-card").forEach((card) => {
+    card.classList.toggle("active", card.dataset.materialId === activeMaterialId);
+  });
+  renderMaterialDetail(id);
+}
+
+function renderMaterialDetail(id) {
+  const recipe = smeltingRules.materials?.find((item) => item.id === id) ?? smeltingRules.materials?.[0];
+  if (!recipe || !materialDetail) {
+    materialDetail?.replaceChildren();
+    return;
+  }
+
+  const colors = materialColors(recipe);
+  materialDetail.style.setProperty("--material-c0", colors[0]);
+  materialDetail.style.setProperty("--material-c1", colors[1]);
+  materialDetail.style.setProperty("--material-c2", colors[2]);
+
+  const header = document.createElement("div");
+  header.className = "material-detail-header";
+  header.append(renderMaterialVisual(recipe, "large"));
+  const titleWrap = document.createElement("div");
+  const eyebrow = document.createElement("span");
+  eyebrow.className = "detail-eyebrow";
+  eyebrow.textContent = `${recipe.id} / ${recipe.class}`;
+  const title = document.createElement("h2");
+  title.textContent = materialName(recipe);
+  const meta = document.createElement("p");
+  meta.textContent = `${materialClassLabel(recipe.class)} · ${heatTierText(recipe.requiredHeatTier)} · ${t("resourceAtlas.material.artisanLevel", { level: recipe.artisanLevel ?? 1 })}`;
+  titleWrap.append(eyebrow, title, meta);
+  header.append(titleWrap);
+
+  const description = document.createElement("p");
+  description.className = "detail-description";
+  description.textContent = materialDescription(recipe);
+
+  const processSection = renderDetailSection(t("resourceAtlas.material.processTitle"), [
+    renderPhysicalRow(t("resourceAtlas.material.rawInputsLabel"), inputListText(recipe.rawInputs)),
+    ...(recipe.catalysts?.length ? [renderPhysicalRow(t("resourceAtlas.material.catalystLabel"), inputListText(recipe.catalysts))] : []),
+    renderPhysicalRow(t("resourceAtlas.material.requiredHeatLabel"), heatTierText(recipe.requiredHeatTier)),
+    renderPhysicalRow(t("resourceAtlas.material.artisanLevelLabel"), t("resourceAtlas.material.artisanLevel", { level: recipe.artisanLevel ?? 1 })),
+    renderPhysicalRow(t("resourceAtlas.material.yieldLabel"), t("resourceAtlas.material.yieldCount", { count: recipe.yieldCount ?? 1 })),
+  ]);
+
+  const compositionSection = renderDetailSection(
+    t("resourceAtlas.material.compositionTitle"),
+    materialComposition(recipe).map(([symbol, range]) => renderCompositionRow(symbol, range)),
+  );
+
+  const forgeSection = renderDetailSection(t("resourceAtlas.material.forgeUseTitle"), [
+    renderPhysicalRow(t("resourceAtlas.material.forgeUseLabel"), t(`resourceAtlas.material.forgeUse.${recipe.forgeUse}`)),
+  ]);
+
+  const sourceSection = renderDetailSection(
+    t("resourceAtlas.material.sourceBlocksTitle"),
+    recipe.rawInputs.map((input) => renderMaterialSourceRow(input)),
+  );
+
+  materialDetail.replaceChildren(header, description, processSection, compositionSection, forgeSection, sourceSection);
+}
+
+function renderMaterialSourceRow(input) {
+  const row = document.createElement("div");
+  row.className = "material-source-row";
+  const entry = blockAtlas.find((item) => item.key === input.key);
+  if (entry) row.append(renderVoxelCube(entry, "tiny"));
+  const copy = document.createElement("div");
+  const name = document.createElement("strong");
+  name.textContent = blockNameByKey(input.key);
+  const amount = document.createElement("span");
+  amount.textContent = t("resourceAtlas.material.inputAmount", { amount: input.amount ?? 1, resource: blockNameByKey(input.key) });
+  copy.append(name, amount);
+  row.append(copy);
+  return row;
+}
+
+function renderMaterialVisual(recipe, size) {
+  const visual = document.createElement("div");
+  visual.className = `material-visual ${size}`;
+  visual.setAttribute("aria-hidden", "true");
+  const composition = materialComposition(recipe);
+  const symbols = composition.slice(0, 3).map(([symbol]) => symbol);
+  for (let index = 0; index < 3; index++) {
+    const block = document.createElement("span");
+    block.textContent = symbols[index] ?? "";
+    visual.append(block);
+  }
+  return visual;
+}
+
+function filteredMaterials() {
+  return (smeltingRules.materials ?? []).filter((recipe) => {
+    const classMatch = activeMaterialClass === "all" || recipe.class === activeMaterialClass;
+    const queryMatch = !materialQuery || searchableMaterialText.get(recipe.id)?.includes(materialQuery);
+    return classMatch && queryMatch;
+  });
+}
+
+function rebuildMaterialSearchableText() {
+  searchableMaterialText = new Map(
+    (smeltingRules.materials ?? []).map((recipe) => [
+      recipe.id,
+      [
+        recipe.id,
+        recipe.class,
+        materialClassLabel(recipe.class),
+        materialName(recipe),
+        materialDescription(recipe),
+        t(`resourceAtlas.material.forgeUse.${recipe.forgeUse}`),
+        inputListText(recipe.rawInputs),
+        inputListText(recipe.catalysts),
+        materialComposition(recipe).map(([symbol, range]) => `${symbol} ${elementDisplayName(symbol)} ${range}`).join(" "),
+      ]
+        .join(" ")
+        .toLowerCase(),
+    ]),
+  );
+}
+
+function materialName(recipe) {
+  return t(`resourceAtlas.material.item.${recipe.id}.name`);
+}
+
+function materialDescription(recipe) {
+  return t(`resourceAtlas.material.item.${recipe.id}.description`);
+}
+
+function materialClassLabel(className) {
+  if (className === "all") return t("resourceAtlas.material.allMaterials");
+  return t(`resourceAtlas.material.class.${className}`);
+}
+
+function materialComposition(recipe) {
+  return Array.isArray(recipe.composition) && recipe.composition.length ? recipe.composition : recipe.rawInputs.flatMap((input) => blockCompositionByKey(input.key)).slice(0, 5);
+}
+
+function blockCompositionByKey(key) {
+  const entry = blockAtlas.find((item) => item.key === key);
+  return entry?.composition ?? [];
+}
+
+function materialColors(recipe) {
+  const colors = materialComposition(recipe).slice(0, 3).map(([symbol]) => elementColor(symbol));
+  while (colors.length < 3) colors.push("#8eeeff");
+  return colors;
+}
+
+function elementColor(symbol) {
+  const colors = {
+    Al: "#9fc3d9",
+    C: "#2c2c32",
+    Ca: "#d7d0b2",
+    Cl: "#b5f46c",
+    Cu: "#d88748",
+    Fe: "#a66b5b",
+    H: "#d7f7ff",
+    K: "#b981ff",
+    Mg: "#d3e4c7",
+    Mn: "#b48a92",
+    N: "#72a8ff",
+    Na: "#f2d36b",
+    Ni: "#9bbf9f",
+    O: "#78d8ff",
+    S: "#f0da55",
+    Si: "#c8b07a",
+  };
+  return colors[symbol] ?? "#8eeeff";
+}
+
+function heatTierShortText(tier) {
+  return t("resourceAtlas.material.heatTierShort", { tier: tier ?? 0 });
+}
+
+function blockNameByKey(key) {
+  const entry = blockAtlas.find((item) => item.key === key);
+  return entry ? blockName(entry) : key;
 }
 
 function renderCategoryControls(target, layout) {

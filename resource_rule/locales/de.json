@@ -180,7 +180,9 @@
         "blocks": "Generierte Blöcke",
         "families": "Familien sperren",
         "elements": "Referenzierte Elemente",
-        "ruleSet": "Regelsatz"
+        "ruleSet": "Regelsatz",
+        "worldRules": "Weltregeln",
+        "materials": "Schmelzbare Materialien"
       },
       "color": {
         "0": "Hauptgesicht",
