@@ -4,6 +4,12 @@
 
 Resource rule reference, simulator, and block-resource mapping.
 
+## Official Links
+
+GitHub: [https://github.com/nicechunk/nicechunk-resource-rule](https://github.com/nicechunk/nicechunk-resource-rule)
+
+Website: [https://nicechunk.com/resource_rule/](https://nicechunk.com/resource_rule/)
+
 ## Project Overview
 
 This repository contains the resource rule reference for NiceChunk. It describes how world blocks, rarity, mass, and source categories connect into a resource system.
