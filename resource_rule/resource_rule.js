@@ -1,8 +1,15 @@
 import { initI18n, t } from "../src/i18n.js";
 import { blockAtlas, blockAtlasCategories } from "../src/data/blockAtlas.js";
 import { smeltingRules as sharedSmeltingRules } from "../src/data/smeltingRules.js";
+import { resourceDropRules, resourceDropRuleSet } from "../src/data/resourceDropRules.js";
 import { getWorldAlgorithmSpec } from "../src/data/worldAlgorithmRules.js";
-import { createBlockPreviewCanvas } from "../src/world/blockPreview.js";
+import {
+  createResourceBlockPreviewCanvas,
+  createResourceMaterialPreviewCanvas,
+  elementColor,
+  resourceMaterialColors,
+  resourceMaterialComposition,
+} from "../src/render/resourcePreview.js";
 import "./style.css";
 import "../src/site-header.css";
 import { finishSiteLoading, setSiteLoadingProgress } from "../src/site-ui.js";
@@ -349,15 +356,22 @@ function renderMaterialSourceRow(input) {
 
 function renderMaterialVisual(recipe, size) {
   const visual = document.createElement("div");
-  visual.className = `material-visual ${size}`;
+  visual.className = `material-visual ${size} material-visual-${recipe.class ?? "generic"}`;
   visual.setAttribute("aria-hidden", "true");
   const composition = materialComposition(recipe);
   const symbols = composition.slice(0, 3).map(([symbol]) => symbol);
+  const previewSize = size === "large" ? 164 : 112;
+  visual.append(createResourceMaterialPreviewCanvas(recipe, { size: previewSize }));
+
+  const palette = document.createElement("div");
+  palette.className = "material-color-strip";
   for (let index = 0; index < 3; index++) {
-    const block = document.createElement("span");
-    block.textContent = symbols[index] ?? "";
-    visual.append(block);
+    const chip = document.createElement("span");
+    chip.textContent = symbols[index] ?? "";
+    chip.style.setProperty("--chip-color", elementColor(symbols[index] ?? "O"));
+    palette.append(chip);
   }
+  visual.append(palette);
   return visual;
 }
 
@@ -404,40 +418,11 @@ function materialClassLabel(className) {
 }
 
 function materialComposition(recipe) {
-  return Array.isArray(recipe.composition) && recipe.composition.length ? recipe.composition : recipe.rawInputs.flatMap((input) => blockCompositionByKey(input.key)).slice(0, 5);
-}
-
-function blockCompositionByKey(key) {
-  const entry = blockAtlas.find((item) => item.key === key);
-  return entry?.composition ?? [];
+  return resourceMaterialComposition(recipe);
 }
 
 function materialColors(recipe) {
-  const colors = materialComposition(recipe).slice(0, 3).map(([symbol]) => elementColor(symbol));
-  while (colors.length < 3) colors.push("#8eeeff");
-  return colors;
-}
-
-function elementColor(symbol) {
-  const colors = {
-    Al: "#9fc3d9",
-    C: "#2c2c32",
-    Ca: "#d7d0b2",
-    Cl: "#b5f46c",
-    Cu: "#d88748",
-    Fe: "#a66b5b",
-    H: "#d7f7ff",
-    K: "#b981ff",
-    Mg: "#d3e4c7",
-    Mn: "#b48a92",
-    N: "#72a8ff",
-    Na: "#f2d36b",
-    Ni: "#9bbf9f",
-    O: "#78d8ff",
-    S: "#f0da55",
-    Si: "#c8b07a",
-  };
-  return colors[symbol] ?? "#8eeeff";
+  return resourceMaterialColors(recipe);
 }
 
 function heatTierShortText(tier) {
@@ -608,14 +593,15 @@ function renderDetail(key) {
     t("resourceAtlas.page.visualTitle"),
     entry.colors.map((color, index) => renderColorRow(color, index)),
   );
+  const dropSection = renderResourceDropSection(entry);
 
-  blockDetail.replaceChildren(header, description, tags, compositionSection, physicalSection, signalsSection, colorSection);
+  blockDetail.replaceChildren(header, description, tags, compositionSection, physicalSection, signalsSection, colorSection, ...dropSection);
 }
 
 function renderVoxelCube(entry, size) {
   const cubeWrap = document.createElement("div");
   cubeWrap.className = `voxel-scene ${size} true-render`;
-  cubeWrap.append(createBlockPreviewCanvas(entry.key, { size: size === "large" ? 164 : 112 }));
+  cubeWrap.append(createResourceBlockPreviewCanvas(entry.key, { size: size === "large" ? 164 : 112 }));
   return cubeWrap;
 }
 
@@ -690,6 +676,57 @@ function renderDetailSection(titleText, nodes) {
   body.append(...nodes);
   section.append(title, body);
   return section;
+}
+
+function renderResourceDropSection(entry) {
+  const rules = resourceDropRules.filter((rule) => rule.dropKey === entry.key);
+  if (!rules.length) return [];
+  const table = document.createElement("table");
+  table.className = "detail-drop-table";
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  [
+    t("resourceAtlas.drop.source"),
+    t("resourceAtlas.drop.chance"),
+    t("resourceAtlas.drop.size"),
+    t("resourceAtlas.drop.altitude"),
+    t("resourceAtlas.drop.depth"),
+  ].forEach((labelText) => {
+    const th = document.createElement("th");
+    th.textContent = labelText;
+    headRow.append(th);
+  });
+  thead.append(headRow);
+  const tbody = document.createElement("tbody");
+  rules.forEach((rule) => {
+    const row = document.createElement("tr");
+    row.append(
+      renderDropRuleValue(blockNameByKey(rule.sourceKey), rule.sourceKey),
+      renderDropRuleValue(t("resourceAtlas.drop.chanceValue", { value: formatChance(rule.chanceBps) })),
+      renderDropRuleValue(formatDropDimensions(rule)),
+      renderDropRuleValue(t("resourceAtlas.drop.rangeValue", { min: rule.minAltitude, max: rule.maxAltitude })),
+      renderDropRuleValue(t("resourceAtlas.drop.rangeValue", { min: rule.minDepth, max: rule.maxDepth })),
+    );
+    tbody.append(row);
+  });
+  table.append(thead, tbody);
+  const note = document.createElement("p");
+  note.className = "detail-drop-note";
+  note.textContent = t("resourceAtlas.drop.detailBody", { ruleSet: resourceDropRuleSet });
+  return [renderDetailSection(t("resourceAtlas.drop.detailTitle"), [table, note])];
+}
+
+function renderDropRuleValue(primary, secondary = "") {
+  const cell = document.createElement("td");
+  const strong = document.createElement("strong");
+  strong.textContent = primary;
+  cell.append(strong);
+  if (secondary) {
+    const span = document.createElement("span");
+    span.textContent = secondary;
+    cell.append(span);
+  }
+  return cell;
 }
 
 function filteredBlocks() {
@@ -808,12 +845,27 @@ function formatDimensions(dimensionsM) {
   return values.map((value) => `${formatNumber(value)} m`).join(" x ");
 }
 
+function formatDropDimensions(rule) {
+  if (!rule?.minDimensionsM || !rule?.maxDimensionsM) return t("resourceAtlas.page.notAvailable");
+  return t("resourceAtlas.drop.sizeValue", {
+    min: formatDimensions(rule.minDimensionsM),
+    max: formatDimensions(rule.maxDimensionsM),
+  });
+}
+
 function formatVolume(value) {
   return value == null ? t("resourceAtlas.page.notAvailable") : `${formatNumber(value, 6)} m³`;
 }
 
 function formatMass(value) {
   return value == null ? t("resourceAtlas.page.notAvailable") : `${formatNumber(value)} kg`;
+}
+
+function formatChance(chanceBps) {
+  const value = Number(chanceBps) / 100;
+  return new Intl.NumberFormat(undefined, {
+    maximumFractionDigits: value < 1 ? 2 : 1,
+  }).format(value);
 }
 
 function formatNumber(value, maximumFractionDigits = 3) {
