@@ -490,6 +490,11 @@
         "name": "粉红花",
         "source": "Temperate Humid Vegetation",
         "description": "A temperate flowering plant with dilute anthocyanin pigments used for pink dyes and decorative textile finishes."
+      },
+      "stoneFragment": {
+        "name": "碎石",
+        "source": "地表散落碎石",
+        "description": "地表可徒手拾取的独立碎石资源。每个体积500cm³、密度2600kg/m³、质量1.3kg；拾取仅移除小石块，不破坏地面。与砾石地形和砾石库存分开。1个碎石与2根树枝可制作耐久99的基础石斧。徒手采集不增加任何技能点，也不读取技能加成。"
       }
     },
     "tag": {
@@ -538,7 +543,7 @@
     },
     "starter": {
       "title": "第一把工具：采集制作或市场购买",
-      "body": "你可以在市场购买工具，也可以空手起步：拾取地表小石块、打击天然树叶。每个采下的树叶方块有30%概率掉落1根树枝。",
+      "body": "你可以在市场购买工具，也可以空手起步：拾取地表小石块、打击天然树叶。每个采下的树叶方块有30%概率掉落1根树枝。 拾取获得碎石，砾石地形需要工具。徒手采集不增加技能点。",
       "recipe": "1个碎石 + 2根树枝 → 1把基础石斧 · 耐久99",
       "use": "打开背包 → 熔炼，无需燃料、建造设施或技能等级。制作后从背包装备石斧。持工具成功采集由合约扣3点耐久；徒手采集不扣工具耐久。",
       "action": "进入世界制作第一把工具"

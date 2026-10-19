@@ -222,7 +222,7 @@
     },
     "starter": {
       "title": "Your first tool: gather or trade",
-      "body": "Buy a tool at the market, or start empty-handed: pick up surface pebbles and strike natural leaves. Each removed leaf has a 30% chance to drop one twig.",
+      "body": "Buy a tool at the market, or start empty-handed: pick up surface pebbles and strike natural leaves. Each removed leaf has a 30% chance to drop one twig. Pickup yields Stone Fragments; terrain Gravel requires a tool. Bare-hand collection grants no skill points.",
       "recipe": "1 pebble + 2 twigs → 1 basic stone axe · 99 durability",
       "use": "Open Backpack → Smelting. No fuel, station, or skill gate. Equip the crafted axe from your backpack. A successful tool-assisted harvest costs 3 durability on-chain; bare-hand gathering costs none.",
       "action": "Gather your first tool"
@@ -497,6 +497,11 @@
         "name": "Pink Flower",
         "source": "Temperate Humid Vegetation",
         "description": "A temperate flowering plant with dilute anthocyanin pigments used for pink dyes and decorative textile finishes."
+      },
+      "stoneFragment": {
+        "name": "Stone Fragment",
+        "source": "Loose surface stones",
+        "description": "A distinct loose stone resource, separate from terrain Gravel. Each fragment is 500 cm³, density 2600 kg/m³, mass 1.3 kg. Bare-hand pickup leaves the ground intact. Combine 1 stone fragment and 2 twigs for a basic stone axe with 99 durability. Bare-hand collection grants no skill points and uses no skill bonuses."
       }
     },
     "material": {

@@ -42,7 +42,7 @@ export function renderResourceBlockPreviewToCanvas(canvas, blockType, { size = 1
 
   const material = state.materials[blockType] ?? state.materials.stone;
   const geometry = state.geometryByType[blockType] ?? state.geometryByType.stone;
-  const mesh = blockType === "twig" ? twigPreview() : new THREE.Mesh(geometry, material);
+  const mesh = blockType === "twig" ? twigPreview() : blockType === "stoneFragment" ? stoneFragmentPreview() : new THREE.Mesh(geometry, material);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   mesh.rotation.y = Math.PI * 0.22;
@@ -550,4 +550,10 @@ function queueVisiblePreview(canvas, render) {
       for (const old of previewJobs.keys()) if (!old.isConnected) {previewObserver?.unobserve(old);previewJobs.delete(old);}
     });
   }
+}
+
+function stoneFragmentPreview() {
+  const geometry = new THREE.DodecahedronGeometry(.49, 0);
+  geometry.scale(1, .72, .80);
+  return new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({color:0x858983, roughness:.96, flatShading:true}));
 }
