@@ -3,6 +3,11 @@ export const smeltingRules = {
   "ruleSet": "nicechunk-smelting-v1",
   "heatTiers": [
     {
+      "tier": 0,
+      "key": "ambient",
+      "temperatureC": 20
+    },
+    {
       "tier": 1,
       "key": "low",
       "temperatureC": 350
@@ -53,7 +58,7 @@ export const smeltingRules = {
       "id": "charcoal",
       "sourceType": "material",
       "materialId": "charcoal",
-      "heatTier": 2,
+      "heatTier": 3,
       "burnSeconds": 64,
       "consumable": true
     },
@@ -63,20 +68,9 @@ export const smeltingRules = {
       "sourceKeys": [
         "coal"
       ],
-      "heatTier": 3,
+      "heatTier": 4,
       "burnSeconds": 96,
       "consumable": true
-    },
-    {
-      "id": "lava_heat",
-      "sourceType": "raw",
-      "sourceKeys": [
-        "lava",
-        "basalt"
-      ],
-      "heatTier": 4,
-      "burnSeconds": 160,
-      "consumable": false
     }
   ],
   "materials": [
@@ -157,42 +151,6 @@ export const smeltingRules = {
         [
           "K",
           "0.5-4%"
-        ]
-      ]
-    },
-    {
-      "id": "plant_fiber",
-      "class": "fiber",
-      "rawInputs": [
-        {
-          "key": "reed",
-          "amount": 2
-        },
-        {
-          "key": "vine",
-          "amount": 1
-        }
-      ],
-      "requiredHeatTier": 1,
-      "artisanLevel": 1,
-      "yieldCount": 2,
-      "forgeUse": "binding",
-      "composition": [
-        [
-          "C",
-          "42-50%"
-        ],
-        [
-          "O",
-          "38-45%"
-        ],
-        [
-          "H",
-          "5-7%"
-        ],
-        [
-          "N",
-          "0.3-2%"
         ]
       ]
     },
@@ -1025,6 +983,234 @@ export const smeltingRules = {
           "0.5-4%"
         ]
       ]
+    },
+    {
+      "id": "cotton_cloth",
+      "class": "fiber",
+      "rawInputs": [
+        {
+          "key": "cotton",
+          "amount": 4
+        },
+        {
+          "key": "dryGrass",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 2,
+      "yieldCount": 1,
+      "unitVolumeMm3": 1000000,
+      "forgeUse": "fabric",
+      "renderMode": "cloth",
+      "composition": [
+        [
+          "C",
+          "42-48%"
+        ],
+        [
+          "O",
+          "40-46%"
+        ],
+        [
+          "H",
+          "5-7%"
+        ],
+        [
+          "N",
+          "0.1-1%"
+        ]
+      ]
+    },
+    {
+      "id": "white_dye",
+      "class": "chemical",
+      "rawInputs": [
+        {
+          "key": "flowerWhite",
+          "amount": 2
+        },
+        {
+          "key": "water",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 1,
+      "yieldCount": 1,
+      "unitVolumeMm3": 20000,
+      "forgeUse": "dye",
+      "dyeColor": "#f4f6ee",
+      "composition": [
+        [
+          "O",
+          "42-54%"
+        ],
+        [
+          "C",
+          "28-40%"
+        ],
+        [
+          "H",
+          "4-8%"
+        ],
+        [
+          "Ca",
+          "2-8%"
+        ]
+      ]
+    },
+    {
+      "id": "yellow_dye",
+      "class": "chemical",
+      "rawInputs": [
+        {
+          "key": "flowerYellow",
+          "amount": 2
+        },
+        {
+          "key": "water",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 1,
+      "yieldCount": 1,
+      "unitVolumeMm3": 20000,
+      "forgeUse": "dye",
+      "dyeColor": "#eec436",
+      "composition": [
+        [
+          "C",
+          "48-62%"
+        ],
+        [
+          "O",
+          "26-38%"
+        ],
+        [
+          "H",
+          "5-9%"
+        ],
+        [
+          "N",
+          "0.5-3%"
+        ]
+      ]
+    },
+    {
+      "id": "red_dye",
+      "class": "chemical",
+      "rawInputs": [
+        {
+          "key": "flowerRed",
+          "amount": 2
+        },
+        {
+          "key": "water",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 1,
+      "yieldCount": 1,
+      "unitVolumeMm3": 20000,
+      "forgeUse": "dye",
+      "dyeColor": "#cc4f46",
+      "composition": [
+        [
+          "C",
+          "50-64%"
+        ],
+        [
+          "O",
+          "24-36%"
+        ],
+        [
+          "H",
+          "5-9%"
+        ],
+        [
+          "N",
+          "0.5-3%"
+        ]
+      ]
+    },
+    {
+      "id": "blue_dye",
+      "class": "chemical",
+      "rawInputs": [
+        {
+          "key": "flowerBlue",
+          "amount": 2
+        },
+        {
+          "key": "water",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 1,
+      "yieldCount": 1,
+      "unitVolumeMm3": 20000,
+      "forgeUse": "dye",
+      "dyeColor": "#5288da",
+      "composition": [
+        [
+          "C",
+          "46-60%"
+        ],
+        [
+          "O",
+          "26-40%"
+        ],
+        [
+          "H",
+          "5-9%"
+        ],
+        [
+          "N",
+          "1-4%"
+        ]
+      ]
+    },
+    {
+      "id": "pink_dye",
+      "class": "chemical",
+      "rawInputs": [
+        {
+          "key": "flowerPink",
+          "amount": 2
+        },
+        {
+          "key": "water",
+          "amount": 1
+        }
+      ],
+      "requiredHeatTier": 1,
+      "artisanLevel": 1,
+      "yieldCount": 1,
+      "unitVolumeMm3": 20000,
+      "forgeUse": "dye",
+      "dyeColor": "#e287b2",
+      "composition": [
+        [
+          "C",
+          "48-62%"
+        ],
+        [
+          "O",
+          "26-40%"
+        ],
+        [
+          "H",
+          "5-9%"
+        ],
+        [
+          "N",
+          "0.5-3%"
+        ]
+      ]
     }
   ]
 };
@@ -1045,10 +1231,329 @@ export const SMELTING_MATERIAL_ATTRIBUTE_KEYS = [
   "workability",
 ];
 
+const BUILDING_ATTRIBUTE_BASES = Object.freeze({
+  wood: Object.freeze({ hardness: 32, durability: 64, toughness: 70, ductility: 34, brittleness: 24, density: 46, heatResistance: 34, corrosionResistance: 44, conductivity: 3, thermalConductivity: 7, magnetism: 0, workability: 90 }),
+  glass: Object.freeze({ hardness: 68, durability: 52, toughness: 24, ductility: 1, brittleness: 86, density: 62, heatResistance: 62, corrosionResistance: 94, conductivity: 4, thermalConductivity: 17, magnetism: 0, workability: 24 }),
+  ceramic: Object.freeze({ hardness: 68, durability: 66, toughness: 36, ductility: 2, brittleness: 72, density: 55, heatResistance: 82, corrosionResistance: 84, conductivity: 6, thermalConductivity: 22, magnetism: 0, workability: 38 }),
+  stone: Object.freeze({ hardness: 72, durability: 78, toughness: 52, ductility: 1, brittleness: 58, density: 65, heatResistance: 84, corrosionResistance: 80, conductivity: 7, thermalConductivity: 30, magnetism: 2, workability: 34 }),
+  composite: Object.freeze({ hardness: 58, durability: 72, toughness: 58, ductility: 8, brittleness: 44, density: 52, heatResistance: 66, corrosionResistance: 72, conductivity: 6, thermalConductivity: 18, magnetism: 0, workability: 58 }),
+  crystal: Object.freeze({ hardness: 42, durability: 36, toughness: 18, ductility: 1, brittleness: 82, density: 54, heatResistance: 42, corrosionResistance: 24, conductivity: 18, thermalConductivity: 34, magnetism: 0, workability: 22 }),
+});
+
+const BUILDING_COMPOSITIONS = Object.freeze({
+  wood: Object.freeze([["C", "44-51%"], ["O", "40-46%"], ["H", "5-7%"], ["N", "0.1-0.5%"]]),
+  glass: Object.freeze([["O", "52-58%"], ["Si", "30-36%"], ["Na", "6-10%"], ["Ca", "3-7%"], ["Al", "0.5-3%"]]),
+  clay: Object.freeze([["O", "46-54%"], ["Si", "24-34%"], ["Al", "7-15%"], ["Fe", "1-7%"], ["Ca", "0.5-5%"]]),
+  stone: Object.freeze([["O", "44-52%"], ["Si", "22-34%"], ["Ca", "4-18%"], ["Al", "3-10%"], ["Fe", "1-8%"]]),
+  basalt: Object.freeze([["O", "43-49%"], ["Si", "21-27%"], ["Fe", "7-13%"], ["Al", "6-10%"], ["Ca", "5-10%"], ["Mg", "3-8%"]]),
+  lime: Object.freeze([["O", "43-50%"], ["Ca", "28-39%"], ["Si", "5-15%"], ["C", "2-8%"], ["Al", "1-5%"]]),
+  salt: Object.freeze([["Cl", "56-61%"], ["Na", "37-40%"], ["O", "0-3%"], ["Ca", "0-2%"]]),
+});
+
+const BUILDING_VOXEL_VOLUME_MM3 = 1_000_000;
+
+export const BUILDING_MATERIAL_DIMENSIONS_VU = Object.freeze({
+  55: Object.freeze([1, 0.08, 0.25]),
+  56: Object.freeze([1, 0.07, 0.07]),
+  57: Object.freeze([1, 0.22, 0.22]),
+  58: Object.freeze([1, 1, 0.06]),
+  59: Object.freeze([1, 1, 0.06]),
+  60: Object.freeze([1, 1, 0.06]),
+  61: Object.freeze([1, 1, 0.06]),
+  62: Object.freeze([0.5, 0.25, 0.25]),
+  63: Object.freeze([0.5, 0.25, 0.25]),
+  64: Object.freeze([0.5, 0.25, 0.25]),
+  65: Object.freeze([0.5, 0.25, 0.25]),
+  66: Object.freeze([0.5, 0.25, 0.25]),
+  67: Object.freeze([1, 0.5, 0.5]),
+  68: Object.freeze([1, 0.5, 0.5]),
+  69: Object.freeze([1, 0.12, 0.5]),
+  70: Object.freeze([1, 1, 0.08]),
+  71: Object.freeze([1, 1, 0.08]),
+  72: Object.freeze([1, 1, 0.5]),
+  73: Object.freeze([1, 0.1, 1]),
+  74: Object.freeze([0.5, 0.04, 0.5]),
+  75: Object.freeze([0.5, 0.04, 0.5]),
+  76: Object.freeze([1, 0.5, 0.5]),
+  77: Object.freeze([1, 0.5, 0.5]),
+  96: Object.freeze([1, 0.08, 0.5]),
+  97: Object.freeze([1, 0.08, 0.5]),
+  98: Object.freeze([1, 0.08, 0.5]),
+  99: Object.freeze([1, 0.08, 0.5]),
+  100: Object.freeze([1, 0.08, 0.5]),
+  101: Object.freeze([1, 0.08, 0.5]),
+});
+
+export const BUILDING_MATERIAL_RULES = Object.freeze([
+  buildingMaterialRule({
+    id: "wooden_plank", buildingMaterialId: 55, className: "wood", inputs: [["trunk", 1]],
+    processType: "carpentry", station: "sawbench", processSeconds: 12, yieldCount: 4, yieldBps: 9500,
+    densityKgM3: 550, thermalConductivityWMK: 0.13, waterAbsorptionPct: 12, compressiveStrengthMpa: 35, flexuralStrengthMpa: 70,
+    composition: "wood", attributes: { durability: 68, workability: 96 },
+  }),
+  buildingMaterialRule({
+    id: "wooden_stick", buildingMaterialId: 56, className: "wood", inputs: [["material:wooden_plank", 2]],
+    processType: "carpentry", station: "carpenters_bench", processSeconds: 6, yieldCount: 4, yieldBps: 9800,
+    densityKgM3: 550, thermalConductivityWMK: 0.13, waterAbsorptionPct: 12, compressiveStrengthMpa: 32, flexuralStrengthMpa: 64,
+    composition: "wood", attributes: { hardness: 28, toughness: 66, workability: 98 },
+  }),
+  buildingMaterialRule({
+    id: "squared_timber", buildingMaterialId: 57, className: "wood", inputs: [["trunk", 1]],
+    processType: "carpentry", station: "sawbench", processSeconds: 18, yieldCount: 1, yieldBps: 8800,
+    densityKgM3: 520, thermalConductivityWMK: 0.12, waterAbsorptionPct: 14, compressiveStrengthMpa: 40, flexuralStrengthMpa: 75,
+    composition: "wood", attributes: { hardness: 38, durability: 76, toughness: 78, workability: 84 },
+  }),
+  buildingMaterialRule({
+    id: "clear_glass_panel", buildingMaterialId: 58, className: "glass", inputs: [["sand", 4], ["ash", 1], ["material:salt_flux", 1]],
+    requiredHeatTier: 4, temperatureC: 1250, processType: "glassmaking", station: "glass_furnace", processSeconds: 64, yieldCount: 4, yieldBps: 9200, artisanLevel: 3,
+    densityKgM3: 2500, thermalConductivityWMK: 1.0, waterAbsorptionPct: 0, compressiveStrengthMpa: 1000, flexuralStrengthMpa: 45,
+    composition: "glass", attributes: { corrosionResistance: 98, workability: 22 },
+  }),
+  buildingMaterialRule({
+    id: "ice_blue_glass_panel", buildingMaterialId: 59, className: "glass", inputs: [["material:clear_glass_panel", 4], ["material:ice_crystal", 1], ["material:salt_flux", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glassmaking", station: "glass_furnace", processSeconds: 48, yieldCount: 4, yieldBps: 9400, artisanLevel: 3,
+    densityKgM3: 2520, thermalConductivityWMK: 0.95, waterAbsorptionPct: 0, compressiveStrengthMpa: 980, flexuralStrengthMpa: 46,
+    composition: "glass", attributes: { heatResistance: 58, corrosionResistance: 98, thermalConductivity: 15 },
+  }),
+  buildingMaterialRule({
+    id: "amber_glass_panel", buildingMaterialId: 60, className: "glass", inputs: [["material:clear_glass_panel", 4], ["coal", 1], ["sand", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glassmaking", station: "glass_furnace", processSeconds: 46, yieldCount: 4, yieldBps: 9300, artisanLevel: 3,
+    densityKgM3: 2520, thermalConductivityWMK: 1.0, waterAbsorptionPct: 0, compressiveStrengthMpa: 970, flexuralStrengthMpa: 44,
+    composition: "glass", attributes: { corrosionResistance: 96, workability: 26 },
+  }),
+  buildingMaterialRule({
+    id: "basalt_reinforced_glass", buildingMaterialId: 61, className: "composite", inputs: [["material:clear_glass_panel", 4], ["material:basalt_fiber", 1], ["material:resin_binder", 1]],
+    processType: "lamination", station: "lamination_press", processSeconds: 42, yieldCount: 4, yieldBps: 9000, artisanLevel: 3,
+    densityKgM3: 2600, thermalConductivityWMK: 0.85, waterAbsorptionPct: 0.1, compressiveStrengthMpa: 1050, flexuralStrengthMpa: 120,
+    composition: "basalt", attributes: { hardness: 78, durability: 86, toughness: 72, brittleness: 48, heatResistance: 82, corrosionResistance: 92, workability: 28 },
+  }),
+  buildingMaterialRule({
+    id: "fired_clay_brick", buildingMaterialId: 62, className: "ceramic", inputs: [["clay", 4], ["sand", 1]],
+    requiredHeatTier: 3, temperatureC: 850, processType: "kiln", station: "kiln", processSeconds: 54, yieldCount: 4, yieldBps: 9000, artisanLevel: 2,
+    densityKgM3: 1800, thermalConductivityWMK: 0.7, waterAbsorptionPct: 12, compressiveStrengthMpa: 25, flexuralStrengthMpa: 4,
+    composition: "clay", attributes: { hardness: 64, durability: 68, heatResistance: 86, workability: 48 },
+  }),
+  buildingMaterialRule({
+    id: "adobe_brick", buildingMaterialId: 63, className: "composite", inputs: [["mud", 3], ["dryDirt", 1], ["dryGrass", 1]],
+    processType: "drying", station: "drying_rack", processSeconds: 90, yieldCount: 4, yieldBps: 8600,
+    densityKgM3: 1700, thermalConductivityWMK: 0.6, waterAbsorptionPct: 20, compressiveStrengthMpa: 3, flexuralStrengthMpa: 0.5,
+    composition: "clay", attributes: { hardness: 28, durability: 44, toughness: 38, brittleness: 42, heatResistance: 48, corrosionResistance: 24, workability: 82 },
+  }),
+  buildingMaterialRule({
+    id: "stone_brick", buildingMaterialId: 64, className: "stone", inputs: [["stone", 4]],
+    processType: "masonry", station: "masons_bench", processSeconds: 18, yieldCount: 4, yieldBps: 9600,
+    densityKgM3: 2400, thermalConductivityWMK: 2.0, waterAbsorptionPct: 3, compressiveStrengthMpa: 100, flexuralStrengthMpa: 10,
+    composition: "stone", attributes: { hardness: 74, durability: 82, workability: 46 },
+  }),
+  buildingMaterialRule({
+    id: "deep_stone_brick", buildingMaterialId: 65, className: "stone", inputs: [["deepStone", 4]],
+    processType: "masonry", station: "masons_bench", processSeconds: 24, yieldCount: 4, yieldBps: 9400, artisanLevel: 2,
+    densityKgM3: 2700, thermalConductivityWMK: 2.5, waterAbsorptionPct: 1.5, compressiveStrengthMpa: 160, flexuralStrengthMpa: 14,
+    composition: "stone", attributes: { hardness: 84, durability: 90, toughness: 62, density: 72, heatResistance: 88, workability: 30 },
+  }),
+  buildingMaterialRule({
+    id: "basalt_brick", buildingMaterialId: 66, className: "stone", inputs: [["basalt", 4]],
+    processType: "masonry", station: "masons_bench", processSeconds: 28, yieldCount: 4, yieldBps: 9200, artisanLevel: 2,
+    densityKgM3: 2900, thermalConductivityWMK: 1.7, waterAbsorptionPct: 1, compressiveStrengthMpa: 180, flexuralStrengthMpa: 16,
+    composition: "basalt", attributes: { hardness: 88, durability: 92, toughness: 66, density: 76, heatResistance: 96, corrosionResistance: 88, workability: 26 },
+  }),
+  buildingMaterialRule({
+    id: "sandstone_block", buildingMaterialId: 67, className: "stone", inputs: [["sand", 4], ["saltFlat", 1]],
+    processType: "pressing", station: "stone_press", processSeconds: 20, yieldCount: 1, yieldBps: 9000,
+    densityKgM3: 2200, thermalConductivityWMK: 1.7, waterAbsorptionPct: 6, compressiveStrengthMpa: 40, flexuralStrengthMpa: 5,
+    composition: "stone", attributes: { hardness: 54, durability: 64, toughness: 42, brittleness: 66, workability: 66 },
+  }),
+  buildingMaterialRule({
+    id: "cobblestone", buildingMaterialId: 68, className: "stone", inputs: [["stone", 3], ["gravel", 1]],
+    processType: "masonry", station: "masons_bench", processSeconds: 10, yieldCount: 4, yieldBps: 9800,
+    densityKgM3: 2500, thermalConductivityWMK: 2.1, waterAbsorptionPct: 4, compressiveStrengthMpa: 80, flexuralStrengthMpa: 8,
+    composition: "stone", attributes: { hardness: 66, durability: 76, toughness: 58, workability: 54 },
+  }),
+  buildingMaterialRule({
+    id: "polished_stone_slab", buildingMaterialId: 69, className: "stone", inputs: [["stone", 2], ["sand", 1]],
+    processType: "polishing", station: "polishing_bench", processSeconds: 20, yieldCount: 2, yieldBps: 9400,
+    densityKgM3: 2600, thermalConductivityWMK: 2.3, waterAbsorptionPct: 1.5, compressiveStrengthMpa: 130, flexuralStrengthMpa: 12,
+    composition: "stone", attributes: { hardness: 78, durability: 84, corrosionResistance: 88, workability: 38 },
+  }),
+  buildingMaterialRule({
+    id: "lime_plaster", buildingMaterialId: 70, className: "composite", inputs: [["material:quicklime", 2], ["ash", 1], ["water", 1]],
+    processType: "mixing", station: "plaster_mixer", processSeconds: 32, yieldCount: 4, yieldBps: 9000,
+    densityKgM3: 1600, thermalConductivityWMK: 0.7, waterAbsorptionPct: 15, compressiveStrengthMpa: 5, flexuralStrengthMpa: 1.5,
+    composition: "lime", attributes: { hardness: 32, durability: 58, toughness: 36, corrosionResistance: 72, workability: 92 },
+  }),
+  buildingMaterialRule({
+    id: "clay_plaster", buildingMaterialId: 71, className: "composite", inputs: [["clay", 2], ["sand", 1], ["water", 1], ["dryGrass", 1]],
+    processType: "mixing", station: "plaster_mixer", processSeconds: 24, yieldCount: 4, yieldBps: 9200,
+    densityKgM3: 1700, thermalConductivityWMK: 0.8, waterAbsorptionPct: 18, compressiveStrengthMpa: 3, flexuralStrengthMpa: 1,
+    composition: "clay", attributes: { hardness: 26, durability: 48, toughness: 34, corrosionResistance: 46, workability: 94 },
+  }),
+  buildingMaterialRule({
+    id: "rammed_earth", buildingMaterialId: 72, className: "composite", inputs: [["dryDirt", 3], ["gravel", 1], ["clay", 1]],
+    processType: "compaction", station: "earth_rammer", processSeconds: 30, yieldCount: 1, yieldBps: 9600,
+    densityKgM3: 1900, thermalConductivityWMK: 1.0, waterAbsorptionPct: 10, compressiveStrengthMpa: 4, flexuralStrengthMpa: 1,
+    composition: "clay", attributes: { hardness: 40, durability: 62, toughness: 48, heatResistance: 62, corrosionResistance: 42, workability: 70 },
+  }),
+  buildingMaterialRule({
+    id: "shell_terrazzo", buildingMaterialId: 73, className: "composite", inputs: [["shellBed", 2], ["stone", 2], ["material:quicklime", 1]],
+    processType: "polishing", station: "polishing_bench", processSeconds: 36, yieldCount: 2, yieldBps: 9000, artisanLevel: 2,
+    densityKgM3: 2400, thermalConductivityWMK: 1.6, waterAbsorptionPct: 1.5, compressiveStrengthMpa: 50, flexuralStrengthMpa: 7,
+    composition: "lime", attributes: { hardness: 70, durability: 82, brittleness: 50, corrosionResistance: 86, workability: 46 },
+  }),
+  buildingMaterialRule({
+    id: "white_ceramic_tile", buildingMaterialId: 74, className: "ceramic", inputs: [["clay", 4], ["material:lime_ceramic", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "kiln", station: "kiln", processSeconds: 48, yieldCount: 4, yieldBps: 9400, artisanLevel: 2,
+    densityKgM3: 2200, thermalConductivityWMK: 1.2, waterAbsorptionPct: 0.5, compressiveStrengthMpa: 200, flexuralStrengthMpa: 35,
+    composition: "clay", attributes: { hardness: 78, durability: 76, brittleness: 68, corrosionResistance: 94, workability: 34 },
+  }),
+  buildingMaterialRule({
+    id: "blue_ceramic_tile", buildingMaterialId: 75, className: "ceramic", inputs: [["clay", 4], ["material:ice_crystal", 1], ["material:glass_ingot", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "kiln", station: "kiln", processSeconds: 50, yieldCount: 4, yieldBps: 9200, artisanLevel: 3,
+    densityKgM3: 2250, thermalConductivityWMK: 1.25, waterAbsorptionPct: 0.4, compressiveStrengthMpa: 205, flexuralStrengthMpa: 36,
+    composition: "glass", attributes: { hardness: 80, durability: 78, brittleness: 68, corrosionResistance: 96, workability: 32 },
+  }),
+  buildingMaterialRule({
+    id: "volcanic_ash_concrete", buildingMaterialId: 76, className: "composite", inputs: [["ash", 2], ["basalt", 2], ["gravel", 1], ["water", 1]],
+    processType: "mixing", station: "aggregate_mixer", processSeconds: 38, yieldCount: 2, yieldBps: 9300, artisanLevel: 2,
+    densityKgM3: 2300, thermalConductivityWMK: 1.5, waterAbsorptionPct: 5, compressiveStrengthMpa: 45, flexuralStrengthMpa: 5,
+    composition: "basalt", attributes: { hardness: 68, durability: 86, toughness: 64, heatResistance: 90, corrosionResistance: 82, workability: 48 },
+  }),
+  buildingMaterialRule({
+    id: "salt_crystal_block", buildingMaterialId: 77, className: "crystal", inputs: [["saltFlat", 4], ["water", 1]],
+    processType: "crystallization", station: "crystallizer", processSeconds: 72, yieldCount: 1, yieldBps: 8500,
+    densityKgM3: 2160, thermalConductivityWMK: 6.0, waterAbsorptionPct: 0.1, compressiveStrengthMpa: 20, flexuralStrengthMpa: 2,
+    composition: "salt", attributes: { hardness: 24, durability: 28, corrosionResistance: 12, conductivity: 30, thermalConductivity: 46, workability: 30 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_terracotta", buildingMaterialId: 96, className: "ceramic", inputs: [["clay", 4], ["sand", 1]],
+    requiredHeatTier: 2, temperatureC: 700, processType: "kiln", station: "kiln", processSeconds: 58, yieldCount: 4, yieldBps: 7800, artisanLevel: 2,
+    densityKgM3: 1900, thermalConductivityWMK: 0.8, waterAbsorptionPct: 8, compressiveStrengthMpa: 45, flexuralStrengthMpa: 15,
+    composition: "clay", attributes: { hardness: 62, durability: 70, heatResistance: 84, corrosionResistance: 74, workability: 46 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_ice_blue", buildingMaterialId: 97, className: "ceramic", inputs: [["material:roof_tile_terracotta", 4], ["material:ice_crystal", 1], ["material:glass_ingot", 1], ["material:salt_flux", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glaze_firing", station: "kiln", processSeconds: 52, yieldCount: 4, yieldBps: 9400, artisanLevel: 3,
+    densityKgM3: 2050, thermalConductivityWMK: 0.9, waterAbsorptionPct: 2, compressiveStrengthMpa: 60, flexuralStrengthMpa: 20,
+    composition: "glass", attributes: { hardness: 72, durability: 80, heatResistance: 82, corrosionResistance: 92, workability: 34 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_shell_white", buildingMaterialId: 98, className: "ceramic", inputs: [["material:roof_tile_terracotta", 4], ["material:lime_ceramic", 1], ["material:glass_ingot", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glaze_firing", station: "kiln", processSeconds: 50, yieldCount: 4, yieldBps: 9300, artisanLevel: 3,
+    densityKgM3: 2070, thermalConductivityWMK: 0.95, waterAbsorptionPct: 2, compressiveStrengthMpa: 62, flexuralStrengthMpa: 20,
+    composition: "lime", attributes: { hardness: 72, durability: 80, heatResistance: 84, corrosionResistance: 90, workability: 34 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_charcoal", buildingMaterialId: 99, className: "ceramic", inputs: [["material:roof_tile_terracotta", 4], ["material:charcoal", 1], ["material:resin_binder", 1], ["material:glass_ingot", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glaze_firing", station: "kiln", processSeconds: 50, yieldCount: 4, yieldBps: 9200, artisanLevel: 3,
+    densityKgM3: 2040, thermalConductivityWMK: 0.85, waterAbsorptionPct: 2, compressiveStrengthMpa: 58, flexuralStrengthMpa: 19,
+    composition: "glass", attributes: { hardness: 70, durability: 78, heatResistance: 86, corrosionResistance: 88, workability: 32 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_ash_gray", buildingMaterialId: 100, className: "ceramic", inputs: [["material:roof_tile_terracotta", 4], ["ash", 1], ["basalt", 1], ["material:glass_ingot", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glaze_firing", station: "kiln", processSeconds: 52, yieldCount: 4, yieldBps: 9300, artisanLevel: 3,
+    densityKgM3: 2120, thermalConductivityWMK: 1.0, waterAbsorptionPct: 1.8, compressiveStrengthMpa: 65, flexuralStrengthMpa: 22,
+    composition: "basalt", attributes: { hardness: 76, durability: 84, heatResistance: 90, corrosionResistance: 92, workability: 30 },
+  }),
+  buildingMaterialRule({
+    id: "roof_tile_mycelium", buildingMaterialId: 101, className: "ceramic", inputs: [["material:roof_tile_terracotta", 4], ["glowMycelium", 1], ["material:salt_flux", 1], ["material:glass_ingot", 1]],
+    requiredHeatTier: 3, temperatureC: 1050, processType: "glaze_firing", station: "kiln", processSeconds: 54, yieldCount: 4, yieldBps: 8800, artisanLevel: 4,
+    densityKgM3: 2030, thermalConductivityWMK: 0.9, waterAbsorptionPct: 2.2, compressiveStrengthMpa: 56, flexuralStrengthMpa: 18,
+    composition: "glass", attributes: { hardness: 68, durability: 76, heatResistance: 78, corrosionResistance: 86, workability: 28 },
+  }),
+]);
+
+export const BLASTING_CHARGE_RULE = {
+  id: "blasting_charge",
+  class: "chemical",
+  rawInputs: [
+    { key: "ash", amount: 1 },
+    { key: "toxicWater", amount: 1 },
+  ],
+  materialInputs: [
+    { key: "material:charcoal", amount: 2 },
+    { key: "material:biochar_compost", amount: 2 },
+    { key: "material:resin_binder", amount: 1 },
+  ],
+  catalysts: [],
+  requiredHeatTier: 0,
+  temperatureC: 20,
+  artisanLevel: 3,
+  yieldCount: 1,
+  yieldBps: 9000,
+  unitVolumeMm3: 750000,
+  forgeUse: "explosive",
+  renderMode: "blasting_charge",
+  processType: "cold_compaction",
+  station: "explosives_bench",
+  processSeconds: 36,
+  densityKgM3: 1250,
+  composition: [
+    ["C", "30-45%"],
+    ["O", "25-40%"],
+    ["N", "2-8%"],
+    ["K", "2-10%"],
+    ["S", "0.5-4%"],
+    ["H", "3-8%"],
+  ],
+};
+
+// Append new manufactured items so every existing material keeps its stable
+// item code and RecipeTable slot.
+smeltingRules.materials.push(...BUILDING_MATERIAL_RULES, BLASTING_CHARGE_RULE);
+
+export const BUILDING_MATERIAL_RECIPE_IDS = Object.freeze(BUILDING_MATERIAL_RULES.map((material) => material.id));
+
+export function smeltingMaterialIdForBuildingMaterialId(buildingMaterialId) {
+  const numericId = Number(buildingMaterialId);
+  return BUILDING_MATERIAL_RULES.find((material) => material.buildingMaterialId === numericId)?.id ?? null;
+}
+
+export function buildingMaterialIdForSmeltingMaterialId(materialId) {
+  return BUILDING_MATERIAL_RULES.find((material) => material.id === materialId)?.buildingMaterialId ?? 0;
+}
+
+function buildingMaterialRule(definition) {
+  const className = String(definition.className);
+  const baseAttributes = BUILDING_ATTRIBUTE_BASES[className] ?? BUILDING_ATTRIBUTE_BASES.composite;
+  const inputs = (definition.inputs ?? []).map(([key, amount]) => ({ key, amount }));
+  const unitDimensionsVu = BUILDING_MATERIAL_DIMENSIONS_VU[definition.buildingMaterialId];
+  if (!unitDimensionsVu) throw new Error(`Building material ${definition.id} is missing canonical dimensions`);
+  const unitVolumeMm3 = Math.round(
+    unitDimensionsVu.reduce((volume, dimension) => volume * dimension, BUILDING_VOXEL_VOLUME_MM3),
+  );
+  const attributes = { ...baseAttributes, ...(definition.attributes ?? {}) };
+  return {
+    id: definition.id,
+    buildingMaterialId: definition.buildingMaterialId,
+    class: className,
+    rawInputs: inputs.filter((input) => !input.key.startsWith("material:")),
+    materialInputs: inputs.filter((input) => input.key.startsWith("material:")),
+    catalysts: [],
+    requiredHeatTier: definition.requiredHeatTier ?? 0,
+    temperatureC: definition.temperatureC ?? 20,
+    artisanLevel: definition.artisanLevel ?? 1,
+    yieldCount: definition.yieldCount ?? 1,
+    yieldBps: definition.yieldBps,
+    unitDimensionsVu,
+    unitVolumeMm3,
+    forgeUse: "construction",
+    renderMode: "building_component",
+    processType: definition.processType,
+    station: definition.station,
+    processSeconds: definition.processSeconds,
+    densityKgM3: definition.densityKgM3,
+    densityScore: attributes.density,
+    thermalConductivityWMK: definition.thermalConductivityWMK,
+    waterAbsorptionPct: definition.waterAbsorptionPct,
+    compressiveStrengthMpa: definition.compressiveStrengthMpa,
+    flexuralStrengthMpa: definition.flexuralStrengthMpa,
+    composition: BUILDING_COMPOSITIONS[definition.composition] ?? BUILDING_COMPOSITIONS.stone,
+    attributes,
+  };
+}
+
 export const smeltingMaterialAttributeProfiles = {
   charcoal: { hardness: 18, durability: 35, toughness: 22, ductility: 5, brittleness: 42, density: 25, heatResistance: 62, corrosionResistance: 70, conductivity: 22, thermalConductivity: 18, magnetism: 0, workability: 58 },
   biochar_compost: { hardness: 8, durability: 22, toughness: 16, ductility: 10, brittleness: 35, density: 18, heatResistance: 34, corrosionResistance: 62, conductivity: 12, thermalConductivity: 14, magnetism: 0, workability: 72 },
-  plant_fiber: { hardness: 12, durability: 38, toughness: 48, ductility: 66, brittleness: 18, density: 14, heatResistance: 24, corrosionResistance: 42, conductivity: 6, thermalConductivity: 8, magnetism: 0, workability: 86 },
   resin_binder: { hardness: 16, durability: 42, toughness: 36, ductility: 58, brittleness: 22, density: 20, heatResistance: 30, corrosionResistance: 68, conductivity: 5, thermalConductivity: 7, magnetism: 0, workability: 82 },
   ceramic_brick: { hardness: 62, durability: 64, toughness: 36, ductility: 2, brittleness: 74, density: 54, heatResistance: 78, corrosionResistance: 72, conductivity: 8, thermalConductivity: 24, magnetism: 0, workability: 34 },
   lime_ceramic: { hardness: 54, durability: 56, toughness: 32, ductility: 2, brittleness: 68, density: 48, heatResistance: 72, corrosionResistance: 66, conductivity: 7, thermalConductivity: 20, magnetism: 0, workability: 42 },
@@ -1070,9 +1575,58 @@ export const smeltingMaterialAttributeProfiles = {
   geopolymer_block: { hardness: 64, durability: 76, toughness: 58, ductility: 4, brittleness: 42, density: 56, heatResistance: 84, corrosionResistance: 78, conductivity: 9, thermalConductivity: 22, magnetism: 4, workability: 46 },
   coral_lime: { hardness: 48, durability: 54, toughness: 32, ductility: 2, brittleness: 66, density: 40, heatResistance: 62, corrosionResistance: 70, conductivity: 7, thermalConductivity: 18, magnetism: 0, workability: 50 },
   toxic_glass: { hardness: 60, durability: 50, toughness: 20, ductility: 1, brittleness: 84, density: 48, heatResistance: 56, corrosionResistance: 94, conductivity: 8, thermalConductivity: 18, magnetism: 0, workability: 22 },
+  cotton_cloth: { hardness: 8, durability: 46, toughness: 54, ductility: 78, brittleness: 8, density: 10, heatResistance: 22, corrosionResistance: 44, conductivity: 4, thermalConductivity: 6, magnetism: 0, workability: 92 },
+  white_dye: { hardness: 6, durability: 24, toughness: 14, ductility: 20, brittleness: 18, density: 20, heatResistance: 28, corrosionResistance: 72, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 90 },
+  yellow_dye: { hardness: 6, durability: 24, toughness: 14, ductility: 20, brittleness: 18, density: 20, heatResistance: 28, corrosionResistance: 72, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 90 },
+  red_dye: { hardness: 6, durability: 24, toughness: 14, ductility: 20, brittleness: 18, density: 20, heatResistance: 28, corrosionResistance: 72, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 90 },
+  blue_dye: { hardness: 6, durability: 24, toughness: 14, ductility: 20, brittleness: 18, density: 20, heatResistance: 28, corrosionResistance: 72, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 90 },
+  pink_dye: { hardness: 6, durability: 24, toughness: 14, ductility: 20, brittleness: 18, density: 20, heatResistance: 28, corrosionResistance: 72, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 90 },
+  blasting_charge: { hardness: 18, durability: 42, toughness: 30, ductility: 24, brittleness: 50, density: 38, heatResistance: 6, corrosionResistance: 34, conductivity: 8, thermalConductivity: 12, magnetism: 0, workability: 26 },
 };
 
+// Objective engineering values for one canonical inventory unit. Density is
+// the bulk density of the rendered form (powder, cloth, porous bloom, etc.),
+// not always the ideal crystal density of the underlying substance.
+export const smeltingMaterialPhysicalProfiles = Object.freeze({
+  charcoal: Object.freeze({ unitVolumeMm3: 750000, densityKgM3: 250, thermalConductivityWMK: 0.12, waterAbsorptionPct: 18 }),
+  biochar_compost: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 450, thermalConductivityWMK: 0.18, waterAbsorptionPct: 45 }),
+  resin_binder: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 1100, thermalConductivityWMK: 0.2, waterAbsorptionPct: 0.5 }),
+  ceramic_brick: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 1900, thermalConductivityWMK: 0.9, waterAbsorptionPct: 12, compressiveStrengthMpa: 35, flexuralStrengthMpa: 5 }),
+  lime_ceramic: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 1750, thermalConductivityWMK: 0.75, waterAbsorptionPct: 16, compressiveStrengthMpa: 28, flexuralStrengthMpa: 4 }),
+  quicklime: Object.freeze({ unitVolumeMm3: 500000, densityKgM3: 900, thermalConductivityWMK: 0.35, waterAbsorptionPct: 100 }),
+  salt_flux: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 1200, thermalConductivityWMK: 0.55, waterAbsorptionPct: 25 }),
+  ash_cement: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 1300, thermalConductivityWMK: 0.4, waterAbsorptionPct: 22 }),
+  glass_ingot: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 2500, thermalConductivityWMK: 1.0, waterAbsorptionPct: 0, compressiveStrengthMpa: 1000, flexuralStrengthMpa: 45 }),
+  obsidian_glass: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 2400, thermalConductivityWMK: 1.3, waterAbsorptionPct: 0.1, compressiveStrengthMpa: 900, flexuralStrengthMpa: 40 }),
+  silicon_wafer: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 2330, thermalConductivityWMK: 148, waterAbsorptionPct: 0, compressiveStrengthMpa: 7000, flexuralStrengthMpa: 170 }),
+  ice_crystal: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 917, thermalConductivityWMK: 2.2, waterAbsorptionPct: 0, compressiveStrengthMpa: 5, flexuralStrengthMpa: 1 }),
+  iron_bloom: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 7000, thermalConductivityWMK: 55, waterAbsorptionPct: 2, compressiveStrengthMpa: 180, flexuralStrengthMpa: 120 }),
+  copper_bloom: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 8200, thermalConductivityWMK: 360, waterAbsorptionPct: 1, compressiveStrengthMpa: 210, flexuralStrengthMpa: 170 }),
+  alumina_plate: Object.freeze({ unitVolumeMm3: 60000, densityKgM3: 3900, thermalConductivityWMK: 30, waterAbsorptionPct: 0, compressiveStrengthMpa: 2200, flexuralStrengthMpa: 350 }),
+  nickel_iron: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 8100, thermalConductivityWMK: 28, waterAbsorptionPct: 0, compressiveStrengthMpa: 650, flexuralStrengthMpa: 480 }),
+  carbon_plate: Object.freeze({ unitVolumeMm3: 60000, densityKgM3: 1600, thermalConductivityWMK: 8, waterAbsorptionPct: 0.3, compressiveStrengthMpa: 500, flexuralStrengthMpa: 350 }),
+  carbon_steel: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 7850, thermalConductivityWMK: 45, waterAbsorptionPct: 0, compressiveStrengthMpa: 600, flexuralStrengthMpa: 500 }),
+  basalt_fiber: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 2670, thermalConductivityWMK: 0.04, waterAbsorptionPct: 0.5, flexuralStrengthMpa: 1000 }),
+  basalt_composite: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 2100, thermalConductivityWMK: 0.45, waterAbsorptionPct: 0.4, compressiveStrengthMpa: 420, flexuralStrengthMpa: 520 }),
+  geopolymer_block: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 2200, thermalConductivityWMK: 1.1, waterAbsorptionPct: 5, compressiveStrengthMpa: 70, flexuralStrengthMpa: 8 }),
+  coral_lime: Object.freeze({ unitVolumeMm3: 500000, densityKgM3: 900, thermalConductivityWMK: 0.35, waterAbsorptionPct: 35 }),
+  toxic_glass: Object.freeze({ unitVolumeMm3: 250000, densityKgM3: 2550, thermalConductivityWMK: 0.95, waterAbsorptionPct: 0, compressiveStrengthMpa: 950, flexuralStrengthMpa: 42 }),
+  cotton_cloth: Object.freeze({ unitVolumeMm3: 1000000, densityKgM3: 150, thermalConductivityWMK: 0.04, waterAbsorptionPct: 27, flexuralStrengthMpa: 0.04 }),
+  white_dye: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 1200, thermalConductivityWMK: 0.25, waterAbsorptionPct: 8 }),
+  yellow_dye: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 1100, thermalConductivityWMK: 0.22, waterAbsorptionPct: 10 }),
+  red_dye: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 1150, thermalConductivityWMK: 0.23, waterAbsorptionPct: 9 }),
+  blue_dye: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 1250, thermalConductivityWMK: 0.27, waterAbsorptionPct: 8 }),
+  pink_dye: Object.freeze({ unitVolumeMm3: 20000, densityKgM3: 1120, thermalConductivityWMK: 0.22, waterAbsorptionPct: 10 }),
+  blasting_charge: Object.freeze({ unitVolumeMm3: 750000, densityKgM3: 1250, thermalConductivityWMK: 0.18, waterAbsorptionPct: 2 }),
+});
+
+for (const material of BUILDING_MATERIAL_RULES) {
+  smeltingMaterialAttributeProfiles[material.id] = material.attributes;
+}
+
 const smeltingClassFallbackAttributes = {
+  wood: { hardness: 32, durability: 64, toughness: 70, ductility: 34, brittleness: 24, density: 46, heatResistance: 34, corrosionResistance: 44, conductivity: 3, thermalConductivity: 7, magnetism: 0, workability: 90 },
+  stone: { hardness: 72, durability: 78, toughness: 52, ductility: 1, brittleness: 58, density: 65, heatResistance: 84, corrosionResistance: 80, conductivity: 7, thermalConductivity: 30, magnetism: 2, workability: 34 },
   carbon: { hardness: 38, durability: 46, toughness: 34, ductility: 8, brittleness: 48, density: 28, heatResistance: 68, corrosionResistance: 76, conductivity: 28, thermalConductivity: 32, magnetism: 0, workability: 52 },
   fiber: { hardness: 24, durability: 48, toughness: 58, ductility: 62, brittleness: 18, density: 18, heatResistance: 36, corrosionResistance: 54, conductivity: 6, thermalConductivity: 10, magnetism: 0, workability: 74 },
   polymer: { hardness: 26, durability: 48, toughness: 46, ductility: 58, brittleness: 24, density: 24, heatResistance: 34, corrosionResistance: 68, conductivity: 5, thermalConductivity: 8, magnetism: 0, workability: 78 },
@@ -1087,16 +1641,58 @@ const smeltingClassFallbackAttributes = {
 
 export default smeltingRules;
 
-export const SMELTING_RECIPES_PER_TABLE = 12;
-export const SMELTING_RECIPE_TABLE_ID_BASE = 20;
-export const SMELTING_MERGE_RECIPE_TABLE_ID_BASE = 120;
+export const SMELTING_RECIPES_PER_TABLE = 10;
+export const SMELTING_RECIPE_TABLE_ID_BASE = 220;
+export const SMELTING_MERGE_RECIPE_TABLE_ID_BASE = 320;
+export const SMELTING_MATERIAL_ITEM_CODE_BASE = 1001;
+export const SMELTING_MERGE_RECIPE_ID_OFFSET = 1000;
+export const SMELTING_RESERVED_MATERIAL_ITEM_CODES = Object.freeze([1003]);
 export const SMELTING_MATERIAL_INPUT_PREFIX = "material:";
 export const SMELTING_RECIPE_YIELD_BPS_DENOMINATOR = 10_000;
+export const SMELTING_SKILL_MAX_OUTPUT_BPS = 15_000;
+export const SMELTING_RECIPE_OUTPUT_SCALE_DIVISOR = 10;
+export const SMELTING_DEFAULT_INPUT_VOLUME_MM3 = 1_000_000;
 
 for (const material of smeltingRules.materials) {
+  const physical = smeltingMaterialPhysicalProfiles[material.id];
+  if (physical) Object.assign(material, physical);
+  material.itemCode = smeltingMaterialItemCode(material.id);
+  material.recipeId = smeltingRecipeIdForMaterialId(material.id);
+  material.mergeRecipeId = smeltingMergeRecipeIdForMaterialId(material.id);
+  material.recipeTableId = smeltingRecipeTableIdForMaterialId(material.id);
+  material.mergeRecipeTableId = smeltingMergeRecipeTableIdForMaterialId(material.id);
   material.attributes = smeltingMaterialBaseAttributes(material);
-  material.yieldBps = smeltingRecipeYieldBps(material);
-  material.mergeYieldBps = SMELTING_RECIPE_YIELD_BPS_DENOMINATOR;
+  material.yieldBps = Math.max(
+    1,
+    Math.floor(smeltingRecipeYieldBps(material) / SMELTING_RECIPE_OUTPUT_SCALE_DIVISOR),
+  );
+  material.mergeYieldBps = Math.floor(
+    SMELTING_RECIPE_YIELD_BPS_DENOMINATOR,
+  );
+}
+
+export function smeltingMaterialPhysicalProfile(materialOrId, rules = smeltingRules) {
+  const material = typeof materialOrId === "string" ? smeltingMaterialById(materialOrId, rules) : materialOrId;
+  if (!material) return null;
+  const unitVolumeMm3 = Math.max(0, Math.trunc(Number(material.unitVolumeMm3) || 0));
+  const densityKgM3 = Math.max(0, Number(material.densityKgM3) || 0);
+  const volumeM3 = unitVolumeMm3 / 1_000_000_000;
+  return Object.freeze({
+    unitDimensionsVu: Array.isArray(material.unitDimensionsVu) ? Object.freeze([...material.unitDimensionsVu]) : null,
+    unitVolumeMm3,
+    volumeM3,
+    densityKgM3,
+    massKg: densityKgM3 * volumeM3,
+    thermalConductivityWMK: finitePhysicalValue(material.thermalConductivityWMK),
+    waterAbsorptionPct: finitePhysicalValue(material.waterAbsorptionPct),
+    compressiveStrengthMpa: finitePhysicalValue(material.compressiveStrengthMpa),
+    flexuralStrengthMpa: finitePhysicalValue(material.flexuralStrengthMpa),
+  });
+}
+
+function finitePhysicalValue(value) {
+  const numeric = Number(value);
+  return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
 }
 
 
@@ -1142,7 +1738,7 @@ export function deriveSmeltingMaterialProperties({
 }
 
 export function deriveSmeltingQuality({ material, inputSlots = [], fuelSlots = [], itemId = 0, itemCode = 0, sourceSeed = 0 } = {}) {
-  const requiredHeat = Math.max(1, Number(material?.requiredHeatTier) || 1);
+  const requiredHeat = Math.max(0, Number(material?.requiredHeatTier) || 0);
   const maxFuel = Math.max(0, ...fuelSlots.map((slot) => Number(slot?.fuelTier ?? slot?.heatTier ?? 0)).filter(Number.isFinite));
   const heatFit = maxFuel > 0 ? clampNumber(maxFuel - requiredHeat, -2, 2) : 0;
   const sourceCount = Math.max(1, inputSlots.length || recipeInputCount(material));
@@ -1218,7 +1814,7 @@ export function smeltingGradeForScore(score) {
 }
 
 function recipeInputCount(material) {
-  return [...(material?.rawInputs ?? []), ...(material?.catalysts ?? [])]
+  return recipeRequirements(material)
     .reduce((sum, input) => sum + (Number(input?.amount) || 0), 0);
 }
 
@@ -1273,7 +1869,7 @@ export function validateSmeltingRules(rules = smeltingRules) {
 
   const heatTierIds = new Set();
   for (const tier of heatTiers) {
-    if (!Number.isInteger(tier.tier) || tier.tier < 1) throw new Error(`Invalid heat tier: ${JSON.stringify(tier)}`);
+    if (!Number.isInteger(tier.tier) || tier.tier < 0) throw new Error(`Invalid heat tier: ${JSON.stringify(tier)}`);
     if (heatTierIds.has(tier.tier)) throw new Error(`Duplicate heat tier: ${tier.tier}`);
     heatTierIds.add(tier.tier);
   }
@@ -1284,6 +1880,7 @@ export function validateSmeltingRules(rules = smeltingRules) {
     if (fuelIds.has(fuel.id)) throw new Error(`Duplicate fuel id: ${fuel.id}`);
     fuelIds.add(fuel.id);
     if (!heatTierIds.has(fuel.heatTier)) throw new Error(`Fuel ${fuel.id} uses unknown heat tier ${fuel.heatTier}`);
+    if (fuel.consumable !== true) throw new Error(`Fuel ${fuel.id} must be consumable`);
     if (fuel.sourceType === "raw" && !Array.isArray(fuel.sourceKeys)) throw new Error(`Raw fuel ${fuel.id} requires sourceKeys`);
     if (fuel.sourceType === "material" && !fuel.materialId) throw new Error(`Material fuel ${fuel.id} requires materialId`);
   }
@@ -1294,11 +1891,41 @@ export function validateSmeltingRules(rules = smeltingRules) {
     if (materialIds.has(material.id)) throw new Error(`Duplicate material id: ${material.id}`);
     materialIds.add(material.id);
     if (!material.class) throw new Error(`Material ${material.id} missing class`);
-    if (!Array.isArray(material.rawInputs) || !material.rawInputs.length) throw new Error(`Material ${material.id} requires rawInputs`);
+    if (!Array.isArray(material.rawInputs)) throw new Error(`Material ${material.id} requires rawInputs`);
+    if (!recipeRequirements(material).length) throw new Error(`Material ${material.id} requires inputs`);
     if (!heatTierIds.has(material.requiredHeatTier)) throw new Error(`Material ${material.id} uses unknown heat tier ${material.requiredHeatTier}`);
     if (!Number.isInteger(material.yieldCount) || material.yieldCount < 1) throw new Error(`Material ${material.id} has invalid yieldCount`);
     if (!Number.isInteger(material.yieldBps) || material.yieldBps < 1 || material.yieldBps > SMELTING_RECIPE_YIELD_BPS_DENOMINATOR) {
       throw new Error(`Material ${material.id} has invalid yieldBps`);
+    }
+    if (!Number.isInteger(material.unitVolumeMm3)
+      || material.unitVolumeMm3 < 1
+      || material.unitVolumeMm3 > 0xffffffff
+    ) {
+      throw new Error(`Material ${material.id} has invalid unitVolumeMm3`);
+    }
+    if (!Number.isFinite(material.densityKgM3) || material.densityKgM3 <= 0) {
+      throw new Error(`Material ${material.id} has invalid densityKgM3`);
+    }
+    for (const key of ["thermalConductivityWMK", "waterAbsorptionPct"]) {
+      if (!Number.isFinite(material[key]) || material[key] < 0) {
+        throw new Error(`Material ${material.id} has invalid ${key}`);
+      }
+    }
+    if (material.buildingMaterialId !== undefined) {
+      if (!Array.isArray(material.unitDimensionsVu) || material.unitDimensionsVu.length !== 3
+        || material.unitDimensionsVu.some((dimension) => !Number.isFinite(dimension) || dimension <= 0)) {
+        throw new Error(`Building material ${material.id} has invalid unitDimensionsVu`);
+      }
+      const expectedVolumeMm3 = Math.round(
+        material.unitDimensionsVu.reduce((volume, dimension) => volume * dimension, BUILDING_VOXEL_VOLUME_MM3),
+      );
+      if (material.unitVolumeMm3 !== expectedVolumeMm3) {
+        throw new Error(`Building material ${material.id} volume does not match its canonical dimensions`);
+      }
+    }
+    if (material.forgeUse === "dye" && !/^#[0-9a-f]{6}$/iu.test(String(material.dyeColor ?? ""))) {
+      throw new Error(`Dye material ${material.id} has invalid dyeColor`);
     }
     const attributes = smeltingMaterialBaseAttributes(material);
     for (const key of SMELTING_MATERIAL_ATTRIBUTE_KEYS) {
@@ -1306,9 +1933,18 @@ export function validateSmeltingRules(rules = smeltingRules) {
         throw new Error(`Material ${material.id} has invalid attribute ${key}`);
       }
     }
-    for (const input of [...material.rawInputs, ...(material.catalysts ?? [])]) {
+    for (const input of recipeRequirements(material)) {
       if (!input.key || !Number.isFinite(input.amount) || input.amount < 1) {
         throw new Error(`Material ${material.id} has invalid input ${JSON.stringify(input)}`);
+      }
+    }
+  }
+
+  for (const material of materials) {
+    for (const input of recipeRequirements(material)) {
+      const referencedMaterialId = smeltingMaterialIdForInputKey(input.key);
+      if (referencedMaterialId !== null && !materialIds.has(referencedMaterialId)) {
+        throw new Error(`Material ${material.id} references unknown material ${referencedMaterialId}`);
       }
     }
   }
@@ -1330,51 +1966,70 @@ export function smeltingMaterialById(id, rules = smeltingRules) {
 }
 
 export function smeltingRecipeIdForMaterialId(id, rules = smeltingRules) {
-  const index = (rules.materials ?? []).findIndex((material) => material.id === id);
-  return index >= 0 ? 1001 + index : 0;
+  return smeltingMaterialItemCode(id, rules);
 }
 
 export function smeltingMergeRecipeIdForMaterialId(id, rules = smeltingRules) {
-  const index = (rules.materials ?? []).findIndex((material) => material.id === id);
-  return index >= 0 ? 2001 + index : 0;
+  const itemCode = smeltingMaterialItemCode(id, rules);
+  return itemCode ? itemCode + SMELTING_MERGE_RECIPE_ID_OFFSET : 0;
 }
 
 export function smeltingRecipeTableIdForMaterialId(id, rules = smeltingRules) {
-  const index = (rules.materials ?? []).findIndex((material) => material.id === id);
-  return index >= 0 ? Math.floor(index / SMELTING_RECIPES_PER_TABLE) + SMELTING_RECIPE_TABLE_ID_BASE : 0;
-}
-
-export function smeltingMergeRecipeTableIdForMaterialId(id, rules = smeltingRules) {
-  const index = (rules.materials ?? []).findIndex((material) => material.id === id);
-  return index >= 0 ? Math.floor(index / SMELTING_RECIPES_PER_TABLE) + SMELTING_MERGE_RECIPE_TABLE_ID_BASE : 0;
-}
-
-export function smeltingRecipeTableIdForRecipeId(recipeId, rules = smeltingRules) {
-  const index = Number(recipeId) - 1001;
-  if (Number.isInteger(index) && index >= 0 && index < (rules.materials ?? []).length) {
-    return Math.floor(index / SMELTING_RECIPES_PER_TABLE) + SMELTING_RECIPE_TABLE_ID_BASE;
-  }
-  const mergeIndex = Number(recipeId) - 2001;
-  return Number.isInteger(mergeIndex) && mergeIndex >= 0 && mergeIndex < (rules.materials ?? []).length
-    ? Math.floor(mergeIndex / SMELTING_RECIPES_PER_TABLE) + SMELTING_MERGE_RECIPE_TABLE_ID_BASE
+  const recipeId = smeltingRecipeIdForMaterialId(id, rules);
+  return recipeId
+    ? Math.floor((recipeId - SMELTING_MATERIAL_ITEM_CODE_BASE) / SMELTING_RECIPES_PER_TABLE) + SMELTING_RECIPE_TABLE_ID_BASE
     : 0;
 }
 
+export function smeltingMergeRecipeTableIdForMaterialId(id, rules = smeltingRules) {
+  const recipeId = smeltingRecipeIdForMaterialId(id, rules);
+  return recipeId
+    ? Math.floor((recipeId - SMELTING_MATERIAL_ITEM_CODE_BASE) / SMELTING_RECIPES_PER_TABLE) + SMELTING_MERGE_RECIPE_TABLE_ID_BASE
+    : 0;
+}
+
+export function smeltingRecipeTableIdForRecipeId(recipeId, rules = smeltingRules) {
+  const numericRecipeId = Number(recipeId);
+  if (!Number.isInteger(numericRecipeId)) return 0;
+  const merge = numericRecipeId >= SMELTING_MATERIAL_ITEM_CODE_BASE + SMELTING_MERGE_RECIPE_ID_OFFSET;
+  const itemCode = merge ? numericRecipeId - SMELTING_MERGE_RECIPE_ID_OFFSET : numericRecipeId;
+  if (!smeltingMaterialIdForItemCode(itemCode, rules)) return 0;
+  return Math.floor((itemCode - SMELTING_MATERIAL_ITEM_CODE_BASE) / SMELTING_RECIPES_PER_TABLE)
+    + (merge ? SMELTING_MERGE_RECIPE_TABLE_ID_BASE : SMELTING_RECIPE_TABLE_ID_BASE);
+}
+
 export function smeltingMaterialIdForRecipeId(recipeId, rules = smeltingRules) {
-  const index = Number(recipeId) - 1001;
-  if (Number.isInteger(index) && index >= 0) return rules.materials?.[index]?.id ?? null;
-  const mergeIndex = Number(recipeId) - 2001;
-  return Number.isInteger(mergeIndex) && mergeIndex >= 0 ? rules.materials?.[mergeIndex]?.id ?? null : null;
+  const numericRecipeId = Number(recipeId);
+  if (!Number.isInteger(numericRecipeId)) return null;
+  const itemCode = numericRecipeId >= SMELTING_MATERIAL_ITEM_CODE_BASE + SMELTING_MERGE_RECIPE_ID_OFFSET
+    ? numericRecipeId - SMELTING_MERGE_RECIPE_ID_OFFSET
+    : numericRecipeId;
+  return smeltingMaterialIdForItemCode(itemCode, rules);
 }
 
 export function smeltingMaterialItemCode(id, rules = smeltingRules) {
   const index = (rules.materials ?? []).findIndex((material) => material.id === id);
-  return index >= 0 ? 1001 + index : 0;
+  return index >= 0 ? smeltingMaterialItemCodeForIndex(index) : 0;
 }
 
 export function smeltingMaterialIdForItemCode(itemCode, rules = smeltingRules) {
-  const index = Number(itemCode) - 1001;
-  return Number.isInteger(index) && index >= 0 ? rules.materials?.[index]?.id ?? null : null;
+  const numericItemCode = Number(itemCode);
+  if (!Number.isInteger(numericItemCode) || SMELTING_RESERVED_MATERIAL_ITEM_CODES.includes(numericItemCode)) return null;
+  let index = numericItemCode - SMELTING_MATERIAL_ITEM_CODE_BASE;
+  for (const reservedItemCode of SMELTING_RESERVED_MATERIAL_ITEM_CODES) {
+    if (reservedItemCode < numericItemCode) index -= 1;
+  }
+  if (index < 0 || smeltingMaterialItemCodeForIndex(index) !== numericItemCode) return null;
+  return rules.materials?.[index]?.id ?? null;
+}
+
+function smeltingMaterialItemCodeForIndex(index) {
+  if (!Number.isInteger(index) || index < 0) return 0;
+  let itemCode = SMELTING_MATERIAL_ITEM_CODE_BASE + index;
+  for (const reservedItemCode of SMELTING_RESERVED_MATERIAL_ITEM_CODES) {
+    if (itemCode >= reservedItemCode) itemCode += 1;
+  }
+  return itemCode;
 }
 
 export function smeltingMaterialInputKey(materialId) {
@@ -1394,6 +2049,7 @@ export function createSmeltingMergeRecipe(materialOrId, rules = smeltingRules) {
   return {
     ...material,
     recipeKind: "merge",
+    requiredHeatTier: 0,
     materialInputs: [{ key: smeltingMaterialInputKey(material.id), amount: 1 }],
     rawInputs: [],
     catalysts: [],
@@ -1421,7 +2077,125 @@ export function smeltingRecipeYieldBps(recipe) {
 }
 
 export function smeltingSkillOutputBpsForLevel(level) {
-  return Math.min(SMELTING_RECIPE_YIELD_BPS_DENOMINATOR, 7000 + Math.max(0, Math.min(10, Math.floor(Number(level) || 0))) * 300);
+  return Math.min(
+    SMELTING_SKILL_MAX_OUTPUT_BPS,
+    SMELTING_RECIPE_YIELD_BPS_DENOMINATOR
+      + Math.max(0, Math.min(10, Math.floor(Number(level) || 0))) * 500,
+  );
+}
+
+export function smeltingRecipeRequiresFuel(recipe) {
+  return Math.max(0, Math.floor(Number(recipe?.requiredHeatTier) || 0)) > 0;
+}
+
+export function smeltingMaterialUnitVolumeMm3(materialOrId, rules = smeltingRules) {
+  const material = typeof materialOrId === "string" ? smeltingMaterialById(materialOrId, rules) : materialOrId;
+  return clampSmeltingVolumeMm3(material?.unitVolumeMm3 ?? SMELTING_DEFAULT_INPUT_VOLUME_MM3);
+}
+
+export function smeltingInputUnitVolumeMm3(inputKey, rules = smeltingRules) {
+  const materialId = smeltingMaterialIdForInputKey(inputKey);
+  return materialId
+    ? smeltingMaterialUnitVolumeMm3(materialId, rules)
+    : SMELTING_DEFAULT_INPUT_VOLUME_MM3;
+}
+
+export function smeltingRecipeInputVolumeMm3(recipe, rules = smeltingRules) {
+  return clampSmeltingVolumeMm3(recipeRequirements(recipe).reduce((total, requirement) => {
+    const amount = Math.max(1, Math.floor(Number(requirement?.amount) || 1));
+    return total + amount * smeltingInputUnitVolumeMm3(requirement?.key, rules);
+  }, 0));
+}
+
+export function smeltingRecipePdaOutputVolumeMm3(recipe, rules = smeltingRules) {
+  if (recipe?.recipeKind === "merge") {
+    return smeltingMaterialUnitVolumeMm3(recipe, rules);
+  }
+  return smeltingRecipeInputVolumeMm3(recipe, rules);
+}
+
+export function calculateSmeltingOutputVolumeResult({
+  recipe,
+  inputVolumeMm3,
+  servings = 1,
+  skillOutputBps,
+  pdaOutputVolumeMm3,
+  recipeInputVolumeMm3,
+  rules = smeltingRules,
+} = {}) {
+  if (!recipe) return { value: 0, overflow: false };
+  const batchCount = BigInt(Math.max(1, Math.floor(Number(servings) || 1)));
+  const expectedPerBatch = BigInt(clampSmeltingVolumeMm3(
+    recipeInputVolumeMm3 ?? smeltingRecipeInputVolumeMm3(recipe, rules),
+  ));
+  const expectedBatch = expectedPerBatch * batchCount;
+  const actualInput = BigInt(clampSmeltingSafeVolume(inputVolumeMm3 ?? Number(expectedBatch)));
+  if (recipe.recipeKind === "merge") {
+    return smeltingU32Result(actualInput);
+  }
+  const outputPerBatch = BigInt(clampSmeltingVolumeMm3(
+    pdaOutputVolumeMm3 ?? smeltingRecipePdaOutputVolumeMm3(recipe, rules),
+  ));
+  const recipeYield = BigInt(smeltingRecipeYieldBps(recipe));
+  const skillYield = BigInt(Math.max(SMELTING_RECIPE_YIELD_BPS_DENOMINATOR, Math.min(
+    SMELTING_SKILL_MAX_OUTPUT_BPS,
+    Math.floor(Number(skillOutputBps) || smeltingSkillOutputBpsForLevel(0)),
+  )));
+  const denominator = BigInt(SMELTING_RECIPE_YIELD_BPS_DENOMINATOR);
+  const scaledOutput = outputPerBatch * batchCount * actualInput / expectedBatch;
+  const recipeOutput = scaledOutput * recipeYield / denominator;
+  const finalOutput = recipeOutput * skillYield / denominator;
+  return smeltingU32Result(finalOutput);
+}
+
+export function calculateSmeltingOutputVolumeMm3(options = {}) {
+  return calculateSmeltingOutputVolumeResult(options).value;
+}
+
+export function calculateSmeltingOutputQuantityResult({
+  recipe,
+  servings = 1,
+  skillOutputBps,
+  consumedInputUnits = 0,
+} = {}) {
+  if (!recipe) return { value: 0, overflow: false };
+  if (recipe.recipeKind === "merge") {
+    const consumed = BigInt(Math.max(1, Math.floor(Number(consumedInputUnits) || 1)));
+    return smeltingU32Result(consumed);
+  }
+  const batchCount = BigInt(Math.max(1, Math.floor(Number(servings) || 1)));
+  const baseQuantity = BigInt(Math.max(1, Math.floor(Number(recipe.yieldCount) || 1)));
+  const skillYield = BigInt(Math.max(SMELTING_RECIPE_YIELD_BPS_DENOMINATOR, Math.min(
+    SMELTING_SKILL_MAX_OUTPUT_BPS,
+    Math.floor(Number(skillOutputBps) || smeltingSkillOutputBpsForLevel(0)),
+  )));
+  const quantity = baseQuantity * batchCount * skillYield
+    / BigInt(SMELTING_RECIPE_YIELD_BPS_DENOMINATOR);
+  return smeltingU32Result(quantity);
+}
+
+export function calculateSmeltingOutputQuantity(options = {}) {
+  return calculateSmeltingOutputQuantityResult(options).value;
+}
+
+function smeltingU32Result(value) {
+  const normalized = value > 0n ? value : 1n;
+  return {
+    value: Number(normalized > 0xffffffffn ? 0xffffffffn : normalized),
+    overflow: normalized > 0xffffffffn,
+  };
+}
+
+function clampSmeltingVolumeMm3(value) {
+  const numeric = Math.floor(Number(value));
+  if (!Number.isFinite(numeric) || numeric < 1) return 1;
+  return Math.min(0xffffffff, numeric);
+}
+
+function clampSmeltingSafeVolume(value) {
+  const numeric = Math.floor(Number(value));
+  if (!Number.isFinite(numeric) || numeric < 1) return 1;
+  return Math.min(Number.MAX_SAFE_INTEGER, numeric);
 }
 
 export function smeltingFuelForRawKey(key, rules = smeltingRules) {

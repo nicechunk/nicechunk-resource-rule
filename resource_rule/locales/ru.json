@@ -13,7 +13,7 @@
       "zhHant": "繁體中文",
       "zhHans": "简体中文"
     },
-    "comingSoon": "Скоро в продаже"
+    "comingSoon": "Planned"
   },
   "elements": {
     "names": {
@@ -139,81 +139,823 @@
   },
   "resourceAtlas": {
     "nav": {
-      "aria": "Основная навигация",
-      "home": "Главная страница",
-      "roadbook": "Дорожная книга",
-      "worldRules": "Мировые правила",
-      "resources": "Ресурсы",
-      "elements": "Элементы",
-      "fairness": "Справедливость",
-      "proofOfFrontier": "Доказательство",
-      "docs": "Документы",
-      "enterWorld": "Войдите в мир",
-      "guardians": "Хранители"
+      "aria": "Primary navigation",
+      "home": "Home",
+      "roadbook": "Roadbook",
+      "worldRules": "World Rules",
+      "resources": "Resources",
+      "elements": "Elements",
+      "fairness": "Fairness",
+      "proofOfFrontier": "Proof",
+      "docs": "Docs",
+      "enterWorld": "Enter World",
+      "guardians": "Guardians"
     },
     "page": {
-      "title": "Атлас ресурсов блока NiceChunk",
-      "eyebrow": "Сгенерированный блочный атлас ресурсов",
-      "heading": "Каждый сгенерированный блок является правилом общедоступного ресурса.",
-      "body": "NiceChunk отображает блоки местности в основы ресурсов с научной точки зрения. Каждый блок раскрывает свой сигнал генерации, вероятный диапазон элементного состава и роль в будущей экономике горнодобывающей и кузнечной промышленности.",
-      "metricsAria": "Статус Атласа",
-      "workspaceAria": "Блоковый атлас ресурсов",
-      "filtersAria": "Фильтры Атласа",
-      "filterTitle": "Блочные семейства",
-      "resultCount": "показано {count}",
-      "modelLabel": "Модель композиции",
-      "modelBody": "Диапазоны — это материальные тенденции, а не фиксированные награды. Фактические броски ресурсов могут позже использовать начальное значение, координату, глубину, биом и проверенное цепочкой состояние.",
-      "searchLabel": "Поиск блоков, элементов или сигналов",
-      "searchPlaceholder": "Поиск травы, Си, вулканического...",
-      "empty": "Ни один сгенерированный блок не соответствует текущим фильтрам.",
-      "blockAria": "Открыть сведения о ресурсе {name}",
-      "compositionTitle": "Диапазон состава элементов",
-      "physicalTitle": "Оценка плотности и массы",
-      "densityLabel": "Объемная плотность",
-      "dimensionsLabel": "Фактические размеры блока",
-      "volumeLabel": "Расчетный объем",
-      "massLabel": "Расчетная масса",
-      "notAvailable": "Неизвестно",
-      "signalsTitle": "Генерация сигналов",
-      "visualTitle": "Воксельный зрительный ген",
+      "title": "NiceChunk Box Resource Atlas",
+      "eyebrow": "GENERATED BLOCK RESOURCE ATLAS",
+      "heading": "Every generated block is a public resource rule.",
+      "body": "NiceChunk maps terrain blocks into scientifically scoped resource foundations. Each block exposes its generation signal, likely elemental composition range, and role in the future mining and forging economy.",
+      "metricsAria": "Atlas status",
+      "workspaceAria": "Block resource atlas",
+      "filtersAria": "Atlas filters",
+      "filterTitle": "Block families",
+      "resultCount": "{count} shown",
+      "modelLabel": "Composition model",
+      "modelBody": "Ranges are material tendencies, not fixed rewards. Actual resource rolls can later use seed, coordinate, depth, biome, and chain-verified state.",
+      "searchLabel": "Search blocks, elements, or signals",
+      "searchPlaceholder": "Search grass, Si, volcanic...",
+      "empty": "No generated blocks match the current filters.",
+      "blockAria": "Open {name} resource details",
+      "compositionTitle": "Element composition range",
+      "physicalTitle": "Density and mass estimate",
+      "densityLabel": "Bulk density",
+      "dimensionsLabel": "Actual block dimensions",
+      "volumeLabel": "Calculated volume",
+      "massLabel": "Calculated mass",
+      "notAvailable": "Unknown",
+      "signalsTitle": "Generation signals",
+      "visualTitle": "Voxel visual gene",
       "metric": {
-        "blocks": "Сгенерированные блоки",
-        "families": "Блочные семейства",
-        "elements": "Ссылочные элементы",
-        "ruleSet": "Набор правил",
-        "worldRules": "Правила мира",
-        "materials": "Плавимые материалы"
+        "blocks": "Generated blocks",
+        "families": "Block families",
+        "elements": "Referenced elements",
+        "ruleSet": "Rule set",
+        "worldRules": "World rules",
+        "materials": "Smeltable materials"
       },
       "color": {
-        "0": "Основное лицо",
-        "1": "Боковая грань",
-        "2": "Самое интересное"
-      }
+        "0": "Primary face",
+        "1": "Side face",
+        "2": "Top highlight"
+      },
+      "modeAria": "Resource data mode",
+      "rawMode": "Raw Resources",
+      "materialMode": "Material Data",
+      "rawModeBody": "Gather natural resources. Start with bare-hand pebbles and leaf-dropped twigs to craft a basic stone axe directly in Backpack → Smelting; other resources use the public processing recipes.",
+      "materialModeBody": "Material data defines fuel heat, smelting inputs, artisan requirements, and the forge-ready outputs created from raw resources."
     },
     "category": {
-      "all": "Все блоки",
-      "terrain": "Местность",
-      "fluids": "Жидкости",
-      "geological": "Геологическая",
-      "cold": "Холод",
-      "volcanic": "Вулканический",
-      "organic": "Органический",
-      "plants": "Растения",
-      "aquatic": "Водный",
-      "anomaly": "Редкий/Аномалия"
+      "all": "All Blocks",
+      "terrain": "Terrain",
+      "fluids": "Fluids",
+      "geological": "Geological",
+      "cold": "Cold",
+      "volcanic": "Volcanic",
+      "organic": "Organic",
+      "plants": "Plants",
+      "aquatic": "Aquatic",
+      "anomaly": "Rare / Anomaly"
     },
     "rarity": {
-      "Common": "Общие",
-      "Uncommon": "Необычно",
-      "Rare": "Редкий",
-      "Anomaly": "Аномалия"
+      "Common": "Common",
+      "Uncommon": "Uncommon",
+      "Rare": "Rare",
+      "Anomaly": "Anomaly"
     },
     "signal": {
-      "temperature": "Температура",
-      "humidity": "Влажность",
-      "altitude": "Высота",
-      "slope": "Наклон",
-      "rarity": "Редкость"
+      "temperature": "Temperature",
+      "humidity": "Humidity",
+      "altitude": "Altitude",
+      "slope": "Slope",
+      "rarity": "Rarity"
+    },
+    "starter": {
+      "title": "Your first tool: gather or trade",
+      "body": "Buy a tool at the market, or start empty-handed: pick up surface pebbles and strike natural leaves. Each removed leaf has a 30% chance to drop one twig.",
+      "recipe": "1 pebble + 2 twigs → 1 basic stone axe · 99 durability",
+      "use": "Open Backpack → Smelting. No fuel, station, or skill gate. Equip the crafted axe from your backpack. A successful tool-assisted harvest costs 3 durability on-chain; bare-hand gathering costs none.",
+      "action": "Gather your first tool"
+    },
+    "block": {
+      "twig": {
+        "name": "Twig",
+        "source": "Natural leaves · 30% drop",
+        "description": "A dry forked branch with pale broken tips. 250 cm³ of wood, density 650 kg/m³, about 162.5 g. A natural broadleaf or pine leaf has a fixed 30% chance to drop one twig. Removed leaves cannot be claimed again. Combine two twigs and one surface pebble in Backpack → Smelting for a basic stone axe with 99 durability, without fuel."
+      },
+      "grass": {
+        "name": "Блок травы",
+        "source": "Поверхность",
+        "description": "Живой верхний почвенный блок: силикатная почва под тонким биологическим слоем, сформированным влажностью, уклоном и плотностью леса."
+      },
+      "dirt": {
+        "name": "Почва",
+        "source": "Мелкий подземный слой",
+        "description": "Выветренная почва под травой, смешанная с силикатными зернами, глинами, оксидами железа, влагой и органическими остатками."
+      },
+      "stone": {
+        "name": "Камень",
+        "source": "Подземный слой",
+        "description": "Обычная силикатная порода для холмов, скал, стен пещер и базового геологического материала при добыче."
+      },
+      "deepStone": {
+        "name": "Глубинный камень",
+        "source": "Глубокий подземный слой",
+        "description": "Плотная порода нижних пластов с повышенной склонностью к железу и магнию, генерируемая ниже мелкой коры."
+      },
+      "sand": {
+        "name": "Песок",
+        "source": "Поверхность",
+        "description": "Кварцевый зернистый осадок, создаваемый правилами пустынь, пляжей, рек, озер и морского дна."
+      },
+      "gravel": {
+        "name": "Гравий",
+        "source": "Поверхность / Подземный слой",
+        "description": "Смешанные обломки пород; состав сильно меняется по соседнему рельефу, но остается в основном силикатным."
+      },
+      "clay": {
+        "name": "Глина",
+        "source": "Влажная поверхность / Подземный слой",
+        "description": "Мелкий гидратированный алюмосиликатный осадок во влажных, пологих местах и слоях рядом с водой."
+      },
+      "mud": {
+        "name": "Грязь",
+        "source": "Влажная поверхность",
+        "description": "Почва с высоким содержанием воды и органики, характерная для низких плохо дренированных экосистем с малым доступом кислорода."
+      },
+      "dryDirt": {
+        "name": "Сухая почва",
+        "source": "Сухая поверхность",
+        "description": "Высушенная почва с меньшей долей водорода и органики, создаваемая правилами низкой влажности."
+      },
+      "saltFlat": {
+        "name": "Солончак",
+        "source": "Пустынный участок",
+        "description": "Эвапоритовая корка сухого бассейна, где преобладает хлорид натрия с примесями магния, кальция, сульфатов и кислородных солей."
+      },
+      "snow": {
+        "name": "Снег",
+        "source": "Холодная поверхность",
+        "description": "Слой замерзших осадков выше снеговой линии или в холодном биоме, возможно с следами минеральной пыли."
+      },
+      "ice": {
+        "name": "Лед",
+        "source": "Замерзшая жидкость / Редкая поверхность",
+        "description": "Твердая фаза воды, выбранная холодными жидкостями и редкими снежными правилами; химически проста, но важна для среды."
+      },
+      "frozenSoil": {
+        "name": "Мерзлая почва",
+        "source": "Холодная поверхность / Подземный слой",
+        "description": "Почва типа вечной мерзлоты, смешивающая минеральные зерна, связанный лед и сохраненную органику."
+      },
+      "basalt": {
+        "name": "Базальт",
+        "source": "Вулканическая поверхность / Подземный слой",
+        "description": "Темная мафическая вулканическая порода из быстро остывшей лавы, с большей склонностью к железу, магнию, кальцию и титану."
+      },
+      "ash": {
+        "name": "Вулканический пепел",
+        "source": "Вулканическая поверхность",
+        "description": "Мелкие вулканические частицы из вулканических биомов, похожие на силикатную породу, но более пористые и склонные к сульфатам."
+      },
+      "bedrock": {
+        "name": "Коренная порода",
+        "source": "Основание мира",
+        "description": "Протокольный фундаментальный слой в основании генерируемых колонн; ведет себя как твердая порода, а не фиксированное химическое месторождение."
+      },
+      "water": {
+        "name": "Вода",
+        "source": "Жидкость",
+        "description": "Стандартный жидкий блок для океанов, рек, озер и низинных вод, с небольшими различиями растворенных ионов по биому."
+      },
+      "swampWater": {
+        "name": "Болотная вода",
+        "source": "Болотная жидкость",
+        "description": "Органически богатая стоячая вода из правил болот и влажных земель, со следами растворенного углерода, серы, железа и азота."
+      },
+      "toxicWater": {
+        "name": "Токсичная вода",
+        "source": "Загрязненная жидкость",
+        "description": "Опасная жидкость, выбранная сигналами загрязнения. Основой остается вода, но следовые металлы и сульфиды повышают биологический риск."
+      },
+      "lava": {
+        "name": "Лава",
+        "source": "Вулканическая жидкость",
+        "description": "Расплавленная силикатная жидкость из вулканических сигналов. Состав следует базальтовому расплаву, а не условному фэнтезийному огню."
+      },
+      "quicksand": {
+        "name": "Зыбучий песок",
+        "source": "Пустынная поверхность",
+        "description": "Водонасыщенная песчаная ловушка из пустынной аномальности; в основном кремнезем с водой, снижающей механическую устойчивость."
+      },
+      "trunk": {
+        "name": "Ствол",
+        "source": "Дерево",
+        "description": "Древесная структурная ткань широколиственных деревьев, состоящая главным образом из целлюлозы, лигнина, воды и минеральных питательных веществ."
+      },
+      "leaves": {
+        "name": "Листья",
+        "source": "Крона дерева",
+        "description": "Фотосинтетические блоки кроны; органическая ткань с магниевым хлорофиллом и питательными следовыми металлами."
+      },
+      "pineTrunk": {
+        "name": "Сосновый ствол",
+        "source": "Сосна",
+        "description": "Смолистая древесина хвойного дерева, создаваемая холодными, высокогорными или вечнозелеными правилами."
+      },
+      "pineLeaves": {
+        "name": "Сосновая хвоя",
+        "source": "Крона сосны",
+        "description": "Вечнозеленая хвойная крона с меньшим водообменом и следами минеральных питательных веществ."
+      },
+      "deadWood": {
+        "name": "Мертвая древесина",
+        "source": "Вулканическая / сухая растительность",
+        "description": "Высушенная или перегретая древесина с меньшим содержанием водорода и большей долей открытого углерода."
+      },
+      "giantRoot": {
+        "name": "Гигантский корень",
+        "source": "Растительность тропического леса",
+        "description": "Большая открытая корневая масса из влажных тропических лесов; древесная, но у почвы более влажная и минерализованная."
+      },
+      "grassPlant": {
+        "name": "Травянистое растение",
+        "source": "Поверхностная растительность",
+        "description": "Малое травянистое растение, выбранное влажными и пологими поверхностными правилами."
+      },
+      "dryGrass": {
+        "name": "Сухая трава",
+        "source": "Сухая растительность",
+        "description": "Высушенный травянистый материал с низковлажных поверхностей, с меньшим водородом и более высокой концентрацией углерода."
+      },
+      "bush": {
+        "name": "Куст",
+        "source": "Поверхностная растительность",
+        "description": "Древесный кустарниковый слой из правил леса, равнин, гор и тропического леса."
+      },
+      "deadBush": {
+        "name": "Сухой куст",
+        "source": "Сухая / вулканическая растительность",
+        "description": "Высохший остаток кустарника, создаваемый пустынными и вулканическими поверхностными условиями."
+      },
+      "cactus": {
+        "name": "Кактус",
+        "source": "Пустынная растительность",
+        "description": "Запасающий воду суккулент из пустынных правил; органический, но с необычно высокой долей связанной воды."
+      },
+      "reed": {
+        "name": "Камыш",
+        "source": "Прибрежная растительность",
+        "description": "Водное краевое растение, генерируемое рядом с болотами, реками, озерами и влажными землями."
+      },
+      "swampGrass": {
+        "name": "Болотная трава",
+        "source": "Болотная поверхность",
+        "description": "Травяной слой влажных земель с органической тканью и осадочным влиянием стоячей воды."
+      },
+      "snowBush": {
+        "name": "Снежный куст",
+        "source": "Холодная растительность",
+        "description": "Холодостойкий куст, часто окрашенный снегом или инеем и выбранный горными и снежными правилами."
+      },
+      "thorn": {
+        "name": "Колючка",
+        "source": "Сухая / вулканическая растительность",
+        "description": "Затвердевший защитный растительный материал сухих или вулканических поверхностей, богатый углеродной структурной тканью."
+      },
+      "moss": {
+        "name": "Мох",
+        "source": "Влажная поверхность / Пещера",
+        "description": "Влажный недревесный биологический мат из влажных лесов, болот и правил рядом с пещерами."
+      },
+      "lichen": {
+        "name": "Лишайник",
+        "source": "Холодная / каменная поверхность",
+        "description": "Симбиотическая корка холодных или каменных поверхностей, соединяющая биологическую ткань и минеральный субстрат."
+      },
+      "vine": {
+        "name": "Лиана",
+        "source": "Влажная растительность",
+        "description": "Гибкое углеродистое вьющееся растение, генерируемое во влажных биомах и влажных пещероподобных областях."
+      },
+      "glowMycelium": {
+        "name": "Светящийся мицелий",
+        "source": "Пещерная растительность",
+        "description": "Биолюминесцентный грибной мат из влажных подземных пространств, с усиленными сигналами фосфора и серы."
+      },
+      "mushroom": {
+        "name": "Гриб",
+        "source": "Влажная / пещерная растительность",
+        "description": "Плодовое тело гриба, выбранное редкими случайными результатами влажной растительности."
+      },
+      "seaweed": {
+        "name": "Морские водоросли",
+        "source": "Морская растительность",
+        "description": "Морская растительная биомасса под водой, с следовыми тенденциями натрия, калия, магния и йода."
+      },
+      "aquaticPlant": {
+        "name": "Водное растение",
+        "source": "Пресноводная растительность",
+        "description": "Пресноводная растительность с высоким содержанием воды, поглощающая питательные вещества из осадка."
+      },
+      "coral": {
+        "name": "Коралл",
+        "source": "Теплая морская растительность",
+        "description": "Структура из карбоната кальция, создаваемая в теплых мелководных условиях."
+      },
+      "deadCoral": {
+        "name": "Мертвый коралл",
+        "source": "Холодная / загрязненная морская растительность",
+        "description": "Мертвый карбонатно-кальциевый рифовый материал из холодных или загрязненных океанских правил."
+      },
+      "shellBed": {
+        "name": "Ракушечный слой",
+        "source": "Редкий пляж / Морское дно",
+        "description": "Накопление фрагментов раковин и карбонатных зерен, создаваемое как редкие пятна побережья и морского дна."
+      },
+      "coal": {
+        "name": "Coal",
+        "source": "Deep Stone Seam",
+        "description": "Carbon-rich sedimentary fuel generated as low-frequency seams inside deep stone, useful for smelting heat rather than direct forging."
+      },
+      "cotton": {
+        "name": "Хлопок",
+        "source": "Warm Plains Vegetation",
+        "description": "A cellulose-rich fiber crop selected by warm, moderately humid surface conditions and used as the world's primary woven textile feedstock."
+      },
+      "flowerWhite": {
+        "name": "Белый цветок",
+        "source": "Temperate Surface Vegetation",
+        "description": "A pale flowering plant whose cellulose tissue and flavonoid pigments provide a mineral-light white dye source."
+      },
+      "flowerYellow": {
+        "name": "Жёлтый цветок",
+        "source": "Warm Surface Vegetation",
+        "description": "A carotenoid-rich flowering plant used for warm yellow pigments while retaining the carbon, oxygen, and hydrogen profile of plant tissue."
+      },
+      "flowerRed": {
+        "name": "Красный цветок",
+        "source": "Warm Humid Vegetation",
+        "description": "An anthocyanin-rich flower used for stable red organic pigment, favored by warm and humid surface rules."
+      },
+      "flowerBlue": {
+        "name": "Синий цветок",
+        "source": "Cool Humid Vegetation",
+        "description": "A rarer cool-climate flower whose anthocyanin chemistry and cellular acidity produce a blue pigment source."
+      },
+      "flowerPink": {
+        "name": "Розовый цветок",
+        "source": "Temperate Humid Vegetation",
+        "description": "A temperate flowering plant with dilute anthocyanin pigments used for pink dyes and decorative textile finishes."
+      }
+    },
+    "material": {
+      "workspaceAria": "Material resource data",
+      "eyebrow": "SMELTING DATA",
+      "title": "Raw resources become forgeable materials.",
+      "body": "Raw resources cannot be forged directly. A smelter consumes fuel heat, checks the material recipe, then outputs material resources for item forging.",
+      "ruleSetLabel": "Rule source",
+      "contractBody": "This table is a standalone JSON rule source so the game client and future contracts can reference the same smelting requirements.",
+      "fuelTitle": "Fuel heat tiers",
+      "fuelBody": "Burnable fuels provide heat tiers. Higher tier recipes require stronger fuel or a hotter furnace source.",
+      "recipeTitle": "Material atlas",
+      "recipeBody": "Browse forge-ready materials by class, inspect their element profile, and review the smelting requirements behind each output.",
+      "atlasAria": "Material atlas",
+      "filtersAria": "Material filters",
+      "categoryTitle": "Material classes",
+      "allMaterials": "All Materials",
+      "resultCount": "{count} shown",
+      "searchLabel": "Search materials, classes, elements, or inputs",
+      "searchPlaceholder": "Search steel, Si, glass...",
+      "empty": "No material recipes match the current filters.",
+      "materialAria": "Open {name} material details",
+      "visualModelLabel": "Element color model",
+      "visualModelBody": "Material thumbnails are generated from the dominant elements in each recipe profile.",
+      "processTitle": "Smelting process",
+      "compositionTitle": "Material element profile",
+      "physicalTitle": "Objective physical properties",
+      "attributesTitle": "Engineering property scores",
+      "unitVolumeLabel": "Canonical unit volume",
+      "densityLabel": "Bulk density",
+      "unitMassLabel": "Calculated unit mass",
+      "thermalConductivityLabel": "Thermal conductivity",
+      "waterAbsorptionLabel": "Water absorption",
+      "compressiveStrengthLabel": "Compressive strength",
+      "flexuralStrengthLabel": "Flexural strength",
+      "attribute": {
+        "hardness": "Hardness",
+        "durability": "Durability",
+        "toughness": "Toughness",
+        "ductility": "Ductility",
+        "brittleness": "Brittleness",
+        "density": "Density",
+        "heatResistance": "Heat resistance",
+        "corrosionResistance": "Corrosion resistance",
+        "conductivity": "Electrical conductivity",
+        "thermalConductivity": "Thermal conductivity",
+        "magnetism": "Magnetism",
+        "workability": "Workability"
+      },
+      "forgeUseTitle": "Forge unlock",
+      "sourceBlocksTitle": "Raw resource sources",
+      "heatLabel": "Heat",
+      "burnTimeLabel": "Burn time",
+      "sourceLabel": "Source",
+      "consumableLabel": "Use",
+      "consumable": "Consumable",
+      "burnSeconds": "{seconds}s",
+      "requiredHeatLabel": "Required heat",
+      "artisanLevelLabel": "Artisan level",
+      "artisanLevel": "Level {level}",
+      "rawInputsLabel": "Raw inputs",
+      "catalystLabel": "Catalyst",
+      "yieldLabel": "Yield",
+      "yieldCount": "{count} batch",
+      "forgeUseLabel": "Forge role",
+      "inputAmount": "{amount}x {resource}",
+      "heatTierValue": "Tier {tier}: {name} ({temp} C)",
+      "heatTierShort": "Heat T{tier}",
+      "heatTier": {
+        "low": "Low kiln",
+        "workshop": "Workshop furnace",
+        "forge": "Forge heat",
+        "blast": "Blast heat",
+        "unknown": "Unknown heat"
+      },
+      "class": {
+        "carbon": "Carbon",
+        "ceramic": "Ceramic",
+        "glass": "Glass",
+        "metal": "Metal",
+        "alloy": "Alloy",
+        "fiber": "Fiber",
+        "polymer": "Polymer",
+        "chemical": "Chemical",
+        "composite": "Composite",
+        "crystal": "Crystal"
+      },
+      "forgeUse": {
+        "fuel": "High-density fuel and reducing agent",
+        "soilCatalyst": "Soil amendment, bio-reactor feed, and low-tier catalyst",
+        "mold": "Forge molds, bricks, and furnace lining",
+        "binding": "Heat-stable binder and ceramic additive",
+        "flux": "Smelting flux for cleaner melts and lower slag",
+        "masonry": "Structural blocks, kiln bodies, and field construction",
+        "lens": "Optics, windows, gauges, and fragile fittings",
+        "circuit": "Circuits, sensors, logic plates, and signal devices",
+        "cooling": "Cooling cells, stabilizers, and frost-grade fittings",
+        "toolHead": "Pickaxe heads, blades, tools, and structural fittings",
+        "conductor": "Conductive fittings, coils, and precision parts",
+        "armorPlate": "Armor plates, shields, and impact-resistant panels",
+        "magneticCore": "Magnetic cores, motor parts, and advanced mechanisms",
+        "reinforcement": "Light reinforcement plates and carbon inserts",
+        "weaponAndTool": "Durable tools, weapons, and armor plates",
+        "heatShield": "Heat shields, furnace lining, and high-temperature parts",
+        "sealedVessel": "Sealed vessels, toxic containment, and hazard tools",
+        "explosive": "Заряд для управляемой массовой выемки"
+      },
+      "fuel": {
+        "dry_grass": {
+          "name": "Dry Biomass",
+          "description": "Low heat starter fuel from dry grass, dead bush, or thorn. Useful for first kiln recipes."
+        },
+        "wood": {
+          "name": "Wood Fuel",
+          "description": "General workshop fuel made from logs, dead wood, or giant roots. Burns longer than grass fuel."
+        },
+        "charcoal": {
+          "name": "Charcoal",
+          "description": "Processed carbon fuel made from wood resources. It supplies tier-three forge heat and is consumed with the smelting batch."
+        },
+        "coal": {
+          "name": "Coal",
+          "description": "Deep stone seam fuel that supplies tier-four blast heat. It is consumed with the smelting batch."
+        }
+      },
+      "item": {
+        "charcoal": {
+          "name": "Charcoal",
+          "description": "Carbonized wood material used as fuel, reducing agent, and early alloy support."
+        },
+        "biochar_compost": {
+          "name": "Biochar Compost",
+          "description": "Low-heat carbon and nutrient material made from leaves, moss, and mud for soil systems and biological stations."
+        },
+        "resin_binder": {
+          "name": "Resin Binder",
+          "description": "Pine and vine resin concentrate that binds fibers, seals vessels, and supports low-temperature composites."
+        },
+        "ceramic_brick": {
+          "name": "Ceramic Brick",
+          "description": "Fired clay and sand material for furnace walls, molds, and basic construction recipes."
+        },
+        "lime_ceramic": {
+          "name": "Lime Ceramic",
+          "description": "Shell-bed lime and clay ceramic used as a heat-stable binder and refractory additive."
+        },
+        "quicklime": {
+          "name": "Quicklime",
+          "description": "Reactive calcium-rich lime fired from shells and coral, useful as flux, mortar base, and chemical reagent."
+        },
+        "salt_flux": {
+          "name": "Salt Flux",
+          "description": "Salt-flat and ash flux that helps smelting separate slag and stabilizes cleaner metal batches."
+        },
+        "ash_cement": {
+          "name": "Ash Cement",
+          "description": "Volcanic ash, clay, and shell lime binder for masonry, furnace shells, and heat-stable construction."
+        },
+        "glass_ingot": {
+          "name": "Glass Ingot",
+          "description": "Silica-rich glass stock for lenses, windows, gauges, and fragile technical parts."
+        },
+        "obsidian_glass": {
+          "name": "Obsidian Glass",
+          "description": "Dark volcanic glass made from silica and basalt under lava heat, suited to durable optics and sealed panes."
+        },
+        "silicon_wafer": {
+          "name": "Silicon Wafer",
+          "description": "Purified silicon plate reduced with carbon, intended for circuits, sensors, and future signal devices."
+        },
+        "ice_crystal": {
+          "name": "Ice Crystal",
+          "description": "Stabilized ice and salt crystal for cooling cells, frost tools, and thermal-control assemblies."
+        },
+        "iron_bloom": {
+          "name": "Iron Bloom",
+          "description": "Forge-ready iron mass reduced from deep stone and stone with coal as the carbon reducer."
+        },
+        "copper_bloom": {
+          "name": "Copper Bloom",
+          "description": "Conductive metal bloom concentrated from gravel and basalt trace metal tendencies."
+        },
+        "alumina_plate": {
+          "name": "Alumina Plate",
+          "description": "Aluminum-rich ceramic plate from clay and deep stone, useful for impact panels and insulated fittings."
+        },
+        "nickel_iron": {
+          "name": "Nickel Iron",
+          "description": "Magnetic iron alloy refined from deep stone and basalt trace metals for motors and advanced mechanisms."
+        },
+        "carbon_plate": {
+          "name": "Carbon Plate",
+          "description": "Compressed coal and deep stone carbon material for light reinforcement and inserts."
+        },
+        "carbon_steel": {
+          "name": "Carbon Steel",
+          "description": "High-tier steel billet made from deep stone iron tendency and coal carbon control."
+        },
+        "basalt_fiber": {
+          "name": "Basalt Fiber",
+          "description": "Pulled volcanic fiber from basalt and lava heat, suited to heat shields and furnace parts."
+        },
+        "basalt_composite": {
+          "name": "Basalt Composite",
+          "description": "High-heat basalt, carbon, and resin composite for armor panels, shields, and durable housings."
+        },
+        "geopolymer_block": {
+          "name": "Geopolymer Block",
+          "description": "Ash, basalt, and salt-activated stone composite for strong masonry and kiln bodies."
+        },
+        "coral_lime": {
+          "name": "Coral Lime",
+          "description": "Calcium-rich coral and sand ceramic for marine masonry, mortar, and heat-stable blocks."
+        },
+        "toxic_glass": {
+          "name": "Toxic Glass",
+          "description": "Sealed hazardous glass from toxic water, salt, and silica, intended for containment vessels and risk tools."
+        },
+        "cotton": {
+          "name": "Хлопок"
+        },
+        "flowerWhite": {
+          "name": "Белый цветок"
+        },
+        "flowerYellow": {
+          "name": "Жёлтый цветок"
+        },
+        "flowerRed": {
+          "name": "Красный цветок"
+        },
+        "flowerBlue": {
+          "name": "Синий цветок"
+        },
+        "flowerPink": {
+          "name": "Розовый цветок"
+        },
+        "cotton_cloth": {
+          "name": "Хлопковая ткань",
+          "description": "Ткань из хлопка и сухой травы для гибкого кованого снаряжения и анимированных тканевых поверхностей."
+        },
+        "white_dye": {
+          "name": "Белый краситель",
+          "description": "Светлый цветочный пигмент для окрашивания ткани во время ковки."
+        },
+        "yellow_dye": {
+          "name": "Жёлтый краситель",
+          "description": "Тёплый жёлтый цветочный пигмент для окрашивания ткани во время ковки."
+        },
+        "red_dye": {
+          "name": "Красный краситель",
+          "description": "Яркий красный цветочный пигмент для окрашивания ткани во время ковки."
+        },
+        "blue_dye": {
+          "name": "Синий краситель",
+          "description": "Холодный синий цветочный пигмент для окрашивания ткани во время ковки."
+        },
+        "pink_dye": {
+          "name": "Розовый краситель",
+          "description": "Мягкий розовый цветочный пигмент для окрашивания ткани во время ковки."
+        },
+        "wooden_plank": {
+          "name": "Деревянная доска",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "wooden_stick": {
+          "name": "Деревянная рейка",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "squared_timber": {
+          "name": "Квадратный брус",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "clear_glass_panel": {
+          "name": "Панель прозрачного стекла",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "ice_blue_glass_panel": {
+          "name": "Панель ледяного синего стекла",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "amber_glass_panel": {
+          "name": "Панель янтарного стекла",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "basalt_reinforced_glass": {
+          "name": "Стекло, армированное базальтом",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "fired_clay_brick": {
+          "name": "Обожжённый глиняный кирпич",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "adobe_brick": {
+          "name": "Саманный кирпич",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "stone_brick": {
+          "name": "Каменный кирпич",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "deep_stone_brick": {
+          "name": "Кирпич из глубинного камня",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "basalt_brick": {
+          "name": "Базальтовый кирпич",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "sandstone_block": {
+          "name": "Блок тёсаного песчаника",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "cobblestone": {
+          "name": "Булыжник",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "polished_stone_slab": {
+          "name": "Полированная каменная плита",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "lime_plaster": {
+          "name": "Известковая штукатурка",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "clay_plaster": {
+          "name": "Глиняная штукатурка",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "rammed_earth": {
+          "name": "Утрамбованная земля",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "shell_terrazzo": {
+          "name": "Плита ракушечного терраццо",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "white_ceramic_tile": {
+          "name": "Белая керамическая плитка",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "blue_ceramic_tile": {
+          "name": "Синяя керамическая плитка",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "volcanic_ash_concrete": {
+          "name": "Бетон из вулканического пепла",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "salt_crystal_block": {
+          "name": "Блок кристаллической соли",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_terracotta": {
+          "name": "Терракотовая черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_ice_blue": {
+          "name": "Ледяная синяя глазурованная черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_shell_white": {
+          "name": "Ракушечно-белая глазурованная черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_charcoal": {
+          "name": "Угольно-чёрная глазурованная черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_ash_gray": {
+          "name": "Пепельно-серая глазурованная черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "roof_tile_mycelium": {
+          "name": "Светящаяся мицелиевая черепица",
+          "description": "Производственный строительный материал NCM3 с каноническим ончейн-рецептом, физическими свойствами и отдельной низкополигональной моделью."
+        },
+        "blasting_charge": {
+          "name": "Взрывной заряд",
+          "description": "Компактный шахтный заряд на смоляной связке для управляемой разработки нескольких блоков. Его формула NiceChunk намеренно вымышленная."
+        },
+        "basic_stone_axe": {
+          "name": "Basic Stone Axe",
+          "description": "1 pebble + 2 twigs → 1 basic stone axe · 99 durability. Open Backpack → Smelting. No fuel, station, or skill gate. Equip the crafted axe from your backpack. A successful tool-assisted harvest costs 3 durability on-chain; bare-hand gathering costs none."
+        }
+      }
+    },
+    "drop": {
+      "eyebrow": "CHAIN DROP TABLE",
+      "title": "Civilization rules can add rare extra drops without growing terrain code.",
+      "body": "The canonical terrain algorithm still defines the mined base block. A compact on-chain drop table can add deterministic extra rewards by source block, altitude, depth, seeded probability, and the player's Exploration level.",
+      "ruleSetLabel": "Rule set",
+      "contractBody": "This PDA is designed for the civilization system: approved proposals append bounded rule bytes instead of redeploying the mining program.",
+      "source": "Source",
+      "extraDrop": "Extra drop",
+      "chance": "Base chance",
+      "size": "Drop size",
+      "altitude": "Altitude",
+      "depth": "Depth",
+      "detailTitle": "Extra drop sources",
+      "detailBody": "On chain this is designed as compact {ruleSet} bytes: source resource, base probability, sample size window, altitude window, and depth window. Final roll weight gains +10% per Exploration level.",
+      "chanceValue": "{value}%",
+      "sizeValue": "{min} to {max}",
+      "rangeValue": "{min} to {max}"
+    },
+    "tag": {
+      "plains": "Равнины",
+      "forest": "Лес",
+      "rainforest": "Тропический лес",
+      "general": "Общее",
+      "mountain": "Горы",
+      "cave": "Пещера",
+      "foundation": "Основание",
+      "deepCave": "Глубокая пещера",
+      "desert": "Пустыня",
+      "beach": "Пляж",
+      "river": "Река",
+      "oceanFloor": "Морское дно",
+      "wetland": "Влажные земли",
+      "swamp": "Болото",
+      "lake": "Озеро",
+      "desertEdge": "Край пустыни",
+      "dryPlains": "Сухие равнины",
+      "evaporite": "Эвапорит",
+      "snowfield": "Снежное поле",
+      "tundra": "Тундра",
+      "frozenWater": "Замерзшая вода",
+      "volcano": "Вулкан",
+      "deepRock": "Глубинная порода",
+      "ejecta": "Выбросы",
+      "unbreakable": "Неразрушимое",
+      "ocean": "Океан",
+      "corruption": "Загрязнение",
+      "heat": "Жар",
+      "hazard": "Опасность",
+      "tree": "Дерево",
+      "dryBiome": "Сухой биом",
+      "rareOrganic": "Редкая органика",
+      "succulent": "Суккулент",
+      "hazardPlant": "Опасное растение",
+      "humid": "Влажно",
+      "bioluminescent": "Биолюминесценция",
+      "aquatic": "Водное",
+      "warmWater": "Теплая вода",
+      "rare": "Редкое",
+      "coldWater": "Холодная вода"
     }
+  },
+  "siteFooter": {
+    "tagline": "Seeded voxel world protocol on Solana.",
+    "navigationAria": "Навигация в футере",
+    "socialAria": "Социальные ссылки NiceChunk",
+    "home": "Главная",
+    "play": "Войти в мир",
+    "roadmap": "План",
+    "docs": "Документы",
+    "guardian": "Стражи",
+    "contracts": "Контракты",
+    "x": "X / Twitter",
+    "github": "GitHub",
+    "copyright": "2026 NiceChunk. Все права защищены."
   }
 }

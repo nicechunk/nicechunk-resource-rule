@@ -15,7 +15,7 @@ export function createResourceBlockPreviewCanvas(blockType, { className = "block
   canvas.width = size;
   canvas.height = size;
   canvas.setAttribute("aria-hidden", "true");
-  renderResourceBlockPreviewToCanvas(canvas, blockType, { size, previewDimensionsM });
+  queueVisiblePreview(canvas, () => renderResourceBlockPreviewToCanvas(canvas, blockType, { size, previewDimensionsM }));
   return canvas;
 }
 
@@ -42,7 +42,7 @@ export function renderResourceBlockPreviewToCanvas(canvas, blockType, { size = 1
 
   const material = state.materials[blockType] ?? state.materials.stone;
   const geometry = state.geometryByType[blockType] ?? state.geometryByType.stone;
-  const mesh = new THREE.Mesh(geometry, material);
+  const mesh = blockType === "twig" ? twigPreview() : new THREE.Mesh(geometry, material);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   mesh.rotation.y = Math.PI * 0.22;
@@ -64,7 +64,7 @@ export function createResourceMaterialPreviewCanvas(recipe, { className = "mater
   canvas.width = size;
   canvas.height = size;
   canvas.setAttribute("aria-hidden", "true");
-  renderResourceMaterialPreviewToCanvas(canvas, recipe, { size, previewDimensionsM });
+  queueVisiblePreview(canvas, () => renderResourceMaterialPreviewToCanvas(canvas, recipe, { size, previewDimensionsM }));
   return canvas;
 }
 
@@ -510,4 +510,44 @@ function disposeThreeMaterial(material) {
   if (!material) return;
   material.map?.dispose?.();
   material.dispose?.();
+}
+
+function twigPreview() {
+  const group=new THREE.Group();const bark=new THREE.MeshStandardMaterial({color:0x95643e,roughness:.95});
+  const wood=new THREE.Mesh(new THREE.BoxGeometry(.09,.9,.09),bark);wood.rotation.z=-.12;group.add(wood);
+  const fork=new THREE.Mesh(new THREE.BoxGeometry(.065,.42,.065),bark);fork.position.set(.13,.12,0);fork.rotation.z=-.7;group.add(fork);
+  const tip=new THREE.Mesh(new THREE.BoxGeometry(.09,.025,.09),new THREE.MeshStandardMaterial({color:0xd4b181}));tip.position.set(.054,.445,0);group.add(tip);
+  return group;
+}
+
+// Catalogs can contain dozens of material shader variants. Render attached,
+// visible cards after layout so opening the rules never compiles every preview
+// synchronously before the page becomes interactive.
+const previewJobs = new Map();
+let previewObserver = null;
+let previewPruneScheduled = false;
+function queueVisiblePreview(canvas, render) {
+  previewJobs.set(canvas, render);
+  if (!previewObserver && typeof IntersectionObserver === "function") {
+    previewObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const job = previewJobs.get(entry.target);
+        previewJobs.delete(entry.target); previewObserver.unobserve(entry.target);
+        if (job) requestAnimationFrame(() => { if (entry.target.isConnected) job(); });
+      }
+    }, { rootMargin: "100px" });
+  }
+  requestAnimationFrame(() => {
+    if (!canvas.isConnected) {previewJobs.delete(canvas); return;}
+    if (previewObserver) previewObserver.observe(canvas);
+    else {previewJobs.delete(canvas);render();}
+  });
+  if (!previewPruneScheduled) {
+    previewPruneScheduled = true;
+    requestAnimationFrame(() => {
+      previewPruneScheduled = false;
+      for (const old of previewJobs.keys()) if (!old.isConnected) {previewObserver?.unobserve(old);previewJobs.delete(old);}
+    });
+  }
 }

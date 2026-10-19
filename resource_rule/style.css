@@ -1521,3 +1521,5 @@ h1 {
     justify-items: start;
   }
 }
+
+.starter-tool-rule{padding:1.3rem 1.5rem;border:1px solid #526746;border-radius:16px;background:#172018;color:#e1ebda;line-height:1.6}.starter-tool-rule h2{margin:0 0 .5rem;font-size:1.35rem}.starter-tool-rule p{margin:.6rem 0}.starter-tool-rule a{color:#b9e28d}

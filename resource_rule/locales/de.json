@@ -13,7 +13,7 @@
       "zhHant": "繁體中文",
       "zhHans": "简体中文"
     },
-    "comingSoon": "Demnächst erhältlich"
+    "comingSoon": "Planned"
   },
   "elements": {
     "names": {
@@ -139,81 +139,823 @@
   },
   "resourceAtlas": {
     "nav": {
-      "aria": "Primäre Navigation",
-      "home": "Startseite",
+      "aria": "Primary navigation",
+      "home": "Home",
       "roadbook": "Roadbook",
-      "worldRules": "Weltregeln",
-      "resources": "Ressourcen",
-      "elements": "Elemente",
+      "worldRules": "World Rules",
+      "resources": "Resources",
+      "elements": "Elements",
       "fairness": "Fairness",
-      "proofOfFrontier": "Beweis",
-      "docs": "Dokumente",
-      "enterWorld": "Betritt die Welt",
-      "guardians": "Wächter"
+      "proofOfFrontier": "Proof",
+      "docs": "Docs",
+      "enterWorld": "Enter World",
+      "guardians": "Guardians"
     },
     "page": {
-      "title": "NiceChunk Box-Ressourcenatlas",
-      "eyebrow": "GENERIERTER BLOCK-RESSOURCE-ATLAS",
-      "heading": "Jeder generierte Block ist eine öffentliche Ressourcenregel.",
-      "body": "NiceChunk ordnet Geländeblöcke wissenschaftlich angelegten Ressourcenfundamenten zu. Jeder Block legt sein Erzeugungssignal, den wahrscheinlichen Bereich der Elementzusammensetzung und seine Rolle in der zukünftigen Bergbau- und Schmiedewirtschaft offen.",
-      "metricsAria": "Atlas-Status",
-      "workspaceAria": "Blockressourcenatlas",
-      "filtersAria": "Atlasfilter",
-      "filterTitle": "Familien sperren",
-      "resultCount": "{count} angezeigt",
-      "modelLabel": "Kompositionsmodell",
-      "modelBody": "Bereiche sind materielle Tendenzen, keine festen Belohnungen. Tatsächliche Ressourcenrollen können später Samen, Koordinaten, Tiefe, Biom und kettenverifizierten Zustand verwenden.",
-      "searchLabel": "Suchblöcke, Elemente oder Signale",
-      "searchPlaceholder": "Suche Gras, Si, Vulkan...",
-      "empty": "Keine generierten Blöcke entsprechen den aktuellen Filtern.",
-      "blockAria": "{name}-Ressourcendetails öffnen",
-      "compositionTitle": "Bereich der Elementzusammensetzung",
-      "physicalTitle": "Dichte- und Massenschätzung",
-      "densityLabel": "Schüttdichte",
-      "dimensionsLabel": "Tatsächliche Blockabmessungen",
-      "volumeLabel": "Berechnetes Volumen",
-      "massLabel": "Berechnete Masse",
-      "notAvailable": "Unbekannt",
-      "signalsTitle": "Erzeugungssignale",
-      "visualTitle": "Visuelles Voxel-Gen",
+      "title": "NiceChunk Box Resource Atlas",
+      "eyebrow": "GENERATED BLOCK RESOURCE ATLAS",
+      "heading": "Every generated block is a public resource rule.",
+      "body": "NiceChunk maps terrain blocks into scientifically scoped resource foundations. Each block exposes its generation signal, likely elemental composition range, and role in the future mining and forging economy.",
+      "metricsAria": "Atlas status",
+      "workspaceAria": "Block resource atlas",
+      "filtersAria": "Atlas filters",
+      "filterTitle": "Block families",
+      "resultCount": "{count} shown",
+      "modelLabel": "Composition model",
+      "modelBody": "Ranges are material tendencies, not fixed rewards. Actual resource rolls can later use seed, coordinate, depth, biome, and chain-verified state.",
+      "searchLabel": "Search blocks, elements, or signals",
+      "searchPlaceholder": "Search grass, Si, volcanic...",
+      "empty": "No generated blocks match the current filters.",
+      "blockAria": "Open {name} resource details",
+      "compositionTitle": "Element composition range",
+      "physicalTitle": "Density and mass estimate",
+      "densityLabel": "Bulk density",
+      "dimensionsLabel": "Actual block dimensions",
+      "volumeLabel": "Calculated volume",
+      "massLabel": "Calculated mass",
+      "notAvailable": "Unknown",
+      "signalsTitle": "Generation signals",
+      "visualTitle": "Voxel visual gene",
       "metric": {
-        "blocks": "Generierte Blöcke",
-        "families": "Familien sperren",
-        "elements": "Referenzierte Elemente",
-        "ruleSet": "Regelsatz",
-        "worldRules": "Weltregeln",
-        "materials": "Schmelzbare Materialien"
+        "blocks": "Generated blocks",
+        "families": "Block families",
+        "elements": "Referenced elements",
+        "ruleSet": "Rule set",
+        "worldRules": "World rules",
+        "materials": "Smeltable materials"
       },
       "color": {
-        "0": "Hauptgesicht",
-        "1": "Seitenfläche",
-        "2": "Top-Highlight"
-      }
+        "0": "Primary face",
+        "1": "Side face",
+        "2": "Top highlight"
+      },
+      "modeAria": "Resource data mode",
+      "rawMode": "Raw Resources",
+      "materialMode": "Material Data",
+      "rawModeBody": "Gather natural resources. Start with bare-hand pebbles and leaf-dropped twigs to craft a basic stone axe directly in Backpack → Smelting; other resources use the public processing recipes.",
+      "materialModeBody": "Material data defines fuel heat, smelting inputs, artisan requirements, and the forge-ready outputs created from raw resources."
     },
     "category": {
-      "all": "Alle Blöcke",
-      "terrain": "Gelände",
-      "fluids": "Flüssigkeiten",
-      "geological": "Geologisch",
-      "cold": "Kalt",
-      "volcanic": "Vulkanisch",
-      "organic": "Bio",
-      "plants": "Pflanzen",
-      "aquatic": "Aquatisch",
-      "anomaly": "Selten / Anomalie"
+      "all": "All Blocks",
+      "terrain": "Terrain",
+      "fluids": "Fluids",
+      "geological": "Geological",
+      "cold": "Cold",
+      "volcanic": "Volcanic",
+      "organic": "Organic",
+      "plants": "Plants",
+      "aquatic": "Aquatic",
+      "anomaly": "Rare / Anomaly"
     },
     "rarity": {
-      "Common": "Allgemein",
-      "Uncommon": "Gelegentlich",
-      "Rare": "Selten",
-      "Anomaly": "Anomalie"
+      "Common": "Common",
+      "Uncommon": "Uncommon",
+      "Rare": "Rare",
+      "Anomaly": "Anomaly"
     },
     "signal": {
-      "temperature": "Temperatur",
-      "humidity": "Luftfeuchtigkeit",
-      "altitude": "Höhe",
-      "slope": "Steigung",
-      "rarity": "Seltenheit"
+      "temperature": "Temperature",
+      "humidity": "Humidity",
+      "altitude": "Altitude",
+      "slope": "Slope",
+      "rarity": "Rarity"
+    },
+    "starter": {
+      "title": "Your first tool: gather or trade",
+      "body": "Buy a tool at the market, or start empty-handed: pick up surface pebbles and strike natural leaves. Each removed leaf has a 30% chance to drop one twig.",
+      "recipe": "1 pebble + 2 twigs → 1 basic stone axe · 99 durability",
+      "use": "Open Backpack → Smelting. No fuel, station, or skill gate. Equip the crafted axe from your backpack. A successful tool-assisted harvest costs 3 durability on-chain; bare-hand gathering costs none.",
+      "action": "Gather your first tool"
+    },
+    "block": {
+      "twig": {
+        "name": "Twig",
+        "source": "Natural leaves · 30% drop",
+        "description": "A dry forked branch with pale broken tips. 250 cm³ of wood, density 650 kg/m³, about 162.5 g. A natural broadleaf or pine leaf has a fixed 30% chance to drop one twig. Removed leaves cannot be claimed again. Combine two twigs and one surface pebble in Backpack → Smelting for a basic stone axe with 99 durability, without fuel."
+      },
+      "grass": {
+        "name": "Grasblock",
+        "source": "Oberfläche",
+        "description": "Lebendiger Oberbodenblock aus Silikatboden mit dünner biologischer Schicht, geprägt durch Feuchtigkeit, Hangneigung und Walddichte."
+      },
+      "dirt": {
+        "name": "Erde",
+        "source": "Flacher Untergrund",
+        "description": "Verwitterter Boden unter Gras, gemischt aus Silikatkörnern, Tonmineralen, Eisenoxiden, Feuchtigkeit und organischen Resten."
+      },
+      "stone": {
+        "name": "Stein",
+        "source": "Untergrund",
+        "description": "Gewöhnliches Silikatgestein für Hügel, Klippen, Höhlenwände und geologisches Grundmaterial beim strukturellen Abbau."
+      },
+      "deepStone": {
+        "name": "Tiefengestein",
+        "source": "Tiefer Untergrund",
+        "description": "Dichtes Gestein tiefer Schichten mit stärkerer Eisen- und Magnesiumtendenz, erzeugt unterhalb der flachen Kruste."
+      },
+      "sand": {
+        "name": "Sand",
+        "source": "Oberfläche",
+        "description": "Quarzdominierter körniger Sedimentblock aus Regeln für Wüste, Strand, Fluss, See und Meeresboden."
+      },
+      "gravel": {
+        "name": "Kies",
+        "source": "Oberfläche / Untergrund",
+        "description": "Gemischte Gesteinsbruchstücke; die Zusammensetzung variiert mit der Umgebung, bleibt aber überwiegend silikatisch."
+      },
+      "clay": {
+        "name": "Ton",
+        "source": "Feuchte Oberfläche / Untergrund",
+        "description": "Feines hydratisiertes Alumosilikat-Sediment aus feuchten, flachen und wasser nahen Schichten."
+      },
+      "mud": {
+        "name": "Schlamm",
+        "source": "Feuchte Oberfläche",
+        "description": "Wasserreicher Boden mit organischem Anteil, typisch für schlecht entwässerte Niederungen mit geringer Sauerstoffexposition."
+      },
+      "dryDirt": {
+        "name": "Trockene Erde",
+        "source": "Trockene Oberfläche",
+        "description": "Ausgetrockneter Boden mit weniger Wasserstoff und organischem Anteil, erzeugt durch Regeln niedriger Feuchtigkeit."
+      },
+      "saltFlat": {
+        "name": "Salzebene",
+        "source": "Wüstenfleck",
+        "description": "Evaporitische Kruste trockener Becken, dominiert von Natriumchlorid und gemischt mit Magnesium, Kalzium, Sulfaten und Sauerstoffsalzen."
+      },
+      "snow": {
+        "name": "Schnee",
+        "source": "Kalte Oberfläche",
+        "description": "Gefrorene Niederschlagsschicht oberhalb der Schneegrenze oder in kalten Biomen, mit möglichem mineralischem Staub."
+      },
+      "ice": {
+        "name": "Eis",
+        "source": "Gefrorene Flüssigkeit / Seltene Oberfläche",
+        "description": "Feste Wasserphase aus Kälte- und Schneeregeln; chemisch einfach, aber für Umweltregeln wichtig."
+      },
+      "frozenSoil": {
+        "name": "Gefrorener Boden",
+        "source": "Kalte Oberfläche / Untergrund",
+        "description": "Permafrostähnlicher Boden aus Mineralkörnern, gebundenem Eis und konservierter organischer Substanz."
+      },
+      "basalt": {
+        "name": "Basalt",
+        "source": "Vulkanische Oberfläche / Untergrund",
+        "description": "Dunkles mafisches Vulkangestein aus schnell abgekühlter Lava, mit stärkerer Tendenz zu Eisen, Magnesium, Kalzium und Titan."
+      },
+      "ash": {
+        "name": "Vulkanasche",
+        "source": "Vulkanische Oberfläche",
+        "description": "Feine vulkanische Partikel aus Vulkanbiomen, silikatischem Gestein ähnlich, aber poröser und sulfatanfälliger."
+      },
+      "bedrock": {
+        "name": "Grundgestein",
+        "source": "Weltbasis",
+        "description": "Protokoll-Fundamentschicht am Boden generierter Säulen; verhält sich wie hartes Basement-Gestein, nicht wie ein festes Erzdepot."
+      },
+      "water": {
+        "name": "Wasser",
+        "source": "Flüssigkeit",
+        "description": "Standard-Flüssigkeitsblock für Ozeane, Flüsse, Seen und Niederungen, mit leichten biomeabhängigen Ionenunterschieden."
+      },
+      "swampWater": {
+        "name": "Sumpfwasser",
+        "source": "Sumpfflüssigkeit",
+        "description": "Organikreiches Stauwasser aus Sumpf- und Feuchtgebietsregeln, mit Spuren von Kohlenstoff, Schwefel, Eisen und Stickstoff."
+      },
+      "toxicWater": {
+        "name": "Giftwasser",
+        "source": "Kontaminierte Flüssigkeit",
+        "description": "Gefährliche Flüssigkeit aus Verschmutzungssignalen. Die Basis bleibt Wasser, doch Spurmetalle und Sulfide erhöhen das biologische Risiko."
+      },
+      "lava": {
+        "name": "Lava",
+        "source": "Vulkanische Flüssigkeit",
+        "description": "Geschmolzene Silikatflüssigkeit aus Vulkansignalen. Die Zusammensetzung folgt basaltischer Schmelze, nicht generischem Fantasy-Feuer."
+      },
+      "quicksand": {
+        "name": "Treibsand",
+        "source": "Wüstenoberfläche",
+        "description": "Wasseraufgelockerte Sandfalle aus Wüsten-Anomalien; überwiegend Siliziumdioxid mit genug Wasser zur Verringerung mechanischer Stabilität."
+      },
+      "trunk": {
+        "name": "Stamm",
+        "source": "Baum",
+        "description": "Holziges Strukturgewebe aus Laubbaumregeln, dominiert von Zellulose, Lignin, Wasser und Mineralnährstoffen."
+      },
+      "leaves": {
+        "name": "Blätter",
+        "source": "Baumkrone",
+        "description": "Photosynthetische Kronenblöcke; organisches Gewebe mit magnesiumhaltigem Chlorophyll und Nährstoff-Spurenmetallen."
+      },
+      "pineTrunk": {
+        "name": "Kiefernstamm",
+        "source": "Kiefer",
+        "description": "Harzreiches Nadelholz aus kalten, hohen oder immergrünen Baumregeln."
+      },
+      "pineLeaves": {
+        "name": "Kiefernnadeln",
+        "source": "Kiefernkrone",
+        "description": "Immergrüne Nadelkrone mit geringerem Wasserumsatz und mineralischen Spurennährstoffen."
+      },
+      "deadWood": {
+        "name": "Totholz",
+        "source": "Vulkanische / trockene Vegetation",
+        "description": "Ausgetrocknetes oder hitzegestresstes Holz mit weniger Wasserstoff und höherem Anteil freiliegenden Kohlenstoffs."
+      },
+      "giantRoot": {
+        "name": "Riesenwurzel",
+        "source": "Regenwaldvegetation",
+        "description": "Große freiliegende Wurzelmasse aus feuchten Regenwaldregeln; holzig, aber nahe am Boden feuchter und mineralreicher."
+      },
+      "grassPlant": {
+        "name": "Graspflanze",
+        "source": "Oberflächenvegetation",
+        "description": "Kleine krautige Pflanze aus feuchten, flachen Oberflächenregeln."
+      },
+      "dryGrass": {
+        "name": "Trockenes Gras",
+        "source": "Trockene Vegetation",
+        "description": "Getrocknetes krautiges Material aus niederschlagsarmen Oberflächen, mit weniger Wasserstoff und höherer Kohlenstoffkonzentration."
+      },
+      "bush": {
+        "name": "Busch",
+        "source": "Oberflächenvegetation",
+        "description": "Holzige Strauchschicht aus Wald-, Ebenen-, Berg- und Regenwaldregeln."
+      },
+      "deadBush": {
+        "name": "Toter Busch",
+        "source": "Trockene / vulkanische Vegetation",
+        "description": "Ausgetrockneter Strauchrest aus Wüsten- und Vulkanoberflächenbedingungen."
+      },
+      "cactus": {
+        "name": "Kaktus",
+        "source": "Wüstenvegetation",
+        "description": "Wasserspeichernde Sukkulente aus Wüstenregeln; organisch, aber mit ungewöhnlich hohem Anteil gebundenen Wassers."
+      },
+      "reed": {
+        "name": "Schilf",
+        "source": "Ufervegetation",
+        "description": "Wasserpflanze an Rändern von Sumpf-, Fluss-, See- und Feuchtgebietsflüssigkeiten."
+      },
+      "swampGrass": {
+        "name": "Sumpfgras",
+        "source": "Sumpfoberfläche",
+        "description": "Feuchtgebiets-Grasschicht mit organischem Gewebe und Sedimenteinfluss durch stehendes Wasser."
+      },
+      "snowBush": {
+        "name": "Schneebusch",
+        "source": "Kalte Vegetation",
+        "description": "Kälteresistenter Strauch, oft von Schnee oder Frost getönt und durch Berg- und Schneeregeln gewählt."
+      },
+      "thorn": {
+        "name": "Dorn",
+        "source": "Trockene / vulkanische Vegetation",
+        "description": "Gehärtetes defensives Pflanzenmaterial aus trockenen oder vulkanischen Oberflächen, reich an kohlenstoffreichem Strukturgewebe."
+      },
+      "moss": {
+        "name": "Moos",
+        "source": "Feuchte Oberfläche / Höhle",
+        "description": "Feuchte, nicht holzige biologische Matte aus feuchten Wald-, Sumpf- und Höhlenrandregeln."
+      },
+      "lichen": {
+        "name": "Flechte",
+        "source": "Kalte / felsige Oberfläche",
+        "description": "Symbiotische Kruste auf kalten oder felsigen Oberflächen, die biologisches Gewebe und mineralisches Substrat verbindet."
+      },
+      "vine": {
+        "name": "Ranke",
+        "source": "Feuchte Vegetation",
+        "description": "Flexible, kohlenstoffreiche Kletterpflanze aus feuchten Biomen und höhlenähnlichen Nassbereichen."
+      },
+      "glowMycelium": {
+        "name": "Leuchtmyzel",
+        "source": "Höhlenvegetation",
+        "description": "Biolumineszente Pilzmatte aus feuchten unterirdischen Räumen, mit verstärkten Phosphor- und Schwefelsignalen."
+      },
+      "mushroom": {
+        "name": "Pilz",
+        "source": "Feuchte / Höhlenvegetation",
+        "description": "Pilzfruchtkörper, ausgewählt durch seltene Zufallsergebnisse feuchter Vegetation."
+      },
+      "seaweed": {
+        "name": "Seegras",
+        "source": "Meeresvegetation",
+        "description": "Marine pflanzenartige Biomasse aus Unterwassergebieten mit Spurentrends von Natrium, Kalium, Magnesium und Jod."
+      },
+      "aquaticPlant": {
+        "name": "Wasserpflanze",
+        "source": "Süßwasservegetation",
+        "description": "Sehr wasserreiche Süßwasservegetation, die Nährstoffe aus Sedimenten aufnimmt."
+      },
+      "coral": {
+        "name": "Koralle",
+        "source": "Warme Meeresvegetation",
+        "description": "Kalziumkarbonat-Struktur, erzeugt in warmen Flachwasserbedingungen."
+      },
+      "deadCoral": {
+        "name": "Tote Koralle",
+        "source": "Kalte / verschmutzte Meeresvegetation",
+        "description": "Totes Kalziumkarbonat-Riffmaterial aus kalten oder verschmutzten Ozeanregeln."
+      },
+      "shellBed": {
+        "name": "Muschelbett",
+        "source": "Seltener Strand / Meeresboden",
+        "description": "Ansammlung von Muschelfragmenten und Karbonatkörnern als seltene Küsten- und Meeresbodenflecken."
+      },
+      "coal": {
+        "name": "Coal",
+        "source": "Deep Stone Seam",
+        "description": "Carbon-rich sedimentary fuel generated as low-frequency seams inside deep stone, useful for smelting heat rather than direct forging."
+      },
+      "cotton": {
+        "name": "Baumwolle",
+        "source": "Warm Plains Vegetation",
+        "description": "A cellulose-rich fiber crop selected by warm, moderately humid surface conditions and used as the world's primary woven textile feedstock."
+      },
+      "flowerWhite": {
+        "name": "Weiße Blume",
+        "source": "Temperate Surface Vegetation",
+        "description": "A pale flowering plant whose cellulose tissue and flavonoid pigments provide a mineral-light white dye source."
+      },
+      "flowerYellow": {
+        "name": "Gelbe Blume",
+        "source": "Warm Surface Vegetation",
+        "description": "A carotenoid-rich flowering plant used for warm yellow pigments while retaining the carbon, oxygen, and hydrogen profile of plant tissue."
+      },
+      "flowerRed": {
+        "name": "Rote Blume",
+        "source": "Warm Humid Vegetation",
+        "description": "An anthocyanin-rich flower used for stable red organic pigment, favored by warm and humid surface rules."
+      },
+      "flowerBlue": {
+        "name": "Blaue Blume",
+        "source": "Cool Humid Vegetation",
+        "description": "A rarer cool-climate flower whose anthocyanin chemistry and cellular acidity produce a blue pigment source."
+      },
+      "flowerPink": {
+        "name": "Rosa Blume",
+        "source": "Temperate Humid Vegetation",
+        "description": "A temperate flowering plant with dilute anthocyanin pigments used for pink dyes and decorative textile finishes."
+      }
+    },
+    "material": {
+      "workspaceAria": "Material resource data",
+      "eyebrow": "SMELTING DATA",
+      "title": "Raw resources become forgeable materials.",
+      "body": "Raw resources cannot be forged directly. A smelter consumes fuel heat, checks the material recipe, then outputs material resources for item forging.",
+      "ruleSetLabel": "Rule source",
+      "contractBody": "This table is a standalone JSON rule source so the game client and future contracts can reference the same smelting requirements.",
+      "fuelTitle": "Fuel heat tiers",
+      "fuelBody": "Burnable fuels provide heat tiers. Higher tier recipes require stronger fuel or a hotter furnace source.",
+      "recipeTitle": "Material atlas",
+      "recipeBody": "Browse forge-ready materials by class, inspect their element profile, and review the smelting requirements behind each output.",
+      "atlasAria": "Material atlas",
+      "filtersAria": "Material filters",
+      "categoryTitle": "Material classes",
+      "allMaterials": "All Materials",
+      "resultCount": "{count} shown",
+      "searchLabel": "Search materials, classes, elements, or inputs",
+      "searchPlaceholder": "Search steel, Si, glass...",
+      "empty": "No material recipes match the current filters.",
+      "materialAria": "Open {name} material details",
+      "visualModelLabel": "Element color model",
+      "visualModelBody": "Material thumbnails are generated from the dominant elements in each recipe profile.",
+      "processTitle": "Smelting process",
+      "compositionTitle": "Material element profile",
+      "physicalTitle": "Objective physical properties",
+      "attributesTitle": "Engineering property scores",
+      "unitVolumeLabel": "Canonical unit volume",
+      "densityLabel": "Bulk density",
+      "unitMassLabel": "Calculated unit mass",
+      "thermalConductivityLabel": "Thermal conductivity",
+      "waterAbsorptionLabel": "Water absorption",
+      "compressiveStrengthLabel": "Compressive strength",
+      "flexuralStrengthLabel": "Flexural strength",
+      "attribute": {
+        "hardness": "Hardness",
+        "durability": "Durability",
+        "toughness": "Toughness",
+        "ductility": "Ductility",
+        "brittleness": "Brittleness",
+        "density": "Density",
+        "heatResistance": "Heat resistance",
+        "corrosionResistance": "Corrosion resistance",
+        "conductivity": "Electrical conductivity",
+        "thermalConductivity": "Thermal conductivity",
+        "magnetism": "Magnetism",
+        "workability": "Workability"
+      },
+      "forgeUseTitle": "Forge unlock",
+      "sourceBlocksTitle": "Raw resource sources",
+      "heatLabel": "Heat",
+      "burnTimeLabel": "Burn time",
+      "sourceLabel": "Source",
+      "consumableLabel": "Use",
+      "consumable": "Consumable",
+      "burnSeconds": "{seconds}s",
+      "requiredHeatLabel": "Required heat",
+      "artisanLevelLabel": "Artisan level",
+      "artisanLevel": "Level {level}",
+      "rawInputsLabel": "Raw inputs",
+      "catalystLabel": "Catalyst",
+      "yieldLabel": "Yield",
+      "yieldCount": "{count} batch",
+      "forgeUseLabel": "Forge role",
+      "inputAmount": "{amount}x {resource}",
+      "heatTierValue": "Tier {tier}: {name} ({temp} C)",
+      "heatTierShort": "Heat T{tier}",
+      "heatTier": {
+        "low": "Low kiln",
+        "workshop": "Workshop furnace",
+        "forge": "Forge heat",
+        "blast": "Blast heat",
+        "unknown": "Unknown heat"
+      },
+      "class": {
+        "carbon": "Carbon",
+        "ceramic": "Ceramic",
+        "glass": "Glass",
+        "metal": "Metal",
+        "alloy": "Alloy",
+        "fiber": "Fiber",
+        "polymer": "Polymer",
+        "chemical": "Chemical",
+        "composite": "Composite",
+        "crystal": "Crystal"
+      },
+      "forgeUse": {
+        "fuel": "High-density fuel and reducing agent",
+        "soilCatalyst": "Soil amendment, bio-reactor feed, and low-tier catalyst",
+        "mold": "Forge molds, bricks, and furnace lining",
+        "binding": "Heat-stable binder and ceramic additive",
+        "flux": "Smelting flux for cleaner melts and lower slag",
+        "masonry": "Structural blocks, kiln bodies, and field construction",
+        "lens": "Optics, windows, gauges, and fragile fittings",
+        "circuit": "Circuits, sensors, logic plates, and signal devices",
+        "cooling": "Cooling cells, stabilizers, and frost-grade fittings",
+        "toolHead": "Pickaxe heads, blades, tools, and structural fittings",
+        "conductor": "Conductive fittings, coils, and precision parts",
+        "armorPlate": "Armor plates, shields, and impact-resistant panels",
+        "magneticCore": "Magnetic cores, motor parts, and advanced mechanisms",
+        "reinforcement": "Light reinforcement plates and carbon inserts",
+        "weaponAndTool": "Durable tools, weapons, and armor plates",
+        "heatShield": "Heat shields, furnace lining, and high-temperature parts",
+        "sealedVessel": "Sealed vessels, toxic containment, and hazard tools",
+        "explosive": "Ladung für kontrollierten Flächenabbau"
+      },
+      "fuel": {
+        "dry_grass": {
+          "name": "Dry Biomass",
+          "description": "Low heat starter fuel from dry grass, dead bush, or thorn. Useful for first kiln recipes."
+        },
+        "wood": {
+          "name": "Wood Fuel",
+          "description": "General workshop fuel made from logs, dead wood, or giant roots. Burns longer than grass fuel."
+        },
+        "charcoal": {
+          "name": "Charcoal",
+          "description": "Processed carbon fuel made from wood resources. It supplies tier-three forge heat and is consumed with the smelting batch."
+        },
+        "coal": {
+          "name": "Coal",
+          "description": "Deep stone seam fuel that supplies tier-four blast heat. It is consumed with the smelting batch."
+        }
+      },
+      "item": {
+        "charcoal": {
+          "name": "Charcoal",
+          "description": "Carbonized wood material used as fuel, reducing agent, and early alloy support."
+        },
+        "biochar_compost": {
+          "name": "Biochar Compost",
+          "description": "Low-heat carbon and nutrient material made from leaves, moss, and mud for soil systems and biological stations."
+        },
+        "resin_binder": {
+          "name": "Resin Binder",
+          "description": "Pine and vine resin concentrate that binds fibers, seals vessels, and supports low-temperature composites."
+        },
+        "ceramic_brick": {
+          "name": "Ceramic Brick",
+          "description": "Fired clay and sand material for furnace walls, molds, and basic construction recipes."
+        },
+        "lime_ceramic": {
+          "name": "Lime Ceramic",
+          "description": "Shell-bed lime and clay ceramic used as a heat-stable binder and refractory additive."
+        },
+        "quicklime": {
+          "name": "Quicklime",
+          "description": "Reactive calcium-rich lime fired from shells and coral, useful as flux, mortar base, and chemical reagent."
+        },
+        "salt_flux": {
+          "name": "Salt Flux",
+          "description": "Salt-flat and ash flux that helps smelting separate slag and stabilizes cleaner metal batches."
+        },
+        "ash_cement": {
+          "name": "Ash Cement",
+          "description": "Volcanic ash, clay, and shell lime binder for masonry, furnace shells, and heat-stable construction."
+        },
+        "glass_ingot": {
+          "name": "Glass Ingot",
+          "description": "Silica-rich glass stock for lenses, windows, gauges, and fragile technical parts."
+        },
+        "obsidian_glass": {
+          "name": "Obsidian Glass",
+          "description": "Dark volcanic glass made from silica and basalt under lava heat, suited to durable optics and sealed panes."
+        },
+        "silicon_wafer": {
+          "name": "Silicon Wafer",
+          "description": "Purified silicon plate reduced with carbon, intended for circuits, sensors, and future signal devices."
+        },
+        "ice_crystal": {
+          "name": "Ice Crystal",
+          "description": "Stabilized ice and salt crystal for cooling cells, frost tools, and thermal-control assemblies."
+        },
+        "iron_bloom": {
+          "name": "Iron Bloom",
+          "description": "Forge-ready iron mass reduced from deep stone and stone with coal as the carbon reducer."
+        },
+        "copper_bloom": {
+          "name": "Copper Bloom",
+          "description": "Conductive metal bloom concentrated from gravel and basalt trace metal tendencies."
+        },
+        "alumina_plate": {
+          "name": "Alumina Plate",
+          "description": "Aluminum-rich ceramic plate from clay and deep stone, useful for impact panels and insulated fittings."
+        },
+        "nickel_iron": {
+          "name": "Nickel Iron",
+          "description": "Magnetic iron alloy refined from deep stone and basalt trace metals for motors and advanced mechanisms."
+        },
+        "carbon_plate": {
+          "name": "Carbon Plate",
+          "description": "Compressed coal and deep stone carbon material for light reinforcement and inserts."
+        },
+        "carbon_steel": {
+          "name": "Carbon Steel",
+          "description": "High-tier steel billet made from deep stone iron tendency and coal carbon control."
+        },
+        "basalt_fiber": {
+          "name": "Basalt Fiber",
+          "description": "Pulled volcanic fiber from basalt and lava heat, suited to heat shields and furnace parts."
+        },
+        "basalt_composite": {
+          "name": "Basalt Composite",
+          "description": "High-heat basalt, carbon, and resin composite for armor panels, shields, and durable housings."
+        },
+        "geopolymer_block": {
+          "name": "Geopolymer Block",
+          "description": "Ash, basalt, and salt-activated stone composite for strong masonry and kiln bodies."
+        },
+        "coral_lime": {
+          "name": "Coral Lime",
+          "description": "Calcium-rich coral and sand ceramic for marine masonry, mortar, and heat-stable blocks."
+        },
+        "toxic_glass": {
+          "name": "Toxic Glass",
+          "description": "Sealed hazardous glass from toxic water, salt, and silica, intended for containment vessels and risk tools."
+        },
+        "cotton": {
+          "name": "Baumwolle"
+        },
+        "flowerWhite": {
+          "name": "Weiße Blume"
+        },
+        "flowerYellow": {
+          "name": "Gelbe Blume"
+        },
+        "flowerRed": {
+          "name": "Rote Blume"
+        },
+        "flowerBlue": {
+          "name": "Blaue Blume"
+        },
+        "flowerPink": {
+          "name": "Rosa Blume"
+        },
+        "cotton_cloth": {
+          "name": "Baumwollstoff",
+          "description": "Gewebter Stoff aus Baumwolle und trockenem Gras für flexible Schmiedeausrüstung und animierte Textilflächen."
+        },
+        "white_dye": {
+          "name": "Weißer Farbstoff",
+          "description": "Helles Blütenpigment zum Bemalen von Stoff beim Schmieden."
+        },
+        "yellow_dye": {
+          "name": "Gelber Farbstoff",
+          "description": "Warmgelbes Blütenpigment zum Bemalen von Stoff beim Schmieden."
+        },
+        "red_dye": {
+          "name": "Roter Farbstoff",
+          "description": "Kräftig rotes Blütenpigment zum Bemalen von Stoff beim Schmieden."
+        },
+        "blue_dye": {
+          "name": "Blauer Farbstoff",
+          "description": "Kühlblaues Blütenpigment zum Bemalen von Stoff beim Schmieden."
+        },
+        "pink_dye": {
+          "name": "Rosa Farbstoff",
+          "description": "Sanftrosa Blütenpigment zum Bemalen von Stoff beim Schmieden."
+        },
+        "wooden_plank": {
+          "name": "Holzbrett",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "wooden_stick": {
+          "name": "Holzleiste",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "squared_timber": {
+          "name": "Kantholz",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "clear_glass_panel": {
+          "name": "Klarglasscheibe",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "ice_blue_glass_panel": {
+          "name": "Eisblaues Glaspaneel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "amber_glass_panel": {
+          "name": "Bernstein-Glaspaneel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "basalt_reinforced_glass": {
+          "name": "Basaltverstärktes Glas",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "fired_clay_brick": {
+          "name": "Gebrannter Lehmziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "adobe_brick": {
+          "name": "Adobeziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "stone_brick": {
+          "name": "Steinziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "deep_stone_brick": {
+          "name": "Tiefensteinziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "basalt_brick": {
+          "name": "Basaltziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "sandstone_block": {
+          "name": "Geschnittener Sandsteinblock",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "cobblestone": {
+          "name": "Kopfstein",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "polished_stone_slab": {
+          "name": "Polierte Steinplatte",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "lime_plaster": {
+          "name": "Kalkputz",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "clay_plaster": {
+          "name": "Lehmputz",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "rammed_earth": {
+          "name": "Stampflehm",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "shell_terrazzo": {
+          "name": "Muschel-Terrazzoplatte",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "white_ceramic_tile": {
+          "name": "Weiße Keramikfliese",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "blue_ceramic_tile": {
+          "name": "Blaue Keramikfliese",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "volcanic_ash_concrete": {
+          "name": "Vulkanaschebeton",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "salt_crystal_block": {
+          "name": "Salzkristallblock",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_terracotta": {
+          "name": "Terrakotta-Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_ice_blue": {
+          "name": "Eisblauer glasierter Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_shell_white": {
+          "name": "Muschelweißer glasierter Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_charcoal": {
+          "name": "Holzkohleschwarzer glasierter Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_ash_gray": {
+          "name": "Aschgrauer glasierter Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "roof_tile_mycelium": {
+          "name": "Myzel-leuchtender glasierter Dachziegel",
+          "description": "Gefertigtes NCM3-Baumaterial mit kanonischem On-Chain-Rezept, physikalischen Eigenschaften und eigenem Low-Poly-Modell."
+        },
+        "blasting_charge": {
+          "name": "Sprengladung",
+          "description": "Eine kompakte, harzgebundene Bergbauladung für kontrollierten Mehrblock-Abbau. Ihre NiceChunk-Rezeptur ist bewusst fiktiv."
+        },
+        "basic_stone_axe": {
+          "name": "Basic Stone Axe",
+          "description": "1 pebble + 2 twigs → 1 basic stone axe · 99 durability. Open Backpack → Smelting. No fuel, station, or skill gate. Equip the crafted axe from your backpack. A successful tool-assisted harvest costs 3 durability on-chain; bare-hand gathering costs none."
+        }
+      }
+    },
+    "drop": {
+      "eyebrow": "CHAIN DROP TABLE",
+      "title": "Civilization rules can add rare extra drops without growing terrain code.",
+      "body": "The canonical terrain algorithm still defines the mined base block. A compact on-chain drop table can add deterministic extra rewards by source block, altitude, depth, seeded probability, and the player's Exploration level.",
+      "ruleSetLabel": "Rule set",
+      "contractBody": "This PDA is designed for the civilization system: approved proposals append bounded rule bytes instead of redeploying the mining program.",
+      "source": "Source",
+      "extraDrop": "Extra drop",
+      "chance": "Base chance",
+      "size": "Drop size",
+      "altitude": "Altitude",
+      "depth": "Depth",
+      "detailTitle": "Extra drop sources",
+      "detailBody": "On chain this is designed as compact {ruleSet} bytes: source resource, base probability, sample size window, altitude window, and depth window. Final roll weight gains +10% per Exploration level.",
+      "chanceValue": "{value}%",
+      "sizeValue": "{min} to {max}",
+      "rangeValue": "{min} to {max}"
+    },
+    "tag": {
+      "plains": "Ebenen",
+      "forest": "Wald",
+      "rainforest": "Regenwald",
+      "general": "Allgemein",
+      "mountain": "Gebirge",
+      "cave": "Höhle",
+      "foundation": "Fundament",
+      "deepCave": "Tiefenhöhle",
+      "desert": "Wüste",
+      "beach": "Strand",
+      "river": "Fluss",
+      "oceanFloor": "Meeresboden",
+      "wetland": "Feuchtgebiet",
+      "swamp": "Sumpf",
+      "lake": "See",
+      "desertEdge": "Wüstenrand",
+      "dryPlains": "Trockene Ebenen",
+      "evaporite": "Evaporit",
+      "snowfield": "Schneefeld",
+      "tundra": "Tundra",
+      "frozenWater": "Gefrorenes Wasser",
+      "volcano": "Vulkan",
+      "deepRock": "Tiefengestein",
+      "ejecta": "Auswurf",
+      "unbreakable": "Unzerstörbar",
+      "ocean": "Ozean",
+      "corruption": "Verschmutzung",
+      "heat": "Hitze",
+      "hazard": "Gefahr",
+      "tree": "Baum",
+      "dryBiome": "Trockenbiom",
+      "rareOrganic": "Seltene Organik",
+      "succulent": "Sukkulente",
+      "hazardPlant": "Gefahrenpflanze",
+      "humid": "Feucht",
+      "bioluminescent": "Biolumineszent",
+      "aquatic": "Aquatisch",
+      "warmWater": "Warmes Wasser",
+      "rare": "Selten",
+      "coldWater": "Kaltes Wasser"
     }
+  },
+  "siteFooter": {
+    "tagline": "Ein Seed-Voxelwelt-Protokoll auf Solana.",
+    "navigationAria": "Footer-Navigation",
+    "socialAria": "NiceChunk Social Links",
+    "home": "Home",
+    "play": "Welt betreten",
+    "roadmap": "Roadbook",
+    "docs": "Docs",
+    "guardian": "Guardians",
+    "contracts": "Contracts",
+    "x": "X / Twitter",
+    "github": "GitHub",
+    "copyright": "2026 NiceChunk. Alle Rechte vorbehalten."
   }
 }

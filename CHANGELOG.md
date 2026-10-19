@@ -1,5 +1,11 @@
 # nicechunk-resource-rule Changelog
 
+## 2026-10-19 — Starter resources
+
+- Document Twig, authoritative 30% natural-leaf drops, surface pickup and the 99-durability stone axe.
+- Synchronize shared resource/material data with the game and package supported locale files.
+
+
 All notable public changes for this split repository should be recorded here.
 
 This repository is generated from the main NiceChunk working tree. Make source changes in the main tree, regenerate the split repositories, then commit and push this split separately.

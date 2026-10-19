@@ -1,5 +1,5 @@
 import { resolve } from "node:path";
-import { existsSync } from "node:fs";
+import { existsSync, cpSync, mkdirSync } from "node:fs";
 import { defineConfig } from "vite";
 import pkg from "./package.json" with { type: "json" };
 
@@ -56,7 +56,10 @@ function appendAssetVersion() {
 }
 
 export default defineConfig({
-  plugins: [appendAssetVersion()],
+  plugins: [appendAssetVersion(), {name:"resource-locales",closeBundle(){
+    mkdirSync(resolve(__dirname,"dist/resource_rule/locales"),{recursive:true});
+    cpSync(resolve(__dirname,"resource_rule/locales"),resolve(__dirname,"dist/resource_rule/locales"),{recursive:true});
+  }}],
   define: {
     __BUILD_VERSION__: JSON.stringify(buildVersion),
   },

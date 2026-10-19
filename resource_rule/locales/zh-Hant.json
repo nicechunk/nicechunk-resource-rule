@@ -13,7 +13,7 @@
       "zhHant": "繁體中文",
       "zhHans": "简体中文"
     },
-    "comingSoon": "即將推出"
+    "comingSoon": "Planned"
   },
   "elements": {
     "names": {
@@ -139,17 +139,17 @@
   },
   "resourceAtlas": {
     "nav": {
-      "aria": "主導航",
-      "home": "首頁",
-      "roadbook": "路線手冊",
-      "worldRules": "世界規則",
-      "resources": "資源",
-      "elements": "元素",
-      "fairness": "公平",
-      "proofOfFrontier": "證明",
-      "docs": "文檔",
-      "enterWorld": "進入世界",
-      "guardians": "守護者"
+      "aria": "Primary navigation",
+      "home": "Home",
+      "roadbook": "Roadbook",
+      "worldRules": "World Rules",
+      "resources": "Resources",
+      "elements": "Elements",
+      "fairness": "Fairness",
+      "proofOfFrontier": "Proof",
+      "docs": "Docs",
+      "enterWorld": "Enter World",
+      "guardians": "Guardians"
     },
     "page": {
       "title": "NiceChunk 方塊資源圖鑑",
@@ -188,7 +188,12 @@
         "0": "主表面",
         "1": "側面",
         "2": "頂部高光"
-      }
+      },
+      "modeAria": "資源資料分類",
+      "rawMode": "原始資源",
+      "materialMode": "材料資料",
+      "rawModeBody": "原料來自天然資源。可先徒手拾取碎石、採葉獲得樹枝，在背包熔煉頁直接製作基礎石斧；其他原料按公開配方加工。",
+      "materialModeBody": "材料資料定義燃料熱量、熔煉輸入、工匠要求，以及由原始資源產出的可鍛造材料。"
     },
     "category": {
       "all": "全部方塊",
@@ -219,11 +224,11 @@
       "grass": {
         "name": "草地方塊",
         "source": "地表",
-        "description": "有生命的表层土方塊：矽酸盐土壤上覆盖一层薄薄的生物层，由湿度、坡度和森林密度共同塑造。"
+        "description": "有生命的表層土方塊：矽酸盐土壤上覆蓋一層薄薄的生物層，由湿度、坡度和森林密度共同塑造。"
       },
       "dirt": {
         "name": "泥土",
-        "source": "浅层地下",
+        "source": "浅層地下",
         "description": "草地下方的风化土壤，混合了矽酸盐顆粒、黏土矿物、鐵氧化物、水分和有机残留。"
       },
       "stone": {
@@ -232,9 +237,9 @@
         "description": "常见的矽酸盐岩石，是丘陵、峭壁、洞穴墙體和結構性挖掘的基礎地質材料。"
       },
       "deepStone": {
-        "name": "深层石",
-        "source": "深层地下",
-        "description": "更致密的下部地层岩石，鐵和鎂的傾向更高，用於生成浅层地壳以下的岩层。"
+        "name": "深層石",
+        "source": "深層地下",
+        "description": "更致密的下部地層岩石，鐵和鎂的傾向更高，用於生成浅層地壳以下的岩層。"
       },
       "sand": {
         "name": "沙子",
@@ -244,12 +249,12 @@
       "gravel": {
         "name": "砾石",
         "source": "地表 / 地下",
-        "description": "混合的破碎岩粒，组成会随附近地形明显變化，但整體仍以矽酸盐為主。"
+        "description": "混合的破碎岩粒，组成會隨附近地形明显變化，但整體仍以矽酸盐為主。"
       },
       "clay": {
         "name": "黏土",
         "source": "潮湿地表 / 地下",
-        "description": "细粒含水鋁矽酸盐沉积物，生成于潮湿、低坡度地形和邻水地层。"
+        "description": "细粒含水鋁矽酸盐沉积物，生成于潮湿、低坡度地形和邻水地層。"
       },
       "mud": {
         "name": "泥浆",
@@ -264,27 +269,27 @@
       "saltFlat": {
         "name": "盐滩",
         "source": "沙漠斑塊",
-        "description": "干旱盆地蒸發後留下的蒸發岩壳，氯化鈉佔主導，并混有鎂、鈣、硫酸盐和含氧盐。"
+        "description": "干旱盆地蒸發後留下的蒸發岩壳，氯化鈉佔主導，並混有鎂、鈣、硫酸盐和含氧盐。"
       },
       "snow": {
         "name": "雪",
         "source": "寒冷地表",
-        "description": "在雪线以上或寒冷生物群系中生成的冻結降水层，可能含有微量矿物塵埃。"
+        "description": "在雪線以上或寒冷生物群系中生成的凍結降水層，可能含有微量矿物塵埃。"
       },
       "ice": {
         "name": "冰",
-        "source": "冻結流體 / 稀有地表",
+        "source": "凍結流體 / 稀有地表",
         "description": "由寒冷流體和稀有雪原規則選中的固態水，相對简单但在环境規則中很重要。"
       },
       "frozenSoil": {
         "name": "冻土",
         "source": "寒冷地表 / 地下",
-        "description": "類似永久冻土的土壤，混合矿物顆粒、結合水冰和被保存的有机質。"
+        "description": "類似永久冻土的土壤，混合矿物顆粒、結合水冰和被儲存的有机質。"
       },
       "basalt": {
         "name": "玄武岩",
         "source": "火山地表 / 地下",
-        "description": "由快速冷却的熔岩形成的深色鎂鐵質火山岩，相比普通石头更偏向鐵、鎂、鈣和鈦。"
+        "description": "由快速冷卻的熔岩形成的深色鎂鐵質火山岩，相比普通石头更偏向鐵、鎂、鈣和鈦。"
       },
       "ash": {
         "name": "火山灰",
@@ -294,32 +299,32 @@
       "bedrock": {
         "name": "基岩",
         "source": "世界基底",
-        "description": "生成柱底部的協議基礎层。它表現為坚硬的基底岩，而不是固定的化學資源矿床。"
+        "description": "生成柱底部的協議基礎層。它表現為坚硬的基底岩，而不是固定的化學資源矿床。"
       },
       "water": {
         "name": "水",
         "source": "流體",
-        "description": "用於海洋、河流、湖泊和低洼水域覆盖的标准流體方塊，会根據生物群系产生少量溶解离子差异。"
+        "description": "用於海洋、河流、湖泊和低洼水域覆蓋的标准流體方塊，會根據生物群系產生少量溶解离子差异。"
       },
       "swampWater": {
         "name": "沼泽水",
         "source": "沼泽流體",
-        "description": "由沼泽和湿地規則生成的富有机質滞流水，化學组成包含溶解碳、硫、鐵和氮的痕量信号。"
+        "description": "由沼泽和湿地規則生成的富有机質滞流水，化學组成包含溶解碳、硫、鐵和氮的痕量信號。"
       },
       "toxicWater": {
         "name": "毒水",
         "source": "汙染流體",
-        "description": "由汙染信号選中的危險流體。基礎仍然是水，但痕量金屬和硫化物会提高生物風險。"
+        "description": "由汙染信號選中的危險流體。基礎仍然是水，但痕量金屬和硫化物會提高生物風險。"
       },
       "lava": {
         "name": "熔岩",
         "source": "火山流體",
-        "description": "由火山信号生成的熔融矽酸盐流體。组成遵循玄武質熔體，而不是普通幻想火焰。"
+        "description": "由火山信號生成的熔融矽酸盐流體。组成遵循玄武質熔體，而不是普通幻想火焰。"
       },
       "quicksand": {
         "name": "流沙",
         "source": "沙漠地表",
-        "description": "由沙漠异常規則生成的含水松散沙陷阱，主要為二氧化矽，并含有足够水分降低力学稳定性。"
+        "description": "由沙漠異常規則生成的含水松散沙陷阱，主要為二氧化矽，並含有足够水分降低力学穩定性。"
       },
       "trunk": {
         "name": "树干",
@@ -329,7 +334,7 @@
       "leaves": {
         "name": "树叶",
         "source": "树冠",
-        "description": "光合作用树冠方塊，化學上屬于有机组织，并带有含鎂叶绿素和营养痕量金屬。"
+        "description": "光合作用树冠方塊，化學上屬于有机组织，並带有含鎂叶绿素和营养痕量金屬。"
       },
       "pineTrunk": {
         "name": "松树干",
@@ -339,7 +344,7 @@
       "pineLeaves": {
         "name": "松针叶",
         "source": "松树冠",
-        "description": "常绿针叶树冠，水分循环较低，并含有矿物营养痕量。"
+        "description": "常绿针叶树冠，水分循環较低，並含有矿物营养痕量。"
       },
       "deadWood": {
         "name": "枯木",
@@ -364,17 +369,17 @@
       "bush": {
         "name": "灌木",
         "source": "地表植被",
-        "description": "由森林、平原、山地和雨林植被規則生成的木質灌木层。"
+        "description": "由森林、平原、山地和雨林植被規則生成的木質灌木層。"
       },
       "deadBush": {
         "name": "枯灌木",
         "source": "干燥 / 火山植被",
-        "description": "由沙漠和火山地表条件生成的干枯灌木残留物。"
+        "description": "由沙漠和火山地表條件生成的干枯灌木残留物。"
       },
       "cactus": {
         "name": "仙人掌",
         "source": "沙漠植被",
-        "description": "由沙漠規則生成的储水多肉植物，化學上屬于有机组织，但結合水比例异常高。"
+        "description": "由沙漠規則生成的储水多肉植物，化學上屬于有机组织，但結合水比例異常高。"
       },
       "reed": {
         "name": "芦苇",
@@ -384,7 +389,7 @@
       "swampGrass": {
         "name": "沼泽草",
         "source": "沼泽地表",
-        "description": "湿地草层，包含有机组织，并受到滞流水沉积物汙染。"
+        "description": "湿地草層，包含有机组织，並受到滞流水沉积物汙染。"
       },
       "snowBush": {
         "name": "雪地灌木",
@@ -404,37 +409,37 @@
       "lichen": {
         "name": "地衣",
         "source": "寒冷 / 岩石表面",
-        "description": "寒冷或岩石表面上的共生壳层，连接生物组织和矿物基質。"
+        "description": "寒冷或岩石表面上的共生壳層，連接生物组织和矿物基質。"
       },
       "vine": {
         "name": "藤蔓",
         "source": "潮湿植被",
-        "description": "由潮湿生物群系和類似洞穴的湿润区域生成的攀缘植物，具有柔韌的富碳组织。"
+        "description": "由潮湿生物群系和類似洞穴的湿润區域生成的攀缘植物，具有柔韌的富碳组织。"
       },
       "glowMycelium": {
         "name": "發光菌丝",
         "source": "洞穴植被",
-        "description": "來自地下潮湿空間的生物發光真菌垫，化學上屬于生物组织，并强化磷和硫信号。"
+        "description": "來自地下潮湿空間的生物發光真菌垫，化學上屬于生物组织，並強化磷和硫信號。"
       },
       "mushroom": {
         "name": "蘑菇",
         "source": "潮湿 / 洞穴植被",
-        "description": "由稀有潮湿植被随机結果選中的真菌子實體。"
+        "description": "由稀有潮湿植被隨机結果選中的真菌子實體。"
       },
       "seaweed": {
         "name": "海藻",
         "source": "海洋植被",
-        "description": "來自水下区域的海洋植物狀生物質，带有鈉、鉀、鎂和碘的痕量傾向。"
+        "description": "來自水下區域的海洋植物狀生物質，带有鈉、鉀、鎂和碘的痕量傾向。"
       },
       "aquaticPlant": {
         "name": "水生植物",
         "source": "淡水植被",
-        "description": "含水量很高的淡水植被，会从沉积物中吸收养分。"
+        "description": "含水量很高的淡水植被，會從沉积物中吸收养分。"
       },
       "coral": {
         "name": "珊瑚",
         "source": "温暖海洋植被",
-        "description": "在温暖浅海条件中生成的碳酸鈣結構。"
+        "description": "在温暖浅海條件中生成的碳酸鈣結構。"
       },
       "deadCoral": {
         "name": "死亡珊瑚",
@@ -442,9 +447,49 @@
         "description": "由寒冷或汙染海洋規則選中的死亡碳酸鈣礁體材料。"
       },
       "shellBed": {
-        "name": "贝壳层",
+        "name": "贝壳層",
         "source": "稀有海滩 / 海底",
         "description": "由贝壳碎片和碳酸盐顆粒堆积形成，作為稀有海岸和海底斑點生成。"
+      },
+      "twig": {
+        "name": "樹枝",
+        "source": "天然樹葉 · 30%掉落",
+        "description": "A dry forked branch with pale broken tips. 250 cm³ of wood, density 650 kg/m³, about 162.5 g. A natural broadleaf or pine leaf has a fixed 30% chance to drop one twig. Removed leaves cannot be claimed again. Combine two twigs and one surface pebble in Backpack → Smelting for a basic stone axe with 99 durability, without fuel."
+      },
+      "coal": {
+        "name": "煤炭",
+        "source": "深層石煤層",
+        "description": "富碳沉积燃料，會以较低频率在深層石中成片生成，主要用於熔煉熱量，而不是直接鍛造。"
+      },
+      "cotton": {
+        "name": "棉花",
+        "source": "Warm Plains Vegetation",
+        "description": "A cellulose-rich fiber crop selected by warm, moderately humid surface conditions and used as the world's primary woven textile feedstock."
+      },
+      "flowerWhite": {
+        "name": "白花",
+        "source": "Temperate Surface Vegetation",
+        "description": "A pale flowering plant whose cellulose tissue and flavonoid pigments provide a mineral-light white dye source."
+      },
+      "flowerYellow": {
+        "name": "黃花",
+        "source": "Warm Surface Vegetation",
+        "description": "A carotenoid-rich flowering plant used for warm yellow pigments while retaining the carbon, oxygen, and hydrogen profile of plant tissue."
+      },
+      "flowerRed": {
+        "name": "紅花",
+        "source": "Warm Humid Vegetation",
+        "description": "An anthocyanin-rich flower used for stable red organic pigment, favored by warm and humid surface rules."
+      },
+      "flowerBlue": {
+        "name": "藍花",
+        "source": "Cool Humid Vegetation",
+        "description": "A rarer cool-climate flower whose anthocyanin chemistry and cellular acidity produce a blue pigment source."
+      },
+      "flowerPink": {
+        "name": "粉紅花",
+        "source": "Temperate Humid Vegetation",
+        "description": "A temperate flowering plant with dilute anthocyanin pigments used for pink dyes and decorative textile finishes."
       }
     },
     "tag": {
@@ -454,8 +499,8 @@
       "general": "通用",
       "mountain": "山地",
       "cave": "洞穴",
-      "foundation": "基礎层",
-      "deepCave": "深层洞穴",
+      "foundation": "基礎層",
+      "deepCave": "深層洞穴",
       "desert": "沙漠",
       "beach": "海滩",
       "river": "河流",
@@ -468,11 +513,11 @@
       "evaporite": "蒸發岩",
       "snowfield": "雪原",
       "tundra": "苔原",
-      "frozenWater": "冻結水體",
+      "frozenWater": "凍結水體",
       "volcano": "火山",
-      "deepRock": "深层岩石",
+      "deepRock": "深層岩石",
       "ejecta": "喷出物",
-      "unbreakable": "不可破坏",
+      "unbreakable": "不可破壞",
       "ocean": "海洋",
       "corruption": "汙染",
       "heat": "高熱",
@@ -487,7 +532,432 @@
       "aquatic": "水域",
       "warmWater": "温暖水域",
       "rare": "稀有",
-      "coldWater": "寒冷水域"
+      "coldWater": "寒冷水域",
+      "fuel": "燃料",
+      "carbon": "碳"
+    },
+    "starter": {
+      "title": "第一把工具：採集製作或市場購買",
+      "body": "你可以在市場購買工具，也可以空手起步：拾取地表小石塊、打擊天然樹葉。每個採下的樹葉方塊有30%機率掉落1根樹枝。",
+      "recipe": "1個碎石 + 2根樹枝 → 1把基礎石斧 · 耐久99",
+      "use": "打開背包 → 熔煉，無需燃料、建造設施或技能等級。製作後從背包裝備石斧。持工具成功採集由合約扣3點耐久；徒手採集不扣工具耐久。",
+      "action": "進入世界製作第一把工具"
+    },
+    "material": {
+      "workspaceAria": "材料資源資料",
+      "eyebrow": "熔煉資料",
+      "title": "原始資源會變成可鍛造材料。",
+      "body": "原始資源不能直接鍛造。熔煉爐會消耗燃料熱量，檢查材料配方，然後產出可用於物品鍛造的材料資源。",
+      "ruleSetLabel": "規則來源",
+      "contractBody": "這张表來自獨立 JSON 規則源，方便遊戲客戶端和未來合約引用同一套熔煉要求。",
+      "fuelTitle": "燃料熱量等級",
+      "fuelBody": "可燃燃料提供熱量等級。更高阶的配方需要更強燃料或更熱的爐源。",
+      "recipeTitle": "材料圖鉴",
+      "recipeBody": "按材料類別瀏覽可鍛造材料，查看元素構成，並核對每個產物背後的熔煉要求。",
+      "atlasAria": "材料圖鉴",
+      "filtersAria": "材料篩選",
+      "categoryTitle": "材料類別",
+      "allMaterials": "全部材料",
+      "resultCount": "顯示 {count} 個",
+      "searchLabel": "搜尋材料、類別、元素或輸入",
+      "searchPlaceholder": "搜尋 steel、Si、glass...",
+      "empty": "目前篩選下沒有匹配的材料配方。",
+      "materialAria": "打開 {name} 材料詳情",
+      "visualModelLabel": "元素色彩模型",
+      "visualModelBody": "材料缩略圖會根據每個配方檔案中的主導元素生成。",
+      "processTitle": "熔煉流程",
+      "compositionTitle": "材料元素檔案",
+      "physicalTitle": "Objective physical properties",
+      "attributesTitle": "Engineering property scores",
+      "unitVolumeLabel": "Canonical unit volume",
+      "densityLabel": "Bulk density",
+      "unitMassLabel": "Calculated unit mass",
+      "thermalConductivityLabel": "Thermal conductivity",
+      "waterAbsorptionLabel": "Water absorption",
+      "compressiveStrengthLabel": "Compressive strength",
+      "flexuralStrengthLabel": "Flexural strength",
+      "attribute": {
+        "hardness": "Hardness",
+        "durability": "Durability",
+        "toughness": "Toughness",
+        "ductility": "Ductility",
+        "brittleness": "Brittleness",
+        "density": "Density",
+        "heatResistance": "Heat resistance",
+        "corrosionResistance": "Corrosion resistance",
+        "conductivity": "Electrical conductivity",
+        "thermalConductivity": "Thermal conductivity",
+        "magnetism": "Magnetism",
+        "workability": "Workability"
+      },
+      "forgeUseTitle": "鍛造解鎖",
+      "sourceBlocksTitle": "原始資源來源",
+      "heatLabel": "熱量",
+      "burnTimeLabel": "燃燒時間",
+      "sourceLabel": "來源",
+      "consumableLabel": "消耗",
+      "consumable": "會消耗",
+      "burnSeconds": "{seconds} 秒",
+      "requiredHeatLabel": "所需熱量",
+      "artisanLevelLabel": "工匠等級",
+      "artisanLevel": "{level} 級",
+      "rawInputsLabel": "原始輸入",
+      "catalystLabel": "催化/還原",
+      "yieldLabel": "產出",
+      "yieldCount": "{count} 批",
+      "forgeUseLabel": "鍛造用途",
+      "inputAmount": "{amount}x {resource}",
+      "heatTierValue": "{tier} 級：{name}（{temp} C）",
+      "heatTierShort": "熱量 T{tier}",
+      "heatTier": {
+        "low": "低溫窑",
+        "workshop": "工坊爐",
+        "forge": "鍛造熱",
+        "blast": "鼓风高熱",
+        "unknown": "未知熱量"
+      },
+      "class": {
+        "carbon": "碳材料",
+        "ceramic": "陶瓷",
+        "glass": "玻璃",
+        "metal": "金屬",
+        "alloy": "合金",
+        "fiber": "纤维",
+        "polymer": "聚合物",
+        "chemical": "化工",
+        "composite": "复合材料",
+        "crystal": "晶體"
+      },
+      "forgeUse": {
+        "fuel": "高密度燃料和還原剂",
+        "soilCatalyst": "土壤改良、生物反應器原料和低阶催化剂",
+        "mold": "鍛造模具、砖和爐衬",
+        "binding": "耐熱粘結剂和陶瓷添加物",
+        "flux": "熔煉助熔剂，用於净化熔體並减少爐渣",
+        "masonry": "結構砌塊、窑爐主體和野外建造",
+        "lens": "鏡片、窗片、仪表和易碎配件",
+        "circuit": "電路、感測器、邏輯板和信號装置",
+        "cooling": "冷卻单元、穩定器和寒冷等級配件",
+        "toolHead": "镐头、刀刃、工具和結構件",
+        "conductor": "導電配件、線圈和精密零件",
+        "armorPlate": "護甲板、盾牌和抗冲击面板",
+        "magneticCore": "磁芯、馬達部件和高階机構",
+        "reinforcement": "輕量加固板和碳質嵌件",
+        "weaponAndTool": "耐用工具、武器和護甲板",
+        "heatShield": "隔熱板、爐衬和高溫部件",
+        "sealedVessel": "密封容器、毒性封存和危險工具",
+        "explosive": "受控批量開挖藥包"
+      },
+      "fuel": {
+        "dry_grass": {
+          "name": "干燥生物質",
+          "description": "來自干草、枯灌木或荆棘的低熱量起火燃料，适合第一批窑爐配方。"
+        },
+        "wood": {
+          "name": "木質燃料",
+          "description": "由原木、枯木或巨型树根提供的通用工坊燃料，比草本燃料燃燒更久。"
+        },
+        "charcoal": {
+          "name": "木炭",
+          "description": "由木質資源加工出的碳燃料，提供三級鍛造熱量，並會隨熔煉批次一起消耗。"
+        },
+        "coal": {
+          "name": "煤炭",
+          "description": "來自深層石煤層的燃料，提供四級鼓风熱量，並會隨熔煉批次一起消耗。"
+        }
+      },
+      "item": {
+        "charcoal": {
+          "name": "木炭",
+          "description": "碳化木質材料，可作為燃料、還原剂和早期合金輔助材料。"
+        },
+        "biochar_compost": {
+          "name": "生物炭堆肥",
+          "description": "由树叶、苔藓和泥浆低溫制成的碳與养分材料，可用於土壤系統和生物站點。"
+        },
+        "resin_binder": {
+          "name": "树脂粘結剂",
+          "description": "由松木和藤蔓提取的树脂浓缩物，可粘合纤维、密封容器，並支持低溫复合材料。"
+        },
+        "ceramic_brick": {
+          "name": "陶瓷砖",
+          "description": "由黏土和沙烧制成的材料，可用於爐壁、模具和基礎建造配方。"
+        },
+        "lime_ceramic": {
+          "name": "石灰陶瓷",
+          "description": "由贝壳層石灰和黏土制成的陶瓷，可作為耐熱粘結剂和耐火添加物。"
+        },
+        "quicklime": {
+          "name": "生石灰",
+          "description": "由贝壳和珊瑚烧制出的富鈣活性石灰，可作為助熔剂、砂浆基底和化學试剂。"
+        },
+        "salt_flux": {
+          "name": "盐助熔剂",
+          "description": "由盐滩和火山灰制成的助熔材料，可幫助熔煉分离爐渣並穩定更干净的金屬批次。"
+        },
+        "ash_cement": {
+          "name": "灰質水泥",
+          "description": "由火山灰、黏土和贝壳石灰制成的粘結材料，可用於砌體、爐壳和耐熱建造。"
+        },
+        "glass_ingot": {
+          "name": "玻璃锭",
+          "description": "富矽玻璃坯料，可用於鏡片、窗片、仪表和易碎技術部件。"
+        },
+        "obsidian_glass": {
+          "name": "黑曜玻璃",
+          "description": "由矽質沙和玄武岩在熔岩高熱下形成的暗色火山玻璃，适合耐用光學件和密封窗片。"
+        },
+        "silicon_wafer": {
+          "name": "矽晶片",
+          "description": "用碳還原得到的纯化矽片，可用於電路、感測器和未來信號装置。"
+        },
+        "ice_crystal": {
+          "name": "冰晶",
+          "description": "由冰、雪和盐穩定出的晶體，可用於冷卻单元、冰霜工具和熱控组件。"
+        },
+        "iron_bloom": {
+          "name": "鐵海绵坯",
+          "description": "從深層石和石头中還原出的可鍛鐵質坯料，煤炭负责供碳和還原。"
+        },
+        "copper_bloom": {
+          "name": "銅海绵坯",
+          "description": "從砾石和玄武岩的痕量金屬傾向中富集出的導電金屬坯。"
+        },
+        "alumina_plate": {
+          "name": "氧化鋁板",
+          "description": "由黏土和深層石制成的富鋁陶瓷板，可用於抗冲击面板和绝缘配件。"
+        },
+        "nickel_iron": {
+          "name": "鎳鐵合金",
+          "description": "從深層石和玄武岩痕量金屬中精煉出的磁性鐵合金，可用於馬達和高階机構。"
+        },
+        "carbon_plate": {
+          "name": "碳板",
+          "description": "由煤炭和深層石压制出的碳材料，可用於輕量加固和嵌件。"
+        },
+        "carbon_steel": {
+          "name": "碳钢坯",
+          "description": "高阶鋼材坯料，來自深層石的鐵傾向和煤炭的控碳。"
+        },
+        "basalt_fiber": {
+          "name": "玄武岩纤维",
+          "description": "由玄武岩和熔岩高熱拉制的火山纤维，适合隔熱板和爐體部件。"
+        },
+        "basalt_composite": {
+          "name": "玄武岩复合板",
+          "description": "由高熱玄武岩、碳和树脂方向形成的复合材料，可用於護甲板、盾牌和耐用外壳。"
+        },
+        "geopolymer_block": {
+          "name": "地聚物塊",
+          "description": "由火山灰、玄武岩和盐激發形成的石質复合材料，可用於高強砌體和窑爐主體。"
+        },
+        "coral_lime": {
+          "name": "珊瑚石灰",
+          "description": "由珊瑚、死珊瑚和沙制成的富鈣陶瓷，可用於海洋砌體、砂浆和耐熱塊。"
+        },
+        "toxic_glass": {
+          "name": "毒性玻璃",
+          "description": "由毒水、盐和矽質沙制成的密封危險玻璃，用於封存容器和風險工具。"
+        },
+        "cotton": {
+          "name": "棉花"
+        },
+        "flowerWhite": {
+          "name": "白花"
+        },
+        "flowerYellow": {
+          "name": "黃花"
+        },
+        "flowerRed": {
+          "name": "紅花"
+        },
+        "flowerBlue": {
+          "name": "藍花"
+        },
+        "flowerPink": {
+          "name": "粉紅花"
+        },
+        "cotton_cloth": {
+          "name": "棉布",
+          "description": "以棉花和乾草織成的布料，可製作柔軟的鍛造裝備與具有動效的布面。"
+        },
+        "white_dye": {
+          "name": "白色染料",
+          "description": "鍛造時用於繪製布料的淺色花朵顏料。"
+        },
+        "yellow_dye": {
+          "name": "黃色染料",
+          "description": "鍛造時用於繪製布料的暖黃色花朵顏料。"
+        },
+        "red_dye": {
+          "name": "紅色染料",
+          "description": "鍛造時用於繪製布料的鮮紅色花朵顏料。"
+        },
+        "blue_dye": {
+          "name": "藍色染料",
+          "description": "鍛造時用於繪製布料的冷藍色花朵顏料。"
+        },
+        "pink_dye": {
+          "name": "粉紅色染料",
+          "description": "鍛造時用於繪製布料的柔粉色花朵顏料。"
+        },
+        "wooden_plank": {
+          "name": "木板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "wooden_stick": {
+          "name": "木條",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "squared_timber": {
+          "name": "方木",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "clear_glass_panel": {
+          "name": "透明玻璃板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "ice_blue_glass_panel": {
+          "name": "冰藍玻璃板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "amber_glass_panel": {
+          "name": "琥珀玻璃板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "basalt_reinforced_glass": {
+          "name": "玄武岩強化玻璃",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "fired_clay_brick": {
+          "name": "燒製黏土磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "adobe_brick": {
+          "name": "土坯磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "stone_brick": {
+          "name": "石磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "deep_stone_brick": {
+          "name": "深層石磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "basalt_brick": {
+          "name": "玄武岩磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "sandstone_block": {
+          "name": "切割砂岩塊",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "cobblestone": {
+          "name": "鵝卵石",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "polished_stone_slab": {
+          "name": "拋光石板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "lime_plaster": {
+          "name": "石灰抹灰",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "clay_plaster": {
+          "name": "黏土抹灰",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "rammed_earth": {
+          "name": "夯土",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "shell_terrazzo": {
+          "name": "貝殼水磨石板",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "white_ceramic_tile": {
+          "name": "白色陶瓷磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "blue_ceramic_tile": {
+          "name": "藍色陶瓷磚",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "volcanic_ash_concrete": {
+          "name": "火山灰混凝土",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "salt_crystal_block": {
+          "name": "鹽晶塊",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_terracotta": {
+          "name": "赤陶屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_ice_blue": {
+          "name": "冰藍釉面屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_shell_white": {
+          "name": "貝白釉面屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_charcoal": {
+          "name": "炭黑釉面屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_ash_gray": {
+          "name": "火山灰釉面屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "roof_tile_mycelium": {
+          "name": "菌絲發光釉面屋瓦",
+          "description": "具備標準鏈上配方、物理屬性與專用低多邊形模型的 NCM3 合成建築材料。"
+        },
+        "blasting_charge": {
+          "name": "爆破藥包",
+          "description": "以樹脂黏結的緊湊型礦用藥包，用於受控的多方塊開挖；NiceChunk 配方為刻意虛構的遊戲設定。"
+        },
+        "basic_stone_axe": {
+          "name": "基礎石斧",
+          "description": "1個碎石 + 2根樹枝 → 1把基礎石斧 · 耐久99。打開背包 → 熔煉，無需燃料、建造設施或技能等級。製作後從背包裝備石斧。持工具成功採集由合約扣3點耐久；徒手採集不扣工具耐久。"
+        }
+      }
+    },
+    "drop": {
+      "eyebrow": "CHAIN DROP TABLE",
+      "title": "Civilization rules can add rare extra drops without growing terrain code.",
+      "body": "The canonical terrain algorithm still defines the mined base block. A compact on-chain drop table can add deterministic extra rewards by source block, altitude, depth, seeded probability, and the player's Exploration level.",
+      "ruleSetLabel": "Rule set",
+      "contractBody": "This PDA is designed for the civilization system: approved proposals append bounded rule bytes instead of redeploying the mining program.",
+      "source": "Source",
+      "extraDrop": "Extra drop",
+      "chance": "Base chance",
+      "size": "Drop size",
+      "altitude": "Altitude",
+      "depth": "Depth",
+      "detailTitle": "Extra drop sources",
+      "detailBody": "On chain this is designed as compact {ruleSet} bytes: source resource, base probability, sample size window, altitude window, and depth window. Final roll weight gains +10% per Exploration level.",
+      "chanceValue": "{value}%",
+      "sizeValue": "{min} to {max}",
+      "rangeValue": "{min} to {max}"
     }
+  },
+  "siteFooter": {
+    "tagline": "Solana 上的種子體素世界協議。",
+    "navigationAria": "頁腳導航",
+    "socialAria": "NiceChunk 社交連結",
+    "home": "首頁",
+    "play": "進入世界",
+    "roadmap": "路書",
+    "docs": "文檔",
+    "guardian": "守護者",
+    "contracts": "合約",
+    "x": "X / Twitter",
+    "github": "GitHub",
+    "copyright": "2026 NiceChunk。保留所有權利。"
   }
 }
